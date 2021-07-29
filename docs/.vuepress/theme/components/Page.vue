@@ -21,6 +21,12 @@
     margin-top: 2rem
   h3, h4, h5, h6
     margin-top: .5rem
+  h2[id], h3[id]
+    /* 修正 anchor 位置偏移問題 */
+    margin-bottom: -60px
+    padding-top: 60px
+    position: relative
+    top: -60px
   .custom-block .custom-block-title
     margin: 1rem 0
 </style>
