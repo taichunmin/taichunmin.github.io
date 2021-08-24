@@ -84,13 +84,9 @@ LIFFID_COMPACT=1234567890-xxxxxxxx
     <title>分享 LINE 數位版名片</title>
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4/lodash.min.js"></script>
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script crossorigin="anonymous" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
-      (async () => {
-        await liff.init({ liffId: '#{liffidFull}' })
-        // ... 其他程式碼 ...
-      })()
+      liff.init({ liffId: '#{liffidFull}' })
     </script>
   </body>
 </html>
@@ -101,6 +97,10 @@ LIFFID_COMPACT=1234567890-xxxxxxxx
 > LIFF URL 的詳細 Concatenate 規則請看[官方文件](https://developers.line.biz/en/docs/liff/opening-liff-app/)。
 
 ## 處理 `liff.login()` 的 `redirectUri` 問題
+
+::: warning Deprecated
+由於時過境遷，本段落的內容已經過時了，僅作為歷史留存之用，內容僅供參考。
+:::
 
 ![](https://i.imgur.com/uhk5g3E.png)
 
