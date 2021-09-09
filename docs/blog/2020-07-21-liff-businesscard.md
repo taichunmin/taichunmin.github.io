@@ -144,7 +144,7 @@ Flex 開發人員工具：<https://www.line-community.me/product_detail?botid=5e
 * 程式及原始碼
   * [免費樣版網站 - LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)
   * [原始碼 - LINE 數位版名片](https://github.com/taichunmin/liff-businesscard)
-  * [看起來很專業的 LINE 數位版名片](ttps://taichunmin.idv.tw/blog/2020-07-12-liff-businesscard.html)
+  * [看起來很專業的 LINE 數位版名片](https://taichunmin.idv.tw/blog/2020-07-12-liff-businesscard.html)
   * [LINE 數位版名片工作坊](https://taichunmin.idv.tw/blog/2020-10-14-liff-businesscard-workshop.html)
   * [免費製作電子傳單 (多頁訊息) - LINE 數位版名片](https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html)
 * 相關連結
