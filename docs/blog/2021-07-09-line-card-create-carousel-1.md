@@ -21,6 +21,10 @@ meta:
 
 <img src="https://i.imgur.com/0pbirUY.png" style="width: 480px">
 
+::: tip 本文章的 30 分鐘影片版
+本文是在 COSCUP 2021 所分享的議程，[這個議程的錄影檔的網址在此](https://youtu.be/RUUVg6ZfY0g)。
+:::
+
 [[TOC]]
 
 ## 建立測試用群組來測試實際結果
