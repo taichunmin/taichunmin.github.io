@@ -21,12 +21,6 @@
     margin-top: 2rem
   h3, h4, h5, h6
     margin-top: .5rem
-  h2[id], h3[id]
-    /* 修正 anchor 位置偏移問題 */
-    margin-bottom: -60px
-    padding-top: 60px
-    position: relative
-    top: -60px
   .custom-block .custom-block-title
     margin: 1rem 0
 </style>
@@ -37,12 +31,30 @@ import PageNav from '@theme/components/PageNav.vue'
 export default {
   components: { PageEdit, PageNav },
   props: ['sidebarItems'],
+  async mounted () {
+    await this.scrollToTarget()
+  },
+  async updated () {
+    await this.scrollToTarget()
+  },
   computed: {
     contentClass () {
       const classes = []
       if (/^\/blog\//.test(this.$page.path)) classes.push('blog')
       return classes
     }
-  }
+  },
+  methods: {
+    sleep (t) {
+      return new Promise(resolve => setTimeout(resolve, t))
+    },
+    async scrollToTarget () {
+      await this.sleep(500)
+      const target = document.querySelector(':target')
+      if (!target) return
+      console.log(`scrollToTarget = ${target.offsetTop - 60}`)
+      window.scrollTo({ top: target.offsetTop - 60, left: 0 })
+    },
+  },
 }
 </script>
