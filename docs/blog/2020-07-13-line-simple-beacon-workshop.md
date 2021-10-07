@@ -36,14 +36,14 @@ meta:
 如果要使用我所提供的 Webhook，所以請記得建立一個不重要的 Message API 頻道以避免 Access Token 洩漏喔！
 :::
 
-::: tip
+::: tip 請點此開啟網頁
 建立 Message API 頻道：<https://developers.line.biz/zh-hant/docs/messaging-api/getting-started/>
 :::
 
 當你建立一個 Message API 的頻道後，你需要前往 LINE Develpers console 把他設定成聊天機器人模式。
 
-::: tip
-LINE Develpers console：https://developers.line.biz/console/
+::: tip 請點此開啟網頁
+LINE Develpers console：<https://developers.line.biz/console/>
 :::
 
 然後去該頻道的設定頁面，選取 Message API 分頁：
