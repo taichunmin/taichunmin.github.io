@@ -446,7 +446,7 @@ LIFF 能夠在 Android、iOS 跟外部瀏覽器（如：電腦）中執行。如
 
 筆者用這個 API 製作了[「LINE 數位版名片」](https://taichunmin.idv.tw/liff-businesscard/)，這個專案可以簡單的用 Flex 訊息建立名片或傳單，並分享給好友。這是我最近所寫的教學文章：<https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html>
 
-## 掃描 QRCode 碼
+### 掃描 QRCode 碼
 
 讓你可以在 LIFF 中開啟相機，然後掃描 QRCode 碼。如果想要嘗試看看，可以看我寫的文章：<https://taichunmin.idv.tw/blog/2021-09-30-liff-scan-code-v2.html>
 
