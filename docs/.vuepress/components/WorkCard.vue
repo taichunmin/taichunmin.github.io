@@ -1,7 +1,7 @@
 <template lang="pug">
 section.work-card
   b-card.bg-light.text-center(:title="work.title", :img-src="$withBase(work.img)", img-top)
-    b-card-text(v-html="work.desc")
+    b-card-text(style="font-size: 80%", v-html="work.desc")
     b-button.mr-1(variant="primary", v-if="albumId", @click="showAlbum = true") #[span.fa.fa-picture-o] 圖集
     b-link.btn.btn-primary(v-if="work.url", :href="$withBase(work.url)", target="_blank") #[span.fa.fa-external-link] 網站
   b-modal(v-if="albumId", :id="modalId", size="lg", :title="`作品集：${work.title}`", v-model="showAlbum")
@@ -60,6 +60,8 @@ export default {
 <style lang="sass" scoped>
   .card-body
     border-top: 1px solid rgba(0, 0, 0, 0.125)
+  .card-img-top
+    aspect-ratio: 1000/600
   .carousel-caption
     background-color: rgb(0, 0, 0)
     background-color: rgba(0, 0, 0, 0.6)

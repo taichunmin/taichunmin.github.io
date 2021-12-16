@@ -1,16 +1,20 @@
 ---
 title: 作品集
 works:
+- title: 換匯金額推薦
+  img: https://i.imgur.com/7FKbAlQ.png
+  desc: 協助你計算該換多少金額最划算
+  url: /pug/currency-exchange.html
 - title: 桌遊「第一類接觸」
-  img: https://i.imgur.com/8IMnSVx.png
+  img: https://i.imgur.com/3ArW8qt.png
   desc: 桌遊「第一類接觸 First Contact」的工具程式
   url: /pug/boardgame-first-contact.html
 - title: 桌遊「截碼戰」
-  img: https://i.imgur.com/lGkersK.png
+  img: https://i.imgur.com/3YnV3w1.png
   desc: 桌遊「截碼戰 Decrypto」的記錄紙
   url: /pug/boardgame-decrypto.html
 - title: 桌遊「詭影尋蹤」
-  img: https://i.imgur.com/2IvjP82.png
+  img: https://i.imgur.com/aIXUkSn.png
   desc: 桌遊「詭影尋蹤 Cryptid」的線索紙
   url: /pug/boardgame-cryptid.html
 - title: 猜數字遊戲與求解
