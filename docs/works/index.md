@@ -1,6 +1,10 @@
 ---
 title: 作品集
 works:
+- title: Wordle 猜單字遊戲及求解
+  img: https://i.imgur.com/zJyiY6v.png
+  desc: 協助破解 <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle 猜單字遊戲</a>的程式！ Solver for Wordle Puzzle.
+  url: /pug/wordle.html
 - title: 換匯金額推薦
   img: https://i.imgur.com/7FKbAlQ.png
   desc: 協助你計算該換多少金額最划算
