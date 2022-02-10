@@ -276,9 +276,10 @@ exports.deleteRichmenuAlias = async (channelAccessToken, richMenuAliasId) => {
 
 * [新聞: LINE 2021/06/21 發佈的新聞](https://developers.line.biz/en/news/2021/06/21/switch-between-multiple-rich-menus/) by LINE
 * [原始碼: Flex 開發人員工具](https://github.com/taichunmin/gcf-line-devbot)
-* [文章:快速測試 LINE 官方帳號及 Notify 能傳送的貼圖](https://taichunmin.idv.tw/blog/2021-04-16-linebot-test-sticker.html)
+* [文章: 快速測試 LINE 官方帳號及 Notify 能傳送的貼圖](https://taichunmin.idv.tw/blog/2021-04-16-linebot-test-sticker.html)
 * [文章:「Flex 開發人員工具」支援 mention 新功能](https://taichunmin.idv.tw/blog/2021-01-20-line-devbot-mention.html)
 * [文章: 輔助開發 LINE Flex 訊息的工具](https://taichunmin.idv.tw/blog/2020-04-06-line-devbot.html)
 * [文章: LINE Simple Beacon for ESP32 工作坊](https://taichunmin.idv.tw/blog/2020-07-13-line-simple-beacon-workshop.html)
 * [投影片: 如何在 LIFF 傳送隱藏資料給機器人](https://hackmd.io/@taichunmin/chatbot-tw-202005#/26)
 * [文章: 如何在 LIFF 傳送隱藏資料給機器人](https://taichunmin.idv.tw/blog/2020-04-07-line-liff-send-hidden-data.html)
+* [文章: 圖文選單遊樂場中文版：超快速認識圖文選單的功能！](https://taichunmin.idv.tw/blog/2022-02-10-richmenu-playground.html)
