@@ -54,13 +54,13 @@ LINE [在 2022/02/22 的新聞](https://developers.line.biz/en/news/2022/02/02/r
 
 在 `1. message` 這個分頁中，你可以測試 [message 動作](https://developers.line.biz/en/reference/messaging-api/#message-action)，你也可以點此觀看[這個圖文選單的程式碼](https://github.com/taichunmin/gcf-line-devbot/blob/master/richmenu/playground-1.js)。
 
-![](https://i.imgur.com/HEvd8Ga.png)
+![](https://i.imgur.com/JDmkmjC.png)
 
 ### postback 動作
 
 在 `2. postback` 這個分頁中，你可以測試 [postback 動作](https://developers.line.biz/en/reference/messaging-api/#postback-action)，當使用者點一下按鈕時，Webhook 就會收到一個 postback 事件，同時 `data` 的資料也會被傳送給 Webhook。你可以點此觀看[這個圖文選單的程式碼](https://github.com/taichunmin/gcf-line-devbot/blob/master/richmenu/playground-2.js)。
 
-![](https://i.imgur.com/c1OUVHj.png)
+![](https://i.imgur.com/mI9ejk6.png)
 
 如果你有設定 `displayText` 這個屬性，當使用者按下按鈕後，在聊天室裡面就會顯示 `displayText` 裡面的文字，但是這個文字不會被傳給 Webhook。
 
@@ -68,25 +68,25 @@ LINE [在 2022/02/22 的新聞](https://developers.line.biz/en/news/2022/02/02/r
 
 在 `3. URI` 這個分頁中，你可以測試 [URI 動作](https://developers.line.biz/en/reference/messaging-api/#uri-action)，當使用者按下按鈕之後，LINE APP 就會根據網址來開啟對應的瀏覽器，你也可以按下右邊的「查看網址」來取得該按鈕的網址設定。你可以點此觀看[這個圖文選單的程式碼](https://github.com/taichunmin/gcf-line-devbot/blob/master/richmenu/playground-3.js)。
 
-![](https://i.imgur.com/UtWifCZ.png)
+![](https://i.imgur.com/pp0hGsm.png)
 
 ### 選擇日期與時間的動作
 
 在 `4. 選擇日時` 這個分頁中，你可以測試 [datetime picker 動作](https://developers.line.biz/en/reference/messaging-api/#datetime-picker-action)，當使用者按下按鈕以後，就會先跳出系統內建的日期與時間選擇器，在使用者選擇以後，Webhook 就會收到一個 postback 事件，裡面會有使用者所選擇的日期與時間，同時 `data` 的資料也會被傳送給 Webhook。你還可以設定日期與時間選擇器的初始值跟上下限的設定。你可以點此觀看[這個圖文選單的程式碼](https://github.com/taichunmin/gcf-line-devbot/blob/master/richmenu/playground-4.js)。
 
-![](https://i.imgur.com/IEUpPs9.png)
+![](https://i.imgur.com/byzB9sn.png)
 
 ### 切換圖文選單的動作
 
 在 `5. 切換選單` 這個分頁中，你可以測試 [richmenu switch 動作](https://developers.line.biz/en/reference/messaging-api/#richmenu-switch-action)，當使用者按下按鈕以後，就會切換到擁有指定 alias 的圖文選單，同時 Webhook 就會收到一個 postback 事件，裡面會有使用者所切換的圖文選單目標，同時 `data` 的資料也會被傳送給 Webhook。
 
-![](https://i.imgur.com/ftBZxL2.png)
+![](https://i.imgur.com/0rg07pn.png)
 
-![](https://i.imgur.com/ZTYzBGj.png)
+![](https://i.imgur.com/gcXGaGd.png)
 
 想要在不同大小的的圖文選單之間切換也沒問題，你可以按下「換成小型選單」進行測試：
 
-![](https://i.imgur.com/nJaSqZ2.png)
+![](https://i.imgur.com/6AA2R40.png)
 
 你可以點此觀看這三個圖文選單的程式碼：
 
