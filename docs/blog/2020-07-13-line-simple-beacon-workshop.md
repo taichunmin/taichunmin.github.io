@@ -62,7 +62,7 @@ LINE Develpers console：<https://developers.line.biz/console/>
 
 ![](https://i.imgur.com/L3l9Lz9.png)
 
-在頁面中找到「Webhook settings」的部份，然後把 `https://us-central1-taichunmin.cloudfunctions.net/gcf-line-devbot/[access_token]` 填到 Webhook URL 中，並請確認底下的「Use webhook」也是啟用的狀態。
+在頁面中找到「Webhook settings」的部份，然後把 `https://gcf-line-devbot-ybtjbo45iq-uc.a.run.app/[access_token]` 填到 Webhook URL 中，並請確認底下的「Use webhook」也是啟用的狀態。
 
 ::: warning
 請將上面的 `[access_token]` 替換成自己 Messaging API 的 Access Token！
