@@ -68,8 +68,12 @@ LINE 官方帳號每過一段時間後，就會更換一次 Messaging API 可以
 
 * [新聞: LINE 2021/04/07 發佈的新聞](https://developers.line.biz/en/news/2021/04/07/list-of-available-stickers/) by LINE
 * [原始碼: Flex 開發人員工具](https://github.com/taichunmin/gcf-line-devbot)
+* [文章: LINE 專屬的 Flex 訊息第三版更新](https://taichunmin.idv.tw/blog/2022-03-11-line-flex-message-v3.html)
+* [文章: 圖文選單遊樂場中文版：超快速認識圖文選單的功能！](https://taichunmin.idv.tw/blog/2022-02-10-richmenu-playground.html)
+* [文章: 快速測試 LINE Flex 訊息在手機上顯示的寬度](https://taichunmin.idv.tw/blog/2021-09-10-line-flex-width.html)
+* [文章: LINE 官方帳號全都能用的多層選單功能](https://taichunmin.idv.tw/blog/2021-06-22-linebot-richmenu-alias.html)
+* [文章: Quick Reply 支援 URI Action](https://taichunmin.idv.tw/blog/2021-03-11-line-quickreply-uri.html)
 * [文章:「Flex 開發人員工具」支援 mention 新功能](https://taichunmin.idv.tw/blog/2021-01-20-line-devbot-mention.html)
-* [文章: 輔助開發 LINE Flex 訊息的工具](https://taichunmin.idv.tw/blog/2020-04-06-line-devbot.html)
 * [文章: LINE Simple Beacon for ESP32 工作坊](https://taichunmin.idv.tw/blog/2020-07-13-line-simple-beacon-workshop.html)
-* [投影片: 如何在 LIFF 傳送隱藏資料給機器人](https://hackmd.io/@taichunmin/chatbot-tw-202005#/26)
 * [文章: 如何在 LIFF 傳送隱藏資料給機器人](https://taichunmin.idv.tw/blog/2020-04-07-line-liff-send-hidden-data.html)
+* [文章: 輔助開發 LINE Flex 訊息的工具](https://taichunmin.idv.tw/blog/2020-04-06-line-devbot.html)
