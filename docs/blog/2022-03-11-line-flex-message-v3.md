@@ -81,9 +81,39 @@ $ git push -u origin master
 預覽圖: https://i.imgur.com/nKkaGB2.jpeg
 ```
 
+### 2020/03/14 補充：LINE VOOM 網路影片空間
+
+耿順一學弟在看過我寫的這篇文章以後，跟我分享了一個小技巧，就是上傳到 LINE VOOM 的影片可以直接拿到 `.mp4` 的網址，就不需要使用均民在上面提供的上傳到 GitHub Gist 的方法喔！
+
+首先，先前往 [LINE 官方帳號管理頁面](https://manager.line.biz/)，選擇一個不重要的頻道，然後到 LINE VOOM 點選建立：
+
+![](https://i.imgur.com/My8Wovh.png)
+
+然後點選「上傳圖片或影片」來上傳：
+
+![](https://i.imgur.com/bGrSlEz.png)
+
+目前影片的相關限制如下：
+
+![](https://i.imgur.com/OgykEJb.png)
+
+影片上傳完成以後，就可以去按最下面的「貼文」按鈕。回到貼文頁面以後，再點進貼文的詳細內容：
+
+![](https://i.imgur.com/sfwGHvh.png)
+
+進入貼文詳細內容以後，再次點選影片：
+
+![](https://i.imgur.com/nqCDhxE.png)
+
+然後影片打開以後，對影片按下右鍵並從選單中選擇「複製影片位址」：
+
+![](https://i.imgur.com/MxgdzIt.png)
+
+這樣就成功拿到網址囉！經過實測這個影片網址是真的可以在 Flex 訊息的 video 功能中正常使用，再次感謝耿順一學弟分享的小技巧。
+
 ## 撰寫 Flex 訊息
 
-有了影片跟預覽圖以後，我們就可以來編寫 Flex 訊息所需要的 JSON 了，因為目前[「Flex 訊息模擬器」](https://developers.line.biz/flex-simulator/)還不支援這個功能，所以目前只能自己手動撰寫這個 JSON：
+有了影片跟預覽圖以後，我們就可以來編寫 Flex 訊息所需要的 JSON 了，~~因為目前[「Flex 訊息模擬器」](https://developers.line.biz/flex-simulator/)還不支援這個功能~~（3/18 更新：[「Flex 訊息模擬器」](https://developers.line.biz/flex-simulator/)已經有支援編輯了，雖然只能顯示替代內容），所以目前只能自己手動撰寫這個 JSON：
 
 ```json
 {
@@ -144,9 +174,9 @@ $ git push -u origin master
 2. 影片播放中的右上角
 3. 影片播放結束的重播按鈕下方
 
-| ![](https://i.imgur.com/JXK8mXSh.png) | ![](https://i.imgur.com/5HLrb9ch.png) | ![](https://i.imgur.com/BtelXJSh.png) |
-| :--: | :--: | :--: |
-|      |      |      |
+![](https://i.imgur.com/UYmQSE8.png)
+
+![](https://i.imgur.com/gk5WzLX.png)
 
 這個訊息是可以透過 `liff.shareTargetPicker` 分享給好友或群組的，你可以直接點選上方的「分享」按鈕透過均民開發的另一個程式「LINE 數位版名片」分享出去測試：
 
@@ -163,6 +193,8 @@ $ git push -u origin master
 在 PC 版的 LINE 不支援自動播放，在手機上影片能不能自動播放，就要看使用者的設定，設定的位置在「設定」➜「照片．影片」➜「自動播放影片」：
 
 ![](https://i.imgur.com/qaA0OLd.png)
+
+![](https://i.imgur.com/nvqEprZ.png)
 
 如果影片沒辦法自動播放，使用者還是可以手動在聊天室點選影片來播放。
 

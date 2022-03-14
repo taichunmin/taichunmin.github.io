@@ -91,10 +91,10 @@ yarn install
 
 ![](https://i.imgur.com/Y9blyua.png)
 
-接下來需要幫你的名片樣板製作一個預覽圖，為了美觀，預覽圖的尺寸限制為 `1280x640` 像素。你可以透過 [Flex 開發人員工具](https://www.line-community.me/product_detail?botid=5efadf20851f74ab9c189ff6) 來幫助你製作名片樣板預覽圖。
+接下來需要幫你的名片樣板製作一個預覽圖，為了美觀，預覽圖的尺寸限制為 `1280x640` 像素。你可以透過 [Flex 開發人員工具](https://github.com/taichunmin/gcf-line-devbot) 來幫助你製作名片樣板預覽圖。
 
 ::: tip
-Flex 開發人員工具：<https://www.line-community.me/product_detail?botid=5efadf20851f74ab9c189ff6>
+Flex 開發人員工具：<https://github.com/taichunmin/gcf-line-devbot>
 :::
 
 接下來要製作表單，請去 `src/forms/` 資料夾中複製其中一個程式碼，並改成 `src/forms/example.pug`，其中 `example` 請換成你自己喜歡的名字。
@@ -155,4 +155,4 @@ Flex 開發人員工具：<https://www.line-community.me/product_detail?botid=5e
   * [Lodash 函式庫文件](https://lodash.com/docs/)
   * [Qs 函式庫文件](https://github.com/ljharb/qs)
   * [shareTargetPicker 文件](https://developers.line.biz/en/reference/liff/#share-target-picker)
-  * [Flex 開發人員工具](https://www.line-community.me/product_detail?botid=5efadf20851f74ab9c189ff6)
+  * [原始碼: Flex 開發人員工具](https://github.com/taichunmin/gcf-line-devbot)

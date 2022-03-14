@@ -20,9 +20,9 @@ meta:
 
 ## 圖示：Flex 開發人員工具
 
-<https://www.line-community.me/product_detail?botid=5efadf20851f74ab9c189ff6>
+<https://github.com/taichunmin/gcf-line-devbot>
 
-在 Evan Lin 問我要不要投稿一些非商用的作品到 [LINE 開發者社群的作品集](https://www.line-community.me/product?filterby=3) 時，我第一個想到的就是這個之前文章中介紹過的 [Flex 開發人員工具](https://taichunmin.idv.tw/blog/2020-04-06-line-devbot.html)，但是這個工具一直都沒有圖示，為了要投稿，所以我就用這個方法製作了一個！
+在 Evan Lin 問我要不要投稿一些非商用的作品到 [LINE 開發者社群的作品集](https://github.com/taichunmin/gcf-line-devbot) 時，我第一個想到的就是這個之前文章中介紹過的 [Flex 開發人員工具](https://taichunmin.idv.tw/blog/2020-04-06-line-devbot.html)，但是這個工具一直都沒有圖示，為了要投稿，所以我就用這個方法製作了一個！
 
 首先，我在 codepen.io 建立了一個新的 pen：
 
