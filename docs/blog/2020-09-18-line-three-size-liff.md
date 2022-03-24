@@ -163,6 +163,7 @@ const loginPromise = (async () => {
 * 程式及原始碼
     * [LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)
     * [LINE 數位版名片原始碼](https://github.com/taichunmin/liff-businesscard)
+    * [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)
 * 相關連結
     * [官方文件 LINE Front-end Framework](https://developers.line.biz/zh-hant/docs/liff/)
     * [官方文件 Opening a LIFF app](https://developers.line.biz/en/docs/liff/opening-liff-app/)

@@ -166,6 +166,7 @@ function gaScreenView (vcard) {
   * [LINE 數位版名片工作坊](https://taichunmin.idv.tw/blog/2020-10-14-liff-businesscard-workshop.html)
   * [免費製作電子傳單 (多頁訊息) - LINE 數位版名片](https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html)
   * [快速測試 LINE Flex 訊息在手機上顯示的寬度](https://taichunmin.idv.tw/blog/2021-09-10-line-flex-width.html)
+  * [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)
 * 相關連結
   * [跨來源資源共用（CORS）](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
   * [Flex Message Simulator 工具](https://developers.line.biz/flex-simulator/)

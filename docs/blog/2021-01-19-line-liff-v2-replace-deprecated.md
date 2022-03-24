@@ -122,6 +122,7 @@ console.log(liff.getVersion())
 :::
 
 * [原始碼: LINE 數位版名片](https://github.com/taichunmin/liff-businesscard/)
+* [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)
 * [文章: 轉移你的 LIFF 從 Replace 到 Concatenate 模式](https://engineering.linecorp.com/zh-hant/blog/liff-replace-to-concatenate/) by LINE
 * [文章: 透過三個 LINE LIFF ID 創造出無限的 LIFF](https://taichunmin.idv.tw/blog/2020-09-18-line-three-size-liff.html)
 * [文章: 您需要了解有關新 LIFF URL 的所有資訊](https://engineering.linecorp.com/zh-hant/blog/new-liff-url-infomation/) by LINE

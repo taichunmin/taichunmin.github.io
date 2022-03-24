@@ -272,3 +272,4 @@ function imgStar (isGold) {
 * [不用寫程式也能做 LINE 數位版名片](https://taichunmin.idv.tw/blog/2020-07-21-liff-businesscard.html)
 * [免費製作電子傳單 (多頁訊息) - LINE 數位版名片](https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html)
 * [快速測試 LINE Flex 訊息在手機上顯示的寬度](https://taichunmin.idv.tw/blog/2021-09-10-line-flex-width.html)
+* [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)

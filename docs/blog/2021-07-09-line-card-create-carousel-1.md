@@ -323,6 +323,7 @@ meta:
 
 * [免費樣版網站 - LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)
 * [原始碼 - LINE 數位版名片](https://github.com/taichunmin/liff-businesscard)
+* [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)
 * [看起來很專業的 LINE 數位版名片](https://taichunmin.idv.tw/blog/2020-07-12-liff-businesscard.html)
 * [不用寫程式也能做 LINE 數位版名片](https://taichunmin.idv.tw/blog/2020-07-21-liff-businesscard.html)
 * [LINE 數位版名片工作坊](https://taichunmin.idv.tw/blog/2020-10-14-liff-businesscard-workshop.html)
