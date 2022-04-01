@@ -14,6 +14,8 @@ meta:
 
 # 傳送測試訊息新功能 (LINE Flex 訊息模擬器)
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在 [LINE 官方部落格 2021/05/20 發佈的新聞](https://developers.line.biz/en/news/2021/05/20/send-test-message-flex-message-simulator/)中，發佈了一個在「Flex 訊息模擬器」中「把 Flex 測試訊息傳送到手機上預覽」的新功能。
 
 ## 測試訊息傳送教學

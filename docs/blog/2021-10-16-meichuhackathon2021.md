@@ -18,6 +18,8 @@ meta:
 
 ## Messaging API 基礎知識
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 ::: tip 官方英文文件
 <https://developers.line.biz/en/docs/messaging-api/>
 :::

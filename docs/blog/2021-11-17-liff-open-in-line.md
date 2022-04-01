@@ -14,6 +14,8 @@ meta:
 ---
 # 強制在手機版 LINE 中開啟 LIFF 網址
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 最近在 [LINE 官方部落格 2021/11/02 發佈的新聞](https://developers.line.biz/en/news/2021/11/02/new-liff-starter-and-playground/)中，終於把 [LIFF 的官方範例 LIFF starter app](https://github.com/line/line-liff-v2-starter) 和 [可以馬上試玩 LIFF SDK 的 LIFF Playground](https://liff-playground.netlify.app/) 都更新了，不知道大家試玩過了沒有？
 
 如果讀者已經試玩過的話，不知道有沒有注意到，在 LIFF Playground 右上角有一個「Open In LINE」的按鈕，按下去就會強制在手機版 LINE 裡面開啟這個網頁，這是怎麼做到的呢？

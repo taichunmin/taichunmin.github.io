@@ -14,6 +14,8 @@ meta:
 ---
 # 讓聊天機器人也能看 Google Analytics (2)
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 如果你還沒看過上一篇可以點選[這個連結](https://taichunmin.idv.tw/blog/2020-04-28-lintbot-google-analytics.html)，如果要看完整的範例程式碼請直接看文章最底下。
 
 為了在聊天機器人中追蹤使用者的行為，我們不得已要在後端傳送資料給 Google Analytics (以下簡稱 GA)，但是在效能上，是一個不可忽視的問題，如果在伺服器比較繁忙的時候送資料，無疑會讓聊天機器人的反應速度雪上加霜。

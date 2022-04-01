@@ -16,6 +16,8 @@ meta:
 
 <img src="https://i.imgur.com/STe1TJo.png" style="width: 480px">
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在 [LINE 官方部落格 2021/03/10 的新聞](https://developers.line.biz/en/news/2021/03/10/messaging-api-update-march-2021/)中，發佈了 Quick Reply 中支援 URI Action 的新功能，大家可以用筆者所開發的「Flex 開發人員工具」快速進行測試。
 
 ## 加入好友

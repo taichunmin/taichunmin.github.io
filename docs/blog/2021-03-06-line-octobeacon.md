@@ -16,6 +16,8 @@ meta:
 
 ![](https://i.imgur.com/kdwP0nC.jpg)
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 筆者最近做了一個嘗試，在 ESP32 這塊開發版上面開發了一個八合一的 LINE Beacon，所以特地寫了一篇文章來分享。
 
 ## 把程式燒到 ESP32

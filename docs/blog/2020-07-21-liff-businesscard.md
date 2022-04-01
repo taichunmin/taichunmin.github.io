@@ -17,6 +17,8 @@ meta:
 
 # 不用寫程式也能做 LINE 數位版名片
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 由於[上次的文章](https://taichunmin.idv.tw/blog/2020-07-12-liff-businesscard.html)需要有一點程式基礎，所以這次我改成不用寫程式也能輕鬆製作數位版名片，並讓有研究 LINE Flex 訊息的進階使用者可以自己做名片樣板，還可以提 Pull Request 分享給大家使用喔！
 
 ## 開始建立名片

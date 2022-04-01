@@ -16,6 +16,8 @@ meta:
 ---
 # 你可以用 async/await 來開發 LINE LIFF
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 最近 js 的世界在非同步執行的部分，經歷了三個主要世代：`callback`、`Promise` 以及 `async/await`，其中使用 `async/await` 來開發的程式碼是其中最容易維護的。
 
 > * 如果還不熟悉 Promise 可以看 [使用 Promise](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises)

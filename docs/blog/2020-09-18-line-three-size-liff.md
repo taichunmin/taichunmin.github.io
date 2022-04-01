@@ -15,6 +15,8 @@ meta:
 
 # 透過三個 LINE LIFF ID 創造出無限的 LIFF
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 今天要分享的主題是我從 LIFF v1 使用至今的小技巧，是在跟「卡米狗」的作者[卡米哥](https://medium.com/@EtrexKuo)交流時學到的。以前我是透過後端伺服器來處理，但是最近在做「[LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)」的時候，由於沒有後端伺服器，需要用純靜態網頁達成類似功能，於是我特地把這個技巧寫成文章分享給大家。
 
 ## 為什麼需要這個技巧？

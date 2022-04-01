@@ -16,6 +16,8 @@ meta:
 
 # 輔助開發 LINE Flex 訊息的工具
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在開發 LINE Flex 訊息的時候，透過官方 [Flex Message Simulator](https://developers.line.biz/flex-simulator/) 看到的結果，不一定跟手機上面顯示的相同，如果你想要在手機上面看到顯示結果，你可以考慮使用本文要分享的小工具喔！
 
 本文會教你建立一個聊天機器人，只要你使用桌面版的 LINE 對它送出 JSON 字串，它就會嘗試使用 replyMessage 把資料送出，你就可以在手機版 iOS 和 Android 的 LINE 上面看到顯示結果！

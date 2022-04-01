@@ -15,6 +15,8 @@ meta:
 
 # LINE LIFF v2 的 replace 模式即將被移除及建議程式寫法
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在 [LINE 官方 2021/01/18 的公告](https://developers.line.biz/zh-hant/news/2021/01/18/remind-discontinue-replace-mode-announcement/) 中，再次提醒 LIFF 的 Replace 模式即將於 **2021/03/01** 被移除：
 
 ![](https://i.imgur.com/YxN1Pv9.png)

@@ -15,6 +15,8 @@ meta:
 
 # 如何在 LINE LIFF 中確保用戶把官方帳號加為好友
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 根據我之前寫的文章「[如何重新看到 LINE LIFF v2 的授權畫面？](https://taichunmin.idv.tw/blog/2020-08-21-liff-unlink.html)」裡面的測試，在 LIFF 使用 Bot Link 功能時，授權頁面中的「加入好友」選項預設不會勾選（這好像是需要額外付費才會有的功能），所幸，我們還是能用 LIFF SDK 來達成類似的需求。我特地寫了這篇文章來分享我最近在開發公司專案的活動中，如何在 LINE LIFF 中確保用戶把官方帳號加為好友。
 
 ## DEMO

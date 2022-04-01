@@ -14,6 +14,8 @@ meta:
 
 # 在網頁上使用開源專案預覽 LINE Flex 訊息
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 2021/04/07，泰國的 LAE PamornT 在 [LINE Developers Thailand](https://medium.com/linedevth) 上發佈了一個[開源專案 PamornT/flex2html](https://github.com/PamornT/flex2html)，可以讓我們在網頁上預覽 LINE 的 Flex 訊息！
 
 自從 LINE 發佈了 Flex 訊息格式以及 `liff.shareTargetPicker()` 這兩個功能以後，相信應該不少人嘗試使用這兩大功能來讓使用者分享很酷炫的內容給好友，就像我之前做的[「LINE 數位版名片」](https://taichunmin.idv.tw/liff-businesscard/)一樣。

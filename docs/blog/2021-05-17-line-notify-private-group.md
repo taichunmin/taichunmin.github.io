@@ -14,6 +14,8 @@ meta:
 
 # LINE Notify 訊息分類小技巧
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 你有使用多個 LINE Notify 嗎？這篇文章要來分享一個小技巧，讓你可以把不同的訊息分類，還可以關閉部分訊息的提醒喔！
 
 ## 把 LINE Notify 加為好友

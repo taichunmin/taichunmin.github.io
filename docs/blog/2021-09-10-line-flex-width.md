@@ -15,6 +15,8 @@ meta:
 
 # 快速測試 LINE Flex 訊息顯示的寬度
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 自從 LINE 發佈了 Flex 訊息並經歷了幾次改版以後，Flex 訊息已經非常有彈性，你可以用它來排出很華麗的訊息，並透過 `Messaging API` 或是 `liff.shareTargetPicker()` 傳送，我所開發的 [LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/) 也是透過這個技術來實做的。
 
 但是使用者的手機有大有小，如果想要做出一個好的 Flex 訊息，勢必要能夠在各種尺寸的手機上正常顯示，卡米哥於 2021/09/10 在 [Chatbots Meetup](https://chatbots.kktix.cc/) 所分享的「深入 Flex 訊息- 以對話遊戲為例」議程中，特地分享了他對於 Flex 訊息中各種 bubble size 的測試結果：

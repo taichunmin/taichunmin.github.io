@@ -14,6 +14,8 @@ meta:
 
 # LINE 官方帳號全都能用的多層選單功能
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在 [LINE 官方部落格 2021/06/21 發佈的新聞](https://developers.line.biz/en/news/2021/06/21/switch-between-multiple-rich-menus/)中，新增了 `richmenuswitch` 動作，除了改善了選單的切換速度之外，還讓沒有使用 webhook 的 LINE 官方帳號也都具備了使用多層選單的可能性。筆者特地在[「Flex 開發人員工具」](https://line.me/R/ti/p/@736cebrk)加上了一個範例，讓大家可以試玩看看。
 
 <img src="https://i.imgur.com/0r0cz5o.png" style="width: 480px">

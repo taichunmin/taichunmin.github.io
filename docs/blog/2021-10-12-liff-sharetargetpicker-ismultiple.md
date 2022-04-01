@@ -15,6 +15,8 @@ meta:
 
 # `liff.shareTargetPicker()` 新增 `isMultiple` 參數
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 `liff.shareTargetPicker()` 是 LINE 的 Front-end Framework 中一個很強大的 API，它可以讓開發者在網頁上產生 LINE 中專屬的 Message Object，然後請使用者分享給他的好友或者群組。
 
 [LINE 官方部落格在 2021/10/12 發佈了 LIFF v2.16.0](https://developers.line.biz/en/news/2021/10/12/release-liff-2-16-0/)，幫這個 API 新增了一個 `isMultiple` 參數，讓我們能夠限制使用者一次只能傳給一個對象。[讓我們一起來看文件](https://developers.line.biz/en/reference/liff/#share-target-picker)，然後用筆者寫的測試程式來測試看看吧！

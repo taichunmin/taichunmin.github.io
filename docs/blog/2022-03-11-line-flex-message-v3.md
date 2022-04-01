@@ -14,6 +14,8 @@ meta:
 
 # LINE 專屬的 Flex 訊息第三版更新
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 LINE 在 2022/03/11 發佈了[「Flex Message Update 3 released」](https://developers.line.biz/en/news/2022/03/11/flex-message-update-3-released/)，這次的改版大概有這些內容：
 
 1. 支援在 hero 區塊放影片

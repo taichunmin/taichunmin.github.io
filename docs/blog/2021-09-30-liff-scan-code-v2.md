@@ -15,6 +15,8 @@ meta:
 
 # LINE LIFF 新掃碼 API 功能測試
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在 [LINE 官方部落格 2021/09/30 發佈的新聞](https://developers.line.biz/en/news/2021/09/30/release-liff-2-15-0/)中，在 LINE LIFF 的 SDK 上釋出新版掃描 QRCode 的 API `liff.scanCodeV2()`，同時舊版的 API `liff.scanCode()` 也被標示為不建議使用 (Deprecated)。
 
 以前舊版掃描 QRCode 的 `liff.scanCode()` 剛釋出時，iOS 和 Android 兩大平台都有支援，但是在 2019/11/29 時，因為作業系統的技術問題 [(詳情請見此公告)](https://developers.line.biz/en/news/2019/11/29/liff-functions-suspended/)，這個舊版的 API 變成僅限 Android 使用，暌違將近兩年，終於又重新釋出新的掃碼 API，這個新版 API 在各大平台的支援程度為何？到底使用起來體驗如何？讓我們一起來試試看吧！

@@ -17,6 +17,8 @@ meta:
 
 # 免費製作電子傳單 (多頁訊息) - LINE 數位版名片
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在網路上有很多電子名片服務，每月跟使用者收取使用費，於是筆者就想說也做一個類似的，讓大家不會寫程式也能免費製作及使用！
 
 <img src="https://i.imgur.com/0pbirUY.png" style="width: 480px">

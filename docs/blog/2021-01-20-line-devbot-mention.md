@@ -14,6 +14,8 @@ meta:
 
 # 「Flex 開發人員工具」支援 mention 新功能
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在 [LINE 官方部落格 2021/01/20 的新聞中](https://developers.line.biz/zh-hant/news/2021/01/20/messaging-api-update-january-2021/) 發佈了一個 LINE Messaging API 的新功能，就是會告訴 chatbot 有關使用者標記使用者的資料：
 
 <img src="https://i.imgur.com/FI7I5y5.png" style="width: 480px">

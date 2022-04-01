@@ -18,6 +18,8 @@ meta:
 
 # 用 localtunnel 幫 chatbot 上 https
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 在開發聊天機器人的時候，各大聊天機器人平台都會要求要使用 https 的 webhook，在開發環境上面要幫伺服器加上 domain 和憑證實在不是一件簡單的事情，大家最常使用 ngrok 來幫助你把開發伺服器加上 https，但是 ngrok 對於免費版的限制很多：
 
 * 隨機產生 Domain

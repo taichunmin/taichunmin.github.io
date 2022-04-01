@@ -15,6 +15,8 @@ meta:
 
 # 身為 Chatbot 開發者我該改用 Google Analytics 4 嗎？
 
+大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
+
 2020/10/14 時，Google 發佈了第 4 版 Analytics，整個後台的介面也大更新，那麼，身為 Chatbot 開發者的我們，要馬上改用第 4 版 Analytics 嗎？
 
 ![](https://i.imgur.com/KkGBpVt.png)
