@@ -111,7 +111,7 @@ function liffV1 (liffId, params) {
       (async () => {
         await liff.init({ liffId: '#{liffidFull}' })
         const redirect = new URL(location).searchParams.get('redirect')
-        if (typeof redirect === 'string') location = new URL(redirect, location).href
+        if (typeof redirect === 'string') location.href = new URL(redirect, location).href
       })()
     </script>
   </body>
