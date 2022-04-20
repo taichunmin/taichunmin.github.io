@@ -32,8 +32,8 @@ meta:
 ## 建立測試用群組來測試實際結果
 
 ::: tip 筆者開發的測試用機器人
-[![](https://i.imgur.com/cP5purz.png)](https://line.me/R/ti/p/%40736cebrk)
-加入好友: <https://line.me/R/ti/p/@736cebrk>
+[![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
+加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 :::
 
 雖然在「分享 LINE 數位版名片」的頁面有提供預覽，但這個預覽功能會跟實際顯示的結果會有落差，建議你還是要建立一個測試用群組，測試過後再把名片分享出去。

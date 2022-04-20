@@ -668,6 +668,6 @@ window.vm = new Vue({
 * [範本原始碼](https://github.com/taichunmin/meichuhackathon2021)
 * [官方英文文件首頁](https://developers.line.biz/en/docs/)
 * [Flex 訊息模擬器](https://developers.line.biz/flex-simulator/)
-* [Flex 開發人員工具](https://line.me/R/ti/p/@736cebrk)
+* [Flex 開發人員工具](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 * [LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)
 * [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)

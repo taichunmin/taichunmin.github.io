@@ -22,9 +22,9 @@ meta:
 
 ## 加入好友
 
-[![](https://i.imgur.com/cP5purz.png)](https://line.me/R/ti/p/@736cebrk)
+[![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 
-加入好友: <https://line.me/R/ti/p/@736cebrk>
+加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 
 ## 透過「Flex 開發人員工具」測試
 

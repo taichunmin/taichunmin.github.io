@@ -22,7 +22,7 @@ meta:
 
 相信有在用 LINE Notify 服務的人，應該都已經把 LINE Notify 加為好友了，如果還沒有加入的，你也可以使用以下連結把「LINE Notify」加為好友：
 
-<https://line.me/R/ti/p/@linenotify>
+<https://liff.line.me/1645278921-kWRPP32q/?accountId=linenotify>
 
 ![](https://i.imgur.com/8PwZEMg.png)
 

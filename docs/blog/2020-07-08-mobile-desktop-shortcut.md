@@ -29,7 +29,7 @@ meta:
 
 ![](https://i.imgur.com/5dZom6w.png)
 
-然後在 LINE Developers 上面複製聊天機器人的 `{LINE ID}`，並且根據[官方文件](https://developers.line.biz/en/docs/messaging-api/using-line-url-scheme/#sharing-line-official-account)組成聊天機器人的加入網址 `https://line.me/R/ti/p/@kadacha`：
+然後在 LINE Developers 上面複製聊天機器人的 `{LINE ID}`，並且根據[官方文件](https://developers.line.biz/en/docs/messaging-api/using-line-url-scheme/#sharing-line-official-account)組成聊天機器人的加入網址 `https://line.me/R/ti/p/@youbike`：
 
 ![](https://i.imgur.com/3cLvGsn.png)
 

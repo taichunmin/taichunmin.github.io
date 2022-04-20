@@ -8,7 +8,7 @@ tags: [ithelp-ironman]
 
 筆者目前在台中市微程式資訊有限公司上班，由於公司提供了一個免費給資訊社群借場地辦活動的場地「夢森林」（想辦活動請跟 [夢森林粉絲專頁小編](https://www.facebook.com/mpdreamforest) 聯絡），所以我有很多可以參加台中社群的活動機會，筆者也因此加入[台中敏捷社群](https://www.facebook.com/groups/Agile.Taichung/)的志工，在今年的時候，偶然得知好友[若虛](https://ithelp.ithome.com.tw/users/20103676/profile)要被邀請[來台中敏捷分享](https://agile-taichung.kktix.cc/events/scrum-team)，才知道原來他在去年的鐵人賽中得到冠軍。
 
-在今年的鐵人賽開始前，因為公司的專案寫了幾個[聊天機器人](https://line.me/R/ti/p/@raq6533f)，因此認識了 [chatbot.tw 社群](https://www.facebook.com/groups/chatbot.tw/)的幾個熱血主揪 Fly、Ninja、佳新，他們也在找團隊一起參加，於是我就在猶豫要不要參賽，第一個原因是一直在思考到底有什麼主題可以讓我寫夠 30 天的…後來就想到或許可以來寫個 VS Code，因為這種東西還太新，相信也沒多少中文資源，雖然說不用學也能簡單使用，但如果想學習它就只能從英文資源下去學習，順便讓自己可以來完整學一次。
+在今年的鐵人賽開始前，因為公司的專案寫了幾個[聊天機器人](https://liff.line.me/1645278921-kWRPP32q/?accountId=raq6533f)，因此認識了 [chatbot.tw 社群](https://www.facebook.com/groups/chatbot.tw/)的幾個熱血主揪 Fly、Ninja、佳新，他們也在找團隊一起參加，於是我就在猶豫要不要參賽，第一個原因是一直在思考到底有什麼主題可以讓我寫夠 30 天的…後來就想到或許可以來寫個 VS Code，因為這種東西還太新，相信也沒多少中文資源，雖然說不用學也能簡單使用，但如果想學習它就只能從英文資源下去學習，順便讓自己可以來完整學一次。
 
 除了找主題的原因之外，還有另外一個原因就是我 9/25 到 9/28 要去韓國員工旅遊，所以能不能每天準時發文真的是非常的有挑戰性阿，我在跟若虛聊了我這個擔憂以後，他就把[去年有人寫爬蟲自動發文的文章](https://ithelp.ithome.com.tw/articles/10191096)找出來給我，剛好我自己對寫爬蟲也算是略有所得，所以就決定靠機器人自動發文啦！
 

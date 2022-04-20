@@ -37,7 +37,7 @@ Flex 訊息是 LINE 的一個特殊訊息格式，在訊息的客製化上，它
 ::: tip
 如果沒有把「Flex Message Sim」這個官方帳號加為好友，就會收不到測試訊息。
 
-* Flex Message Sim：<https://line.me/R/ti/p/@flexmessagesim>
+* Flex Message Sim：<https://liff.line.me/1645278921-kWRPP32q/?accountId=flexmessagesim>
 
 ![](https://i.imgur.com/K8uNN4I.png)
 :::

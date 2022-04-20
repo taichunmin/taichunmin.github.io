@@ -16,9 +16,9 @@ meta:
 
 大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
 
-最近想要把自己做過或是看過的功能整理成案例分享，這次分享的案例是針對[「YouBike 微笑單車」](https://line.me/R/ti/p/@youbike)官方帳號中，最多使用者使用的「站點查詢」功能。
+最近想要把自己做過或是看過的功能整理成案例分享，這次分享的案例是針對[「YouBike 微笑單車」](https://liff.line.me/1645278921-kWRPP32q/?accountId=youbike)官方帳號中，最多使用者使用的「站點查詢」功能。
 
-目前[「YouBike 微笑單車」](https://line.me/R/ti/p/@youbike)官方帳號的好友數約 363159，「站點查詢」功能在過去八個月的使用量大約是 52575 人次，平均每人使用 0.14 次。
+目前[「YouBike 微笑單車」](https://liff.line.me/1645278921-kWRPP32q/?accountId=youbike)官方帳號的好友數約 363159，「站點查詢」功能在過去八個月的使用量大約是 52575 人次，平均每人使用 0.14 次。
 
 ## 功能簡介
 
@@ -68,11 +68,11 @@ meta:
 
 ![](https://i.imgur.com/guuJezb.png)
 
-> 聊天機器人實際收到的經緯度資料格式（透過均民自己所開發的官方帳號[「Flex 開發人員工具」](https://line.me/R/ti/p/@736cebrk)中實測）。左邊是 Android，右邊是 iPhone，值得注意的地方是 iPhone 在開啟精準定位後，拿到的經緯度在小數點部分的位數會比 Android 多。
+> 聊天機器人實際收到的經緯度資料格式（透過均民自己所開發的官方帳號[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)中實測）。左邊是 Android，右邊是 iPhone，值得注意的地方是 iPhone 在開啟精準定位後，拿到的經緯度在小數點部分的位數會比 Android 多。
 
 ### 小型圖文選單及多層次選單
 
-在手機上使用官方帳號時，如果圖文選單太高，其實還蠻影響使用者體驗的，而且[「YouBike 微笑單車」](https://line.me/R/ti/p/@youbike)官方帳號所提供的功能其實很多，所以後來決定參考別人的官方帳號，也做成多層次選單，並且把圖文選單盡可能的縮小。另外在 LINE APP 中透過 QuickReply 上傳位置的使用者體驗比較好，所以就決定把「站點查詢」做在功能選單的 QuickReply 按鈕上。
+在手機上使用官方帳號時，如果圖文選單太高，其實還蠻影響使用者體驗的，而且[「YouBike 微笑單車」](https://liff.line.me/1645278921-kWRPP32q/?accountId=youbike)官方帳號所提供的功能其實很多，所以後來決定參考別人的官方帳號，也做成多層次選單，並且把圖文選單盡可能的縮小。另外在 LINE APP 中透過 QuickReply 上傳位置的使用者體驗比較好，所以就決定把「站點查詢」做在功能選單的 QuickReply 按鈕上。
 
 ![](https://i.imgur.com/DQa1OOs.png)
 
@@ -122,8 +122,8 @@ meta:
 如果有疑問可以透過 [Facebook](https://www.facebook.com/taichunmin) 跟我交流。
 :::
 
-* [「YouBike 微笑單車」](https://line.me/R/ti/p/@youbike)官方帳號
-* [「Flex 開發人員工具」](https://line.me/R/ti/p/@736cebrk)官方帳號
+* [「YouBike 微笑單車」](https://liff.line.me/1645278921-kWRPP32q/?accountId=youbike)官方帳號
+* [「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)官方帳號
 * [haversine formula](https://en.wikipedia.org/wiki/Haversine_formula)
 * [Leaflet.js](https://leafletjs.com/)
 * [Redis GEO Commands](https://redis.io/commands/?group=geo)

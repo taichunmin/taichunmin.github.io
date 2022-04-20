@@ -17,7 +17,7 @@ meta:
 
 LINE [在 2022/02/22 的新聞](https://developers.line.biz/en/news/2022/02/02/rich-menu-playground/)中發布了[圖文選單的遊樂場](https://lin.ee/7ALASDvA)，這個遊樂場可以讓你用最快的速度去認識圖文選單所提供的幾大功能，如：傳訊息、傳隱藏資料、開啟網址、選擇日期與時間、切換圖文選單…等，同時還有附上詳細的文件方便你可以學習如何實現這些功能。
 
-只不過這個遊樂場只有提供日文版本，所以筆者特地把遊樂場翻譯成中文版，並且移植到[「Flex 開發人員工具」](https://line.me/R/ti/p/@736cebrk)中，如果你不太會日文，但又想要快速認識圖文選單有什麼功能的話，現在你也能在[「Flex 開發人員工具」](https://line.me/R/ti/p/@736cebrk)裡面玩到喔！
+只不過這個遊樂場只有提供日文版本，所以筆者特地把遊樂場翻譯成中文版，並且移植到[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)中，如果你不太會日文，但又想要快速認識圖文選單有什麼功能的話，現在你也能在[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)裡面玩到喔！
 
 ::: tip 本文章的 45 分鐘影片版
 本文有在「Will 保哥的技術交流中心」線上分享，[該次分享直播存檔的網址在此](https://fb.watch/biM1mKan93/)。
@@ -71,9 +71,9 @@ LINE [在 2022/02/22 的新聞](https://developers.line.biz/en/news/2022/02/02/r
 
 為了要使用「圖文選單遊樂場中文版」，你會需要先加入均民所開發的這個「Flex 開發人員工具」，然後輸入指定的關鍵字才能啟用。
 
-[![](https://i.imgur.com/cP5purz.png)](https://line.me/R/ti/p/@736cebrk)
+[![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 
-加入好友: <https://line.me/R/ti/p/@736cebrk>
+加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 
 ## 啟用圖文選單遊樂場
 

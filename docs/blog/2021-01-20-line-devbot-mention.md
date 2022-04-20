@@ -26,9 +26,9 @@ meta:
 
 ## 加入好友並建立多人群組
 
-[![](https://i.imgur.com/cP5purz.png)](https://line.me/R/ti/p/%40736cebrk)
+[![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 
-加入好友: <https://line.me/R/ti/p/@736cebrk>
+加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 
 加入「Flex 開發人員工具」好友以後，你接下來就會需要建立一個群組，並且把「Flex 開發人員工具」邀請到群組內：
 

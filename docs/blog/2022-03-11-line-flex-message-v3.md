@@ -28,9 +28,9 @@ LINE 在 2022/03/11 發佈了[「Flex Message Update 3 released」](https://deve
 
 本文會使用均民自己所開發的官方帳號「Flex 開發人員工具」進行測試，如果你也想要跟著嘗試看看的話，請掃描以下 QR Code 加入好友吧！
 
-[![](https://i.imgur.com/cP5purz.png)](https://line.me/R/ti/p/%40736cebrk)
+[![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 
-加入好友: <https://line.me/R/ti/p/@736cebrk>
+加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 
 ## 準備影片
 

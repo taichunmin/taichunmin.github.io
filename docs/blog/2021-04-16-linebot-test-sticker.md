@@ -16,13 +16,13 @@ meta:
 
 大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
 
-LINE 官方帳號每過一段時間後，就會更換一次 Messaging API 可以傳送的貼圖列表，但是以前在 LINE Notify 中，可以傳送的貼圖列表一直都有跟 Messaging API 不一樣的問題，在 [LINE 官方部落格 2021/04/07 發佈的新聞](https://developers.line.biz/en/news/2021/04/07/list-of-available-stickers/)中，終於把兩個服務可以傳送的貼圖列表統一了，並且還把之前貼圖的 PDF 列表改成網頁版本，於是筆者也在自己所開發的[「Flex 開發人員工具」](https://line.me/R/ti/p/@736cebrk)新增了快速測試貼圖的功能！
+LINE 官方帳號每過一段時間後，就會更換一次 Messaging API 可以傳送的貼圖列表，但是以前在 LINE Notify 中，可以傳送的貼圖列表一直都有跟 Messaging API 不一樣的問題，在 [LINE 官方部落格 2021/04/07 發佈的新聞](https://developers.line.biz/en/news/2021/04/07/list-of-available-stickers/)中，終於把兩個服務可以傳送的貼圖列表統一了，並且還把之前貼圖的 PDF 列表改成網頁版本，於是筆者也在自己所開發的[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)新增了快速測試貼圖的功能！
 
 ## 加入官方帳號「Flex 開發人員工具」
 
-[![](https://i.imgur.com/cP5purz.png)](https://line.me/R/ti/p/%40736cebrk)
+[![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 
-加入好友: <https://line.me/R/ti/p/@736cebrk>
+加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 
 ## 去貼圖清單中選擇一個貼圖
 

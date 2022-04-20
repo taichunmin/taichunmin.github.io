@@ -43,7 +43,7 @@ meta:
 
 接下來就可以來測試新舊 API 的不同以及支援度，你可以掃描底下的 QRCode 來測試：
 
-| [Flex 開發人員工具](https://line.me/R/ti/p/@736cebrk) | Hello World |
+| [Flex 開發人員工具](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk) | Hello World |
 | :-----: | :-: |
 | ![](https://i.imgur.com/cP5purz.jpg) | ![](https://i.imgur.com/S964jwx.png) |
 
