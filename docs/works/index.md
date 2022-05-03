@@ -1,6 +1,10 @@
 ---
 title: 作品集
 works:
+- title: COVID-19 快篩實名制地圖
+  img: https://i.imgur.com/O9GX9P9.png
+  desc: 顯示附近藥局，方便您前往購買 COVID-19 快篩試劑！
+  url: /pug/covid19-testkit-maps.html
 - title: Wordle 猜單字遊戲及求解
   img: https://i.imgur.com/zJyiY6v.png
   desc: 協助破解 <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle 猜單字遊戲</a>的程式！ Solver for Wordle Puzzle.
