@@ -35,7 +35,7 @@ meta:
 
 ## 支援 LINE Beacon 防偽機制
 
-LINE Simple Beacon 沒有支援防偽機制，換句話說，只要複製藍牙廣播訊號後，就可以複製一顆 Simple Beacon，LINE 其實有提供另一版有防偽功能的 LINE Beacon，會去驗證藍牙所廣播的訊號內容，[詳細文件可以點此](https://developers.line.biz/zh-hant/docs/messaging-api/beacon-device-spec/)。
+LINE Simple Beacon 沒有支援防偽機制，換句話說，只要複製藍牙廣播訊號後，就可以複製一顆 Simple Beacon，LINE 其實有提供另一版有防偽功能的 LINE Beacon，會去驗證藍牙所廣播的訊號內容，[詳細文件可以點此](https://developers.line.biz/en/docs/messaging-api/beacon-device-spec/)。
 
 ![](https://i.imgur.com/JO66YlB.png)
 
