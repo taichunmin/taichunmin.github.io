@@ -356,6 +356,12 @@ jobs:
 
 ![](https://i.imgur.com/ha97fum.png)
 
+### 複製 Webhook 網址
+
+當你成功建立 Cloud Function 以後，你就可以去 GCP 後臺，找到指定的 Cloud Function，然後切換到觸發條件分頁，你就會看到一個網址，複製該網址並設定到 LINE 後台中即可：
+
+![](https://i.imgur.com/lOx6MIT.png)
+
 ## 自動刪除舊版本的 Container/Artifact Registry
 
 在建置 Cloud Functions (第 2 代) 的過程中，會使用到 Cloud Build 跟 Artifact Registry，但建置成功後，舊版本的 Artifact Registry 卻不會自動刪除，所以網友提供的解決方法是一個刪除舊版本的開源腳本：<https://github.com/GoogleCloudPlatform/gcr-cleaner>
