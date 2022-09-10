@@ -1,7 +1,7 @@
 ---
 date: '2022-09-11T00:00:00+08'
 title: Heroku 取消免費方案？教你用 Cloud Functions 架設 LINEBOT！
-description: Heroku 要逐步取消免費方案，網路上的其他替代方案怕也會跟上 Heroku 的腳步，筆者目前是選擇把服務架設在 Google Cloud Functions 上面，這篇文章就是來大概一下分享一下筆者是怎麼做的。
+description: Heroku 要逐步取消免費方案，網路上的其他替代方案怕也會跟上 Heroku 的腳步，這篇文章主要是想分享筆者是怎麼把服務架設在 Google Cloud Functions 上面。
 image: https://i.imgur.com/7ZYx4zc.png
 tags:
   - Google Cloud Functions
