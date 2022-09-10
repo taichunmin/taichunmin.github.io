@@ -80,7 +80,7 @@ function gaScreenView (lineId, name) {
 }
 ```
 
-然後丟到[這篇文章介紹過](https://taichunmin.idv.tw/blog/2020-04-06-line-devbot.html)的「DEMO 開發 Flex」這個測試用的機器人：
+然後丟到[這篇文章介紹過](https://taichunmin.idv.tw/blog/2020-04-06-line-devbot.html)的「Flex 開發人員工具」這個測試用的機器人：
 
 <img src="https://i.imgur.com/KFz1lgo.jpg" style="width: 480px">
 
