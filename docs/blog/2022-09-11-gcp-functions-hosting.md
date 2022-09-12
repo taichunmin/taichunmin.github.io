@@ -1,7 +1,7 @@
 ---
 date: '2022-09-11T00:00:00+08'
 title: Heroku 取消免費方案？教你用 Cloud Functions 架設 LINEBOT！
-description: Heroku 要逐步取消免費方案，網路上的其他替代方案怕也會跟上 Heroku 的腳步，這篇文章主要是想分享均民是怎麼把 LINEBOT 服務架設在 Google Cloud Functions 上面。
+description: Heroku 要逐步取消免費方案，網路上的其他替代方案怕也會跟上 Heroku 的腳步，這篇文章主要是想分享均民是怎麼把 LINEBOT 服務架設在 Cloud Functions 上面。
 image: https://i.imgur.com/GYuyZV6.png
 tags:
   - Google Cloud Functions
@@ -20,7 +20,7 @@ meta:
 
 ## Cloud Functions (第 1 代) 的定價
 
-每次想把程式放到 Google 的 Cloud Function 上之前，都很怕不小心被收錢，所以每次使用之前，都會去定價網頁重新估算一次費用，但都偷懶沒有紀錄下來，下次就又忘記了，所以這次打算直接把估算的結果寫在文章內，這個估算價格是根據均民在寫這篇文章時的定價計算的，記得還是要去原本的英文網站確認一下定價喔！
+每次想把程式放到 Google 的 Cloud Functions 上之前，都很怕不小心被收錢，所以每次使用之前，都會去定價網頁重新估算一次費用，但都偷懶沒有紀錄下來，下次就又忘記了，所以這次打算直接把估算的結果寫在文章內，這個估算價格是根據均民在寫這篇文章時的定價計算的，記得還是要去原本的英文網站確認一下定價喔！
 
 以下表格是目前這個服務的簡易估價方式：
 
@@ -73,11 +73,13 @@ Cloud Functions (第 2 代) 是直接串接 Cloud Run，所以收費方式也是
 | Artifact Registry 網路輸出費 | 各區域費用不同<br>美國和加拿大跨區 $0.01 / GB | 同區域內免費 |
 | Cloud Build 運算時間 | $0.003 / 分鐘 | 每天前 120 分鐘 |
 
+這邊的額外費用也有機會可以靠程式降低，這部份均民稍候會進行說明。
+
 ## 架設服務 (以 Node.js 為例)
 
 ### 建立專案
 
-::: info GCP 官方的 Node.js 教學文件
+::: tip GCP 官方的 Node.js 教學文件
 * <https://cloud.google.com/functions/docs/quickstart-nodejs>
 :::
 
@@ -124,6 +126,8 @@ yarn add axios lodash dotenv @line/bot-sdk debug
 yarn add -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-n eslint-plugin-node eslint-plugin-promise jest
 ```
 
+安裝完成後的 `package.json` 可以參考「Flex 開發人員工具」的原始碼： <https://github.com/taichunmin/gcf-line-devbot>
+
 ### 開發及建立 Cloud Functions
 
 安裝完成以後，我們就可以先來建立一個由 HTTP 觸發的 Cloud Functions：
@@ -132,33 +136,35 @@ yarn add -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-n e
 關於 Google Cloud 的註冊不是本文的重點，所以在本文內不會多談，你可自行到網路上找相關教學。
 :::
 
-在建立 Cloud Function 以後，它會預設建立兩個檔案 `index.js` 及 `package.json`。
+在建立 Cloud Functions 以後，它會預設建立兩個檔案 `index.js` 及 `package.json`。
 
 程式碼最主要的進入點是 `index.js` 的 `helloWorld` 函式，你也可以自己指定執行的函式名稱。
 
-因為 Cloud Functions 的 Node.js 是模擬 Express.js 這個後端框架，所以這個函式被呼叫時，會帶入 `req` 跟 `res` 這兩個參數，其中 `req` 裡面會有用戶端傳送過來的資料，`res` 則是你要回傳給用戶端的資料，如果想要 Express.js 框架如何使用，以及 req 跟 res 裡面有什麼東西可以使用，可以直接去看 Express.js 的 Reference。
+因為 Cloud Functions 的 Node.js 是模擬 Express.js 這個後端框架，所以這個函式被呼叫時，會帶入 `req` 跟 `res` 這兩個參數，其中 `req` 裡面會有用戶端傳送過來的資料，`res` 則是你要回傳給用戶端的資料，如果想要學習 Express.js 框架如何使用，以及 req 跟 res 裡面有什麼東西可以使用，可以直接去看 Express.js 的 Reference。
 
 ::: tip
-關於 Express.js 框架不是本文的重點，所以在本文內不會多談，你可自行到網路上找相關教學。
+關於 Express.js 框架如何使用的部份不是本文的重點，所以在本文內不會多談，你可自行到網路上找相關教學。
 :::
 
 當使用者傳訊息給 LINE 的伺服器後，LINE 的伺服器就會呼叫 webhook 所指定的網址，你可以從 `req.body.events` 取得 Webhook 所給予的事件資料，在此以[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)的原始碼為例：
 
 ![](https://i.imgur.com/CuGJx1J.png)
 
+完整 LINEBOT 的程式碼可以參考「Flex 開發人員工具」的原始碼： <https://github.com/taichunmin/gcf-line-devbot>
+
 ### 開發程式碼須特別注意的地方
 
-在開發 Cloud Function 程式碼時，有一些地方要特別注意。
+在開發 Cloud Functions 程式碼時，有一些地方要特別注意。
 
-1. 因為 Cloud Function 在傳送回應 `res.status(200).send('OK')` 以後，會在很短的時間內停止執行程式，為了避免程式沒有執行完就意外中止，務必確保程式都執行完以後才傳送回應：
+1. 因為 Cloud Functions 在傳送回應 `res.status(200).send('OK')` 以後，會在很短的時間內停止執行程式，為了避免程式沒有執行完就意外中止，務必確保程式都執行完以後才傳送回應：
 
 ![](https://i.imgur.com/PbstJ3x.png)
 
-1. 程式碼一定要記得傳送回應，包括發生錯誤時也需要，不然程式就不會停止然後執行到超時，可能會導致服務中斷或大量費用的產生。
+2. 程式碼一定要記得傳送回應，包括發生錯誤時也需要，不然程式就不會停止然後導致超時，可能會導致服務中斷或大量費用的產生。
 
 ![](https://i.imgur.com/sRKvrOw.png)
 
-3. Cloud Function 有特殊 log 格式，在使用 `console.log` 印出訊息的時候，如果遵守這個格式，就可以用到有關 log 的內建好用功能。
+3. Cloud Functions 有特殊 log 格式，在使用 `console.log` 印出訊息的時候，如果遵守這個格式，就可以用到有關 log 的內建好用功能。
 
 ```js
 console.log(JSON.stringify({
@@ -168,7 +174,7 @@ console.log(JSON.stringify({
   // 在紀錄檔的分頁預設會顯示的文字
   message: '主要訊息內容',
   
-  // 以上兩個屬性之外可自由運用，但預設不會顯示，可以從 stack driver 查到完整的 JSON 內容
+  // 除了以上兩個屬性之外，可自由加上想要的屬性，但預設不會顯示，可以從 stack driver 查到完整的 JSON 內容
 }))
 ```
 
@@ -182,7 +188,7 @@ console.log(JSON.stringify({
 
 ### 自動佈署 (以第 2 代為例)
 
-在使用 Cloud Function 上，除了不用自己架設伺服器管理之外，另一個我最喜歡的東西就是用少少的設定就可以達成自動佈署的功能，目前我的[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)就是透過 GitHub Actions 執行 Cloud Function 提供的部署指令達成自動佈署，GitHub Actions 目前對於 Public 的專案是完全免費的，只要程式碼使用 Git 推送到 GitHub 上面的主要分支以後，機器人就會自動更新程式碼，真的是非常的省事方便！以下就是稍微介紹一下我是如何進行設定的。
+在使用 Cloud Functions 上，除了不用自己架設伺服器管理之外，另一個我最喜歡的東西就是用少少的設定就可以達成自動佈署的功能，目前我的[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)就是透過 GitHub Actions 執行 Cloud Functions 提供的部署指令達成自動佈署，GitHub Actions 目前對於 Public 的專案是完全免費的，只要程式碼使用 Git 推送到 GitHub 上面的主要分支以後，機器人就會自動更新程式碼，真的是非常的省事方便！以下就是稍微介紹一下我是如何進行設定的。
 
 英文教學文章網址: <https://cloud.google.com/functions/docs/create-deploy-gcloud>
 
@@ -273,7 +279,7 @@ console.log(process.env?.NODE_ENV)
 
 ![](https://i.imgur.com/YMRMHMD.png)
 
-目前 Cloud Function 可以用來設定環境變數的檔案是 yaml 格式，在此以[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)為例：
+目前 Cloud Functions 可以用來設定環境變數的檔案是 yaml 格式，在此以[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)為例：
 
 ```yaml
 GA_DEBUG: '0'
@@ -358,7 +364,7 @@ jobs:
 
 ### 複製 Webhook 網址
 
-當你成功建立 Cloud Function 以後，你就可以去 GCP 後臺，找到指定的 Cloud Function，然後切換到觸發條件分頁，你就會看到一個網址，複製該網址並設定到 LINE 後台中即可：
+當你成功建立 Cloud Functions 以後，你就可以去 GCP 後臺，找到指定的 Cloud Functions，然後切換到觸發條件分頁，你就會看到一個網址，複製該網址並設定到 LINE 後台中即可：
 
 ![](https://i.imgur.com/lOx6MIT.png)
 
