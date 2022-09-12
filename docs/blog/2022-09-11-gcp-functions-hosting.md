@@ -1,7 +1,7 @@
 ---
 date: '2022-09-11T00:00:00+08'
 title: Heroku 取消免費方案？教你用 Cloud Functions 架設 LINEBOT！
-description: Heroku 要逐步取消免費方案，網路上的其他替代方案怕也會跟上 Heroku 的腳步，這篇文章主要是想分享筆者是怎麼把服務架設在 Google Cloud Functions 上面。
+description: Heroku 要逐步取消免費方案，網路上的其他替代方案怕也會跟上 Heroku 的腳步，這篇文章主要是想分享均民是怎麼把 LINEBOT 服務架設在 Google Cloud Functions 上面。
 image: https://i.imgur.com/GYuyZV6.png
 tags:
   - Google Cloud Functions
@@ -20,7 +20,7 @@ meta:
 
 ## Cloud Functions (第 1 代) 的定價
 
-每次想把程式放到 Google 的 Cloud Function 上之前，都很怕不小心被收錢，所以每次使用之前，都會去定價網頁重新估算一次費用，但都偷懶沒有紀錄下來，下次就又忘記了，所以這次打算直接把估算的結果寫在文章內，這個估算價格是根據筆者在寫這篇文章時的定價計算的，記得還是要去原本的英文網站確認一下定價喔！
+每次想把程式放到 Google 的 Cloud Function 上之前，都很怕不小心被收錢，所以每次使用之前，都會去定價網頁重新估算一次費用，但都偷懶沒有紀錄下來，下次就又忘記了，所以這次打算直接把估算的結果寫在文章內，這個估算價格是根據均民在寫這篇文章時的定價計算的，記得還是要去原本的英文網站確認一下定價喔！
 
 以下表格是目前這個服務的簡易估價方式：
 
@@ -46,7 +46,7 @@ meta:
 | Container Registry 程式碼儲存費 | 約 $0.026 / GB | 2 MB |
 | Cloud Build 運算時間 | $0.003 / 分鐘 | 每天前 120 分鐘 |
 
-在這個額外費用中，最容易不小心產生費用的就是 Container Registry 的 Container 儲存費用，因為 Container 動不動就是幾百 MB，目前沒有提供免費額度，而且好像也不會自動刪除，為了避免費用過高，目前網路上搜尋到的解決辦法，都是用程式刪除舊的資料，這部份筆者稍候會進行說明。
+在這個額外費用中，最容易不小心產生費用的就是 Container Registry 的 Container 儲存費用，因為 Container 動不動就是幾百 MB，目前沒有提供免費額度，而且好像也不會自動刪除，為了避免費用過高，目前網路上搜尋到的解決辦法，都是用程式刪除舊的資料，這部份均民稍候會進行說明。
 
 ## Cloud Functions (第 2 代) 的定價
 
@@ -117,7 +117,7 @@ yarn init -y
 yarn add axios lodash dotenv @line/bot-sdk debug
 ```
 
-除了一些服務所需的必要函式庫之外，筆者通常還會額外裝一些輔助開發用的函式庫：
+除了一些服務所需的必要函式庫之外，均民通常還會額外裝一些輔助開發用的函式庫：
 
 ```bash=
 # 這些函式庫只是範例，你可能會需要根據你實際的需求來修改
@@ -366,7 +366,7 @@ jobs:
 
 在建置 Cloud Functions (第 2 代) 的過程中，會使用到 Cloud Build 跟 Artifact Registry，但建置成功後，舊版本的 Artifact Registry 卻不會自動刪除，所以網友提供的解決方法是一個刪除舊版本的開源腳本：<https://github.com/GoogleCloudPlatform/gcr-cleaner>
 
-這個腳本可以一次刪除你 GCP 專案內所有想要自動刪除的過時 Container，如果設定成在 GitHub Actions 上面執行，目前是完全免費，只不過需要進行一些設定，筆者也同樣將設定步驟紀錄如下。
+這個腳本可以一次刪除你 GCP 專案內所有想要自動刪除的過時 Container，如果設定成在 GitHub Actions 上面執行，目前是完全免費，只不過需要進行一些設定，均民也同樣將設定步驟紀錄如下。
 
 ### 在 GitHub 上建立專案
 
