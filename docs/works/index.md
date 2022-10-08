@@ -1,6 +1,10 @@
 ---
 title: 作品集
 works:
+- title: 13 道線索
+  img: https://i.imgur.com/evy8vZ7.png
+  desc: 讓你在玩桌遊「13 道線索」時可以用來作筆記！
+  url: /pug/boardgame-13clues.html
 - title: COVID-19 快篩實名制地圖
   img: https://i.imgur.com/O9GX9P9.png
   desc: 顯示附近藥局，方便您前往購買 COVID-19 快篩試劑！
