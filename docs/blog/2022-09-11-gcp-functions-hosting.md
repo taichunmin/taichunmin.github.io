@@ -397,6 +397,8 @@ on:
 jobs:
   gcr-cleaner:
     runs-on: 'ubuntu-latest'
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v3
 
