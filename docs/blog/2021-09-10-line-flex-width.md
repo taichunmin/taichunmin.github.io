@@ -199,6 +199,12 @@ https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/r
 
 ![](https://i.imgur.com/WBbzTt0.png)
 
+## 「數位版名片技術討論」社群
+
+最近均民創立了一個社群，讓有使用數位版名片的網友可以在上面一起討論，群組內有一些常見問題的回答、名片健檢、以及跟這專案有關的最新消息，入群連結在此：<https://lihi1.com/CVjIx/blog>！
+
+![](https://i.imgur.com/ylxMnwZ.png)
+
 ## 原始碼與相關連結
 
 ::: tip
@@ -207,7 +213,7 @@ https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/r
 
 * [免費樣版網站 - LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)
 * [原始碼 - LINE 數位版名片](https://github.com/taichunmin/liff-businesscard)
-* [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)
+* [點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)
 * [看起來很專業的 LINE 數位版名片](https://taichunmin.idv.tw/blog/2020-07-12-liff-businesscard.html)
 * [不用寫程式也能做 LINE 數位版名片](https://taichunmin.idv.tw/blog/2020-07-21-liff-businesscard.html)
 * [LINE 數位版名片工作坊](https://taichunmin.idv.tw/blog/2020-10-14-liff-businesscard-workshop.html)

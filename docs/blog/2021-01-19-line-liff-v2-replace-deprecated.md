@@ -117,6 +117,12 @@ console.log(liff.getVersion())
 
 如果你還想知道如何[透過三個 LINE LIFF ID 創造出無限的 LIFF 網頁的技巧，你可以看我之前所寫的文章](https://taichunmin.idv.tw/blog/2020-09-18-line-three-size-liff.html)，如果有疑問也歡迎跟我聊聊。
 
+## 「數位版名片技術討論」社群
+
+最近均民創立了一個社群，讓有使用數位版名片的網友可以在上面一起討論，群組內有一些常見問題的回答、名片健檢、以及跟這專案有關的最新消息，入群連結在此：<https://lihi1.com/CVjIx/blog>！
+
+![](https://i.imgur.com/ylxMnwZ.png)
+
 ## 原始碼與相關連結
 
 ::: tip
@@ -124,7 +130,7 @@ console.log(liff.getVersion())
 :::
 
 * [原始碼: LINE 數位版名片](https://github.com/taichunmin/liff-businesscard/)
-* [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)
+* [點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)
 * [文章: 轉移你的 LIFF 從 Replace 到 Concatenate 模式](https://engineering.linecorp.com/zh-hant/blog/liff-replace-to-concatenate/) by LINE
 * [文章: 透過三個 LINE LIFF ID 創造出無限的 LIFF](https://taichunmin.idv.tw/blog/2020-09-18-line-three-size-liff.html)
 * [文章: 您需要了解有關新 LIFF URL 的所有資訊](https://engineering.linecorp.com/zh-hant/blog/new-liff-url-infomation/) by LINE

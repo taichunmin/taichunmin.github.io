@@ -659,6 +659,12 @@ window.vm = new Vue({
 
 </details>
 
+## 「數位版名片技術討論」社群
+
+最近均民創立了一個社群，讓有使用數位版名片的網友可以在上面一起討論，群組內有一些常見問題的回答、名片健檢、以及跟這專案有關的最新消息，入群連結在此：<https://lihi1.com/CVjIx/blog>！
+
+![](https://i.imgur.com/ylxMnwZ.png)
+
 ## 原始碼與相關連結
 
 ::: tip
@@ -670,4 +676,4 @@ window.vm = new Vue({
 * [Flex 訊息模擬器](https://developers.line.biz/flex-simulator/)
 * [Flex 開發人員工具](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 * [LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)
-* [點此加入「數位版名片技術討論群」](https://line.me/ti/g2/3y0Fb2R6WiDXAOPFkbALdg3t3lcm065NdHTrnA?utm_source=invitation&utm_medium=blog&utm_campaign=default)
+* [點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)
