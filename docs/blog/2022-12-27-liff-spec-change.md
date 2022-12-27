@@ -1,5 +1,5 @@
 ---
-date: '2022-04-21T00:00:00+08'
+date: '2022-12-27T00:00:00+08'
 title: LIFF 即將無法取得 groupId
 description: 預計在 2023 年初將無法在 LIFF 中取得聊天室 ID，如果你的程式有用到，記得提早改用替代方案，才不會到時候手忙腳亂喔！
 image: https://i.imgur.com/8WHJV13.png
