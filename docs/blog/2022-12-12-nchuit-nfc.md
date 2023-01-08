@@ -408,7 +408,7 @@ hf mf autopwn --1k -s 2 -b -k a9ac67832330
 
 ![](https://i.imgur.com/lxpbPac.png)
 
-然後再執行 `trace list -u -t 14a` 指令顯示側錄的內容：
+然後再執行 `trace list -u -t mf` 指令顯示側錄的內容：
 
 ![](https://i.imgur.com/UPh3xQT.png)
 
