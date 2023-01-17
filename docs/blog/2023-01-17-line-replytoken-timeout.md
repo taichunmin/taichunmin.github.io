@@ -44,7 +44,7 @@ meta:
 
 在均民撰寫這篇文章的時候，replyToken 的失效時間至少不小於 16.5 分鐘，這應該是足以應付大部分的使用情境了。
 
-<img src="https://i.imgur.com/yDMpsO3.png" style="max-width: 480px">
+<img src="https://i.imgur.com/yDMpsO3.png" style="width: 480px">
 
 美中不足的是，均民並沒有實際測試出實際的上限，因為均民的「Flex 開發人員工具」架設在「GCP Cloud Function」上，為了避免收費過高，所以是利用重送機制來實作這個功能，所以能夠測試的時間上限會受到訊息重送機制的限制。
 
@@ -56,7 +56,7 @@ meta:
 
 ![](https://i.imgur.com/OIe5cTX.png)
 
-<img src="https://i.imgur.com/qLBevQe.png" style="max-width: 480px">
+<img src="https://i.imgur.com/qLBevQe.png" style="width: 480px">
 
 ## 原始碼及參考連結
 
