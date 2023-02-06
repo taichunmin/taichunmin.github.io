@@ -97,7 +97,7 @@ Cloud Functions (第 2 代) 是直接串接 Cloud Run，所以收費方式也是
 
 然後用 git 把程式碼抓到電腦上：
 
-```bash=
+```bash
 git clone git@github.com:taichunmin/demo20220907.git
 cd demo20220907
 ```
@@ -108,20 +108,20 @@ cd demo20220907
 
 然後我們透過 yarn 這個 node.js 的函式庫管理工具來建立 `package.json`：
 
-```bash=
+```bash
 yarn init -y
 ```
 
 專案建立完成以後，我們可以加入一些我們可能會需要的函式庫（如下）：
 
-```bash=
+```bash
 # 這些函式庫只是範例，你可能會需要根據你實際的需求來修改
 yarn add axios lodash dotenv @line/bot-sdk debug
 ```
 
 除了一些服務所需的必要函式庫之外，均民通常還會額外裝一些輔助開發用的函式庫：
 
-```bash=
+```bash
 # 這些函式庫只是範例，你可能會需要根據你實際的需求來修改
 yarn add -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-n eslint-plugin-node eslint-plugin-promise jest
 ```

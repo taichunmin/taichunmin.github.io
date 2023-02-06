@@ -16,7 +16,7 @@ meta:
 
 大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
 
-最近 LINE 在開發者新聞中宣佈[（查看英文公告）](https://developers.line.biz/en/news/2022/12/27/liff-spec-change/)，預計在 2023 年初將無法在 LIFF 中取得聊天室的相關辨識用 ID（`roomId`, `groupId`, `utouId`），這個修改不管你的 LIFF SDK 使用什麼版本都會被影響，記得要趕快檢查一下自己的 LIFF 程式中有沒有用到，如果有的話記得提早使用本文提供的替代方案進行修改，才不會到時候手忙腳亂喔！
+最近 LINE 在開發者新聞中宣佈[（查看英文公告 1）](https://developers.line.biz/en/news/2022/12/27/liff-spec-change/)、[（查看英文公告 2）](https://developers.line.biz/en/news/2023/01/25/liff-spec-change/)、[（查看英文公告 3）](https://developers.line.biz/en/news/2023/02/06/liff-spec-change/)，於 2023/02/06 時將無法在 LIFF 中取得聊天室的相關辨識用 ID（`roomId`, `groupId`, `utouId`），這個修改不管你的 LIFF SDK 使用什麼版本都會被影響，記得要趕快檢查一下自己的 LIFF 程式中有沒有用到，如果有的話記得提早使用本文提供的替代方案進行修改，才不會到時候手忙腳亂喔！
 
 ## 影響範圍
 
