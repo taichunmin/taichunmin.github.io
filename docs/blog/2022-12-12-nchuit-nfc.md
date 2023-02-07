@@ -420,32 +420,9 @@ hf mf autopwn --1k -s 2 -b -k a9ac67832330
 
 ![](https://i.imgur.com/ULpqpvr.png)
 
-然後接下來我們需要使用 `mfkey64` 來逆推出卡片金鑰，請直接在 Chrome 的開發人員工具（快捷鍵 `F12`）中執行以下程式：
+然後接下來可以使用均民在 PN532.js 專案中所開發的線上工具來逆推出卡片金鑰，請[開啟 mfkey.html](https://taichunmin.idv.tw/pn532.js/mfkey.html)，並在 `mfkey64` 的區塊填寫逆推金鑰所需的 `uid`, `nt`, `nr`, `ar`, `at`，然後按下破解金鑰：
 
-```js
-async function mfkey64 ({ uid, nt, nr, ar, at }) {
-  const res = await fetch('https://mfkey-ybtjbo45iq-de.a.run.app/mfkey64', {
-    body: JSON.stringify({ uid, nt, nr, ar, at }),
-    cache: 'no-cache',
-    headers: { 'content-type': 'application/json' },
-    method: 'POST',
-    mode: 'cors',
-    redirect: 'follow',
-    referrer: 'no-referrer',
-  })
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`)
-  return (await res.json())?.key
-}
-await mfkey64({
-  // 以下五個資料會需要修改
-  uid: '65535d33',
-  nt: '2c198be4',
-  nr: 'fedac6d2',
-  ar: 'cf0a3c7e',
-  at: 'f4a81af8',
-})
-// 'A9AC67832330'
-```
+![](https://i.imgur.com/J2XSdD8.png)
 
 成功逆推出卡片的金鑰後，我們就一樣使用 `hf mf autopwn --1k -s 2 -b -k A9AC67832330` 指令破解卡片，這個指令上面已經提過了，所以這邊就不再贅述。
 
