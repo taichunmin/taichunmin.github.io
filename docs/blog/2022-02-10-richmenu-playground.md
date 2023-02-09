@@ -2,7 +2,7 @@
 date: '2022-02-10T00:00:00+08'
 title: 圖文選單遊樂場中文版：超快速認識圖文選單的功能！
 description: 帶你認識 LINE 圖文選單的幾大功能，如：傳訊息、傳隱藏資料、開啟網址、選擇日期與時間、切換圖文選單…等。
-image: https://i.imgur.com/jBawKfE.png
+image: https://i.imgur.com/bM0nJFZ.png
 tags:
   - LINE
 meta:
