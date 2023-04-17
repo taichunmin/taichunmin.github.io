@@ -146,7 +146,7 @@ Flex 開發人員工具：<https://github.com/taichunmin/gcf-line-devbot>
 ## 原始碼與相關連結
 
 ::: tip
-本文範例程式的原始碼授權為 MIT License，若您提出 Pull Request，代表您也同意將您的程式碼以 MIT License 授權釋出。
+本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以[點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)然後在社群內發問。
 :::
 
 * 程式及原始碼
@@ -156,6 +156,7 @@ Flex 開發人員工具：<https://github.com/taichunmin/gcf-line-devbot>
   * [LINE 數位版名片工作坊](https://taichunmin.idv.tw/blog/2020-10-14-liff-businesscard-workshop.html)
   * [免費製作電子傳單 (多頁訊息) - LINE 數位版名片](https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html)
   * [快速測試 LINE Flex 訊息在手機上顯示的寬度](https://taichunmin.idv.tw/blog/2021-09-10-line-flex-width.html)
+  * [數位版名片帶你蹭一波 ChatGPT](https://taichunmin.idv.tw/blog/2023-04-18-liff-businesscard-chatgpt.html)
   * [點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)
 * 相關連結
   * [Flex Message Simulator 工具](https://developers.line.biz/flex-simulator/)

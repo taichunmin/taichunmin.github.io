@@ -326,7 +326,7 @@ meta:
 ## 原始碼與相關連結
 
 ::: tip
-本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以直接舉手發問或是透過 [Facebook](https://www.facebook.com/taichunmin) 與我聯繫。
+本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以[點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)然後在社群內發問。
 :::
 
 * [免費樣版網站 - LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)
@@ -336,3 +336,4 @@ meta:
 * [不用寫程式也能做 LINE 數位版名片](https://taichunmin.idv.tw/blog/2020-07-21-liff-businesscard.html)
 * [LINE 數位版名片工作坊](https://taichunmin.idv.tw/blog/2020-10-14-liff-businesscard-workshop.html)
 * [快速測試 LINE Flex 訊息在手機上顯示的寬度](https://taichunmin.idv.tw/blog/2021-09-10-line-flex-width.html)
+* [數位版名片帶你蹭一波 ChatGPT](https://taichunmin.idv.tw/blog/2023-04-18-liff-businesscard-chatgpt.html)
