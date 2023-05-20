@@ -281,4 +281,5 @@ function imgStar (isGold) {
 * [免費製作電子傳單 (多頁訊息) - LINE 數位版名片](https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html)
 * [快速測試 LINE Flex 訊息在手機上顯示的寬度](https://taichunmin.idv.tw/blog/2021-09-10-line-flex-width.html)
 * [數位版名片帶你蹭一波 ChatGPT](https://taichunmin.idv.tw/blog/2023-04-18-liff-businesscard-chatgpt.html)
+* [想知道自己的數位版名片被多少裝置看過嗎？](https://taichunmin.idv.tw/blog/2023-05-20-liff-businesscard-impression.html)
 * [點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)

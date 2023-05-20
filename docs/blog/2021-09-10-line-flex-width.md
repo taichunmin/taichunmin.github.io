@@ -219,3 +219,4 @@ https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/r
 * [LINE 數位版名片工作坊](https://taichunmin.idv.tw/blog/2020-10-14-liff-businesscard-workshop.html)
 * [免費製作電子傳單 (多頁訊息) - LINE 數位版名片](https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html)
 * [數位版名片帶你蹭一波 ChatGPT](https://taichunmin.idv.tw/blog/2023-04-18-liff-businesscard-chatgpt.html)
+* [想知道自己的數位版名片被多少裝置看過嗎？](https://taichunmin.idv.tw/blog/2023-05-20-liff-businesscard-impression.html)
