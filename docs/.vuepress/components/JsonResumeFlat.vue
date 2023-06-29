@@ -144,18 +144,18 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   props: ['src'],
   data: () => ({
     resume: null,
   }),
   async mounted () {
+    const { fetch } = window
     const url = new URL(this.src)
     url.searchParams.set('cachebust', +new Date())
-    const res = await axios.get(url.href)
-    this.$set(this, 'resume', res.data)
+    const res = await fetch(url.href)
+    if (!res.ok) throw new Error(`Failed to fetch ${url.href}`)
+    this.$set(this, 'resume', await res.json())
   },
   methods: {
     trimProto (url) {
