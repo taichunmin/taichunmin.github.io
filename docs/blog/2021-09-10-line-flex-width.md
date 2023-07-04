@@ -17,18 +17,23 @@ meta:
 
 大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
 
+::: tip 2023/07/04 更新
+Flex 訊息有新增幾個新的卡片尺寸，卡片尺寸由小到大依序為：`nano`、`micro`、`deca`、`hecto`、`kilo`、`mega` 以及 `giga`。
+:::
+
 自從 LINE 發佈了 Flex 訊息並經歷了幾次改版以後，Flex 訊息已經非常有彈性，你可以用它來排出很華麗的訊息，並透過 `Messaging API` 或是 `liff.shareTargetPicker()` 傳送，我所開發的 [LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/) 也是透過這個技術來實做的。
 
 但是使用者的手機有大有小，如果想要做出一個好的 Flex 訊息，勢必要能夠在各種尺寸的手機上正常顯示，卡米哥於 2021/09/10 在 [Chatbots Meetup](https://chatbots.kktix.cc/) 所分享的「深入 Flex 訊息- 以對話遊戲為例」議程中，特地分享了他對於 Flex 訊息中各種 bubble size 的測試結果：
 
-![](https://i.imgur.com/N4J1CH7.png)
+![](https://hackmd.io/_uploads/SkjOuRZFn.png)
 
 卡米哥同時也在這個議程中，以對話遊戲為例教大家怎麼製作 Flex 訊息，如果沒有聽過這場分享的話，可以[透過這個連結觀看錄影](https://youtu.be/wgiDAG9yr7E)，也可以[透過這個連結查看簡報](https://docs.google.com/presentation/d/1jpdOnQ2G5QVZJ37VfiaPE-34piqUqPp69nABYcmNSfI/edit?usp=sharing)。
 
 ## 如何快速測試朋友手機的寬度？
 
-::: tip 測試寬度名片 - 數位版名片
-* [點此傳送測試寬度名片](https://lihi1.com/zzUs3) 來快速測試朋友手機的寬度。
+::: tip 透過數位版名片分享給好友來快速實測 Flex 寬度
+* [測試寬度名片 1](https://lihi1.com/zzUs3): 可用來測試 `nano`、`micro`、`deca`、`hecto`、`kilo`。
+* [測試寬度名片 2](https://lihi2.com/dMG82): 可用來測試 `mega`、`giga`。
 :::
 
 在卡米哥的分享中，有提到他是怎麼測試大家手機所顯示的寬度：
@@ -83,8 +88,8 @@ meta:
       {
         "flex": 0,
         "layout": "vertical",
-        "offsetEnd": "5px",
-        "offsetTop": "5px",
+        "offsetBottom": "5px",
+        "offsetStart": "5px",
         "position": "absolute",
         "type": "box",
         "contents": [
@@ -109,6 +114,8 @@ meta:
 {
   nano: 7,
   micro: 9,
+  deca: 12,
+  hecto: 13,
   kilo: 14,
   mega: 16,
   giga: 26,
@@ -159,8 +166,8 @@ meta:
         {
           flex: 0,
           layout: 'vertical',
-          offsetEnd: '5px',
-          offsetTop: '5px',
+          offsetBottom: '5px',
+          offsetStart: '5px',
           position: 'absolute',
           type: 'box',
           contents: [{
@@ -185,10 +192,10 @@ meta:
 https://gist.github.com/taichunmin/f7741777fe93aa55b9816c859a02d363
 
 // Raw 所取得的網址
-https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/raw/f3d63c4a77373a80f6a4868a1aad257575661d6f/flex-width.js
+https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/raw/f3d63c4a77373a80f6a4868a1aad257575661d6f/flex-width-1.js
 
 // 刪除版本後的網址
-https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/raw/flex-width.js
+https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/raw/flex-width-1.js
 ```
 
 開啟「[LINE 數位版名片](https://taichunmin.idv.tw/liff-businesscard/)」的網頁，點選「CSV」來建立名片，由於這個樣版不需要 CSV 當作資料來源，所以只需要填寫名片樣版的網址即可：
@@ -220,3 +227,4 @@ https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/r
 * [免費製作電子傳單 (多頁訊息) - LINE 數位版名片](https://taichunmin.idv.tw/blog/2021-07-09-line-card-create-carousel-1.html)
 * [數位版名片帶你蹭一波 ChatGPT](https://taichunmin.idv.tw/blog/2023-04-18-liff-businesscard-chatgpt.html)
 * [想知道自己的數位版名片被多少裝置看過嗎？](https://taichunmin.idv.tw/blog/2023-05-20-liff-businesscard-impression.html)
+* [(新功能) 大量替換或取消連結用戶的圖文選單](https://taichunmin.idv.tw/blog/2023-07-05-line-developers-update.html)
