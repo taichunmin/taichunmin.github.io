@@ -111,6 +111,16 @@ LINE Beacon 就是由 LINE 所定義的特殊藍芽廣播訊號，當手機的 L
 
 這應該就單純是贊助商廣告，我總共收到 4 次訊息。
 
+### 防疫（類似簡訊實聯制）
+
+![](https://i.imgur.com/gfCEvCK.jpg)
+
+![](https://i.imgur.com/VI3Qw75.png)
+
+> 圖片來源是[高雄旅遊網的網站](https://khh.travel/zh-tw/event/news/4292)。
+
+高雄燈會在活動場地的各大出口，都有工作人員在檢查你的 LINE，必須要收到 LINE Beacon 的訊息才能進入會場，感覺用在防疫上面其實是一個很不錯的應用，因為 LINE 在台灣的使用者很多，不用多下載一個 APP 真的是一個很大的優勢，雖然也會擔心人數過多導致 4G 的訊號不好，導致 LINE Beacon 的進入事件沒辦法上傳給 LINE 的伺服器。
+
 ### 其他訊息
 
 ![](https://i.imgur.com/Z6Q2uqL.png)
@@ -127,5 +137,5 @@ LINE Beacon 就是由 LINE 所定義的特殊藍芽廣播訊號，當手機的 L
 如果有疑問可以透過 [Facebook](https://www.facebook.com/taichunmin) 跟我交流。
 :::
 
-* [2020 高雄燈會 LINE Beacon 介紹](https://tw-light.tw/line-beacon.html)
+* [2022 高雄燈會 LINE Beacon 介紹](https://tw-light.tw/line-beacon.html)
 * [文章: LINE Simple Beacon for ESP32 工作坊](https://taichunmin.idv.tw/blog/2020-07-13-line-simple-beacon-workshop.html)
