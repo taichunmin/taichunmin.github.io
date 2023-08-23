@@ -82,7 +82,9 @@ meta:
 
 UUID 這個欄位是用來決定要使用哪一筆名片資料，這讓你只需要更換 UUID 就能指定帶入不同的名片資料喔。
 
-> 如果你 CSV 資料以及名片樣板的網址遇到 [CORS 的問題](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS) (如 GitHub Gist 以及 Google Sheets CSV)，可以嘗試在前面直接加上 `https://cors-anywhere.herokuapp.com/` 來繞過這個限制。
+> ~~如果你 CSV 資料以及名片樣板的網址遇到 [CORS 的問題](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS) (如 GitHub Gist 以及 Google Sheets CSV)，可以嘗試在前面直接加上 `https://cors-anywhere.herokuapp.com/` 來繞過這個限制。~~
+> 
+> 2023/08/23 更新: cors-anywhere 服務因為濫用問題嚴重，所以加上了一些限制，所以如果遇到 CORS 問題只能自己想辦法排除了。
 
 ## 分享名片給 LINE 好友
 
