@@ -34,85 +34,132 @@ LINE 在 2022/03/11 發佈了[「Flex Message Update 3 released」](https://deve
 
 ## 準備影片
 
-這個功能所需的影片網址，需要的是可以直接連結到影片檔案的網址，YouTube 或是 Google Drive 之類的連結是沒有辦法直接使用的，你可以選擇放到自己的網站伺服器上，或是 Google Cloud Storage、AWS S3 之類的靜態檔案服務上，這方面的教學可以直接去 Google 搜尋。
+這個功能所需的影片網址，需要的是可以直接連結到影片檔案的網址，上傳到 YouTube 或是 Google Drive 之類的連結是沒有辦法直接使用的，你可以選擇放到自己的網站伺服器上，或是 Google Cloud Storage、AWS S3 之類的靜態檔案託管服務上，這方面的教學可以直接去 Google 搜尋。
 
-本文均民選擇使用 `youtube-dl` 這個開源工具去下載 `https://www.youtube.com/watch?v=1qawxYdIsik` 這個影片，然後透過 git 上傳到 GitHub Gist 上，但因為這不是這篇文章的重點，所以在此不會細談，以下是大概的指令：
+本文均民選擇使用 `youtube-dl` 這個開源工具去下載 `https://www.youtube.com/watch?v=1qawxYdIsik` 這個影片，以便下一步可以上傳到 LINE VOOM 的免費空間：
 
 ```bash
-$ youtube-dl -F 'https://www.youtube.com/watch?v=1qawxYdIsik'
+$ yt-dlp -F 'https://www.youtube.com/watch?v=1qawxYdIsik'
+
+[youtube] Extracting URL: https://www.youtube.com/watch?v=1qawxYdIsik
 [youtube] 1qawxYdIsik: Downloading webpage
+[youtube] 1qawxYdIsik: Downloading ios player API JSON
+[youtube] 1qawxYdIsik: Downloading android player API JSON
+[youtube] 1qawxYdIsik: Downloading m3u8 information
 [info] Available formats for 1qawxYdIsik:
-format code  extension  resolution note
-249          webm       audio only tiny   53k , webm_dash container, opus @ 53k (48000Hz), 389.12KiB
-250          webm       audio only tiny   65k , webm_dash container, opus @ 65k (48000Hz), 484.02KiB
-251          webm       audio only tiny  114k , webm_dash container, opus @114k (48000Hz), 841.88KiB
-140          m4a        audio only tiny  129k , m4a_dash container, mp4a.40.2@129k (44100Hz), 950.87KiB
-278          webm       256x144    144p   74k , webm_dash container, vp9@  74k, 30fps, video only, 548.95KiB
-160          mp4        256x144    144p   79k , mp4_dash container, avc1.4d400c@  79k, 30fps, video only, 580.11KiB
-242          webm       426x240    240p  129k , webm_dash container, vp9@ 129k, 30fps, video only, 948.04KiB
-133          mp4        426x240    240p  161k , mp4_dash container, avc1.4d4015@ 161k, 30fps, video only, 1.16MiB
-243          webm       640x360    360p  221k , webm_dash container, vp9@ 221k, 30fps, video only, 1.59MiB
-134          mp4        640x360    360p  290k , mp4_dash container, avc1.4d401e@ 290k, 30fps, video only, 2.08MiB
-244          webm       854x480    480p  359k , webm_dash container, vp9@ 359k, 30fps, video only, 2.58MiB
-135          mp4        854x480    480p  513k , mp4_dash container, avc1.4d401f@ 513k, 30fps, video only, 3.68MiB
-247          webm       1280x720   720p  695k , webm_dash container, vp9@ 695k, 30fps, video only, 4.98MiB
-136          mp4        1280x720   720p  952k , mp4_dash container, avc1.64001f@ 952k, 30fps, video only, 6.82MiB
-248          webm       1920x1080  1080p 1182k , webm_dash container, vp9@1182k, 30fps, video only, 8.47MiB
-137          mp4        1920x1080  1080p 1879k , mp4_dash container, avc1.640028@1879k, 30fps, video only, 13.46MiB
-18           mp4        640x360    360p  386k , avc1.42001E, 30fps, mp4a.40.2 (44100Hz), 2.77MiB
-22           mp4        1280x720   720p 1080k , avc1.64001F, 30fps, mp4a.40.2 (44100Hz) (best)
+ID  EXT   RESOLUTION FPS CH │   FILESIZE   TBR PROTO │ VCODEC          VBR ACODEC      ABR ASR MORE INFO
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+sb2 mhtml 48x27        2    │                  mhtml │ images                                  storyboard
+sb1 mhtml 80x45        1    │                  mhtml │ images                                  storyboard
+sb0 mhtml 160x90       1    │                  mhtml │ images                                  storyboard
+233 mp4   audio only        │                  m3u8  │ audio only          unknown             Default
+234 mp4   audio only        │                  m3u8  │ audio only          unknown             Default
+599 m4a   audio only      2 │  227.47KiB   31k https │ audio only          mp4a.40.5   31k 22k ultralow, m4a_dash
+600 webm  audio only      2 │  269.24KiB   37k https │ audio only          opus        37k 48k ultralow, webm_dash
+139 m4a   audio only      2 │  359.56KiB   49k https │ audio only          mp4a.40.5   49k 22k low, m4a_dash
+249 webm  audio only      2 │  389.12KiB   53k https │ audio only          opus        53k 48k low, webm_dash
+250 webm  audio only      2 │  484.02KiB   66k https │ audio only          opus        66k 48k low, webm_dash
+140 m4a   audio only      2 │  950.87KiB  130k https │ audio only          mp4a.40.2  130k 44k medium, m4a_dash
+251 webm  audio only      2 │  841.88KiB  115k https │ audio only          opus       115k 48k medium, webm_dash
+17  3gp   176x144      7  1 │  575.30KiB   78k https │ mp4v.20.3           mp4a.40.2       22k 144p
+597 mp4   256x144     15    │  250.29KiB   34k https │ avc1.4d400b     34k video only          144p, mp4_dash
+602 mp4   256x144     15    │ ~761.45KiB  102k m3u8  │ vp09.00.10.08  102k video only
+598 webm  256x144     15    │  225.67KiB   31k https │ vp9             31k video only          144p, webm_dash
+269 mp4   256x144     30    │ ~  1.36MiB  186k m3u8  │ avc1.4D400C    186k video only
+160 mp4   256x144     30    │  580.11KiB   79k https │ avc1.4D400C     79k video only          144p, mp4_dash
+603 mp4   256x144     30    │ ~  1.19MiB  162k m3u8  │ vp09.00.11.08  162k video only
+278 webm  256x144     30    │  548.95KiB   75k https │ vp09.00.11.08   75k video only          144p, webm_dash
+229 mp4   426x240     30    │ ~  2.40MiB  327k m3u8  │ avc1.4D4015    327k video only
+133 mp4   426x240     30    │    1.16MiB  162k https │ avc1.4D4015    162k video only          240p, mp4_dash
+604 mp4   426x240     30    │ ~  1.98MiB  270k m3u8  │ vp09.00.20.08  270k video only
+242 webm  426x240     30    │  948.04KiB  129k https │ vp09.00.20.08  129k video only          240p, webm_dash
+230 mp4   640x360     30    │ ~  4.66MiB  637k m3u8  │ avc1.4D401E    637k video only
+134 mp4   640x360     30    │    2.08MiB  290k https │ avc1.4D401E    290k video only          360p, mp4_dash
+18  mp4   640x360     30  2 │ ≈  3.07MiB  419k https │ avc1.42001E         mp4a.40.2       44k 360p
+605 mp4   640x360     30    │ ~  3.80MiB  519k m3u8  │ vp09.00.21.08  519k video only
+243 webm  640x360     30    │    1.59MiB  221k https │ vp09.00.21.08  221k video only          360p, webm_dash
+231 mp4   854x480     30    │ ~  7.86MiB 1073k m3u8  │ avc1.4D401F   1073k video only
+135 mp4   854x480     30    │    3.68MiB  513k https │ avc1.4D401F    513k video only          480p, mp4_dash
+606 mp4   854x480     30    │ ~  5.77MiB  788k m3u8  │ vp09.00.30.08  788k video only
+244 webm  854x480     30    │    2.58MiB  360k https │ vp09.00.30.08  360k video only          480p, webm_dash
+22  mp4   1280x720    30  2 │ ≈  7.91MiB 1080k https │ avc1.64001F         mp4a.40.2       44k 720p
+232 mp4   1280x720    30    │ ~ 14.91MiB 2036k m3u8  │ avc1.64001F   2036k video only
+136 mp4   1280x720    30    │    6.82MiB  952k https │ avc1.64001F    952k video only          720p, mp4_dash
+609 mp4   1280x720    30    │ ~ 10.38MiB 1418k m3u8  │ vp09.00.31.08 1418k video only
+247 webm  1280x720    30    │    4.98MiB  696k https │ vp09.00.31.08  696k video only          720p, webm_dash
+270 mp4   1920x1080   30    │ ~ 27.23MiB 3718k m3u8  │ avc1.640028   3718k video only
+137 mp4   1920x1080   30    │   13.46MiB 1879k https │ avc1.640028   1879k video only          1080p, mp4_dash
+614 mp4   1920x1080   30    │ ~ 17.42MiB 2378k m3u8  │ vp09.00.40.08 2378k video only
+248 webm  1920x1080   30    │    8.47MiB 1183k https │ vp09.00.40.08 1183k video only          1080p, webm_dash
 
-$ youtube-dl -f 22 'https://www.youtube.com/watch?v=1qawxYdIsik'
+$ yt-dlp -f 22 'https://www.youtube.com/watch?v=1qawxYdIsik'
+
+[youtube] Extracting URL: https://www.youtube.com/watch?v=1qawxYdIsik
 [youtube] 1qawxYdIsik: Downloading webpage
-[download] Destination: 防疫大作戰－日常防疫 5 Tips (田知學醫師，國語)-1qawxYdIsik.mp4
-[download] 100% of 7.73MiB in 01:56
-
-$ git clone git@gist.github.com:3a41f553ac230587512bd20d19fa906f.git gist220311
-正複製到 'gist220311'...
-
-$ cd gist220311
-$ git add .
-$ git commit -m 'upload video'
-$ git push -u origin master
+[youtube] 1qawxYdIsik: Downloading ios player API JSON
+[youtube] 1qawxYdIsik: Downloading android player API JSON
+[youtube] 1qawxYdIsik: Downloading m3u8 information
+[info] 1qawxYdIsik: Downloading 1 format(s): 22
+[download] Destination: 防疫大作戰－日常防疫 5 Tips (田知學醫師，國語) [1qawxYdIsik].mp4
+[download] 100% of    7.73MiB in 00:00:02 at 3.65MiB/s
 ```
 
-上傳完成後，你也需要幫影片準備一個預覽圖片，在此均民把預覽圖片上傳到 Imgur，以下是上傳完成後的網址：
+## LINE VOOM 免費影片空間
+
+在開始之前，先感謝耿順一學弟跟我分享的這個小技巧，透過這個方法把影片上傳到 LINE VOOM 後，可以直接拿到 Flex 訊息能使用的 MP4 檔案網址！
+
+首先，先前往 [LINE 官方帳號管理頁面](https://manager.line.biz/)，選擇一個不重要的頻道，然後開啟 LINE VOOM 頁面：
+
+![](https://hackmd.io/_uploads/ByIDXKYU6.png)
+
+打開 LINE VOOM 頁面後，點擊「建立新貼文」按鈕：
+
+![](https://hackmd.io/_uploads/HJ0EVtKI6.png)
+
+由於預設的「影片」模式限制最多只能上傳 1 分鐘的影片，所以要點擊「貼文」來切換模式：
+
+![](https://hackmd.io/_uploads/BydxrKY86.png)
+
+點擊圖片中的按鈕來上傳影片：
+
+![](https://hackmd.io/_uploads/HyfdrtFLT.png)
+
+上傳完成後，點擊「公開」按鈕來發佈貼文：
+
+![](https://hackmd.io/_uploads/ByWWtKYU6.png)
+
+然後開啟瀏覽器的「開發人員工具」（在 Windows 的 Google Chrome 瀏覽器中，快捷鍵是 `F12`），並切換到「網路」分頁，打開篩選器，然後選擇「媒體」：
+
+![](https://hackmd.io/_uploads/SkffstKLp.png)
+
+然後開啟貼文詳情頁面：
+
+![](https://hackmd.io/_uploads/SyqPsYF86.png)
+
+如果以上的步驟都正確的話，你應該就會在「開發人員工具」看到影片的網址：
+
+![截圖 2023-12-15 下午4.19.34](https://hackmd.io/_uploads/Sk4cnFtUa.png)
+
+然後請在影片上點擊右鍵，然後選擇「複製」➜「複製連結網址」：
+
+![截圖 2023-12-15 下午4.22.22](https://hackmd.io/_uploads/Sy7MTKFLp.png)
+
+這樣就成功拿到網址囉！複製的影片網址如下：
 
 ```
-影片: https://gist.githubusercontent.com/taichunmin/3a41f553ac230587512bd20d19fa906f/raw/video.mp4
+https://obs.line-scdn.net/r/myhome/hex/cj01ZmZnaGl1bGNrYTY5JnM9anA3JnQ9ZCZ1PTFidGJzanNkYzNoMDAmaT0w/mp4
+```
+
+再次感謝耿順一學弟分享的小技巧。
+
+
+## 準備封面圖
+
+除了影片檔之外，你也需要幫影片準備一個封面圖，在此均民把預覽圖片上傳到 Imgur，以下是上傳完成後的網址：
+
+```
 預覽圖: https://i.imgur.com/nKkaGB2.jpeg
 ```
-
-### 2020/03/14 補充：LINE VOOM 網路影片空間
-
-耿順一學弟在看過我寫的這篇文章以後，跟我分享了一個小技巧，就是上傳到 LINE VOOM 的影片可以直接拿到 `.mp4` 的網址，就不需要使用均民在上面提供的上傳到 GitHub Gist 的方法喔！
-
-首先，先前往 [LINE 官方帳號管理頁面](https://manager.line.biz/)，選擇一個不重要的頻道，然後到 LINE VOOM 點選建立：
-
-![](https://i.imgur.com/My8Wovh.png)
-
-然後點選「上傳圖片或影片」來上傳：
-
-![](https://i.imgur.com/bGrSlEz.png)
-
-目前影片的相關限制如下：
-
-![](https://i.imgur.com/OgykEJb.png)
-
-影片上傳完成以後，就可以去按最下面的「貼文」按鈕。回到貼文頁面以後，再點進貼文的詳細內容：
-
-![](https://i.imgur.com/sfwGHvh.png)
-
-進入貼文詳細內容以後，再次點選影片：
-
-![](https://i.imgur.com/nqCDhxE.png)
-
-然後影片打開以後，對影片按下右鍵並從選單中選擇「複製影片位址」：
-
-![](https://i.imgur.com/MxgdzIt.png)
-
-這樣就成功拿到網址囉！經過實測這個影片網址是真的可以在 Flex 訊息的 video 功能中正常使用，再次感謝耿順一學弟分享的小技巧。
-
 ## 撰寫 Flex 訊息
 
 有了影片跟預覽圖以後，我們就可以來編寫 Flex 訊息所需要的 JSON 了，~~因為目前[「Flex 訊息模擬器」](https://developers.line.biz/flex-simulator/)還不支援這個功能~~（3/18 更新：[「Flex 訊息模擬器」](https://developers.line.biz/flex-simulator/)已經有支援編輯了，雖然只能顯示替代內容），所以目前只能自己手動撰寫這個 JSON：
@@ -123,7 +170,7 @@ $ git push -u origin master
   "size": "giga",
   "hero": {
     "type": "video",
-    "url": "https://gist.githubusercontent.com/taichunmin/3a41f553ac230587512bd20d19fa906f/raw/video.mp4",
+    "url": "https://obs.line-scdn.net/r/myhome/hex/cj01ZmZnaGl1bGNrYTY5JnM9anA3JnQ9ZCZ1PTFidGJzanNkYzNoMDAmaT0w/mp4",
     "previewUrl": "https://i.imgur.com/nKkaGB2.jpeg",
     "aspectRatio": "1280:720",
     "altContent": {
@@ -151,7 +198,7 @@ $ git push -u origin master
   "size": "giga",
   "hero": {
     "type": "video",
-    "url": "https://gist.githubusercontent.com/taichunmin/3a41f553ac230587512bd20d19fa906f/raw/video.mp4",
+    "url": "https://obs.line-scdn.net/r/myhome/hex/cj01ZmZnaGl1bGNrYTY5JnM9anA3JnQ9ZCZ1PTFidGJzanNkYzNoMDAmaT0w/mp4",
     "previewUrl": "https://i.imgur.com/nKkaGB2.jpeg",
     "aspectRatio": "1280:720",
     "action": {

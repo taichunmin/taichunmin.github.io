@@ -95,7 +95,7 @@ LINE Develpers console：<https://developers.line.biz/console/>
 請先確定 Arduino IDE 已經安裝，並且先不要連接 ESP32 開發板。
 :::
 
-打開 Arduino IDE。然後從工具列點選的「檔案」🡲「偏好設定」打開偏好設定。
+打開 Arduino IDE。然後從工具列點選的「檔案」➜「偏好設定」打開偏好設定。
 
 ![](https://i.imgur.com/bWc4E0S.png)
 
@@ -103,7 +103,7 @@ LINE Develpers console：<https://developers.line.biz/console/>
 
 ![](https://i.imgur.com/Nu6yldY.png)
 
-從工具列點選「工具」🡲「開發板: xxx」🡲「開發板管理員」。
+從工具列點選「工具」➜「開發板: xxx」➜「開發板管理員」。
 
 ![](https://i.imgur.com/MhVbkTo.png)
 
@@ -135,7 +135,7 @@ LINE Develpers console：<https://developers.line.biz/console/>
 
 ![](https://i.imgur.com/14nWwsV.jpg)
 
-從工具列點選「工具」🡲「開發板: xxx」🡲「ESP32 Dev Module」。
+從工具列點選「工具」➜「開發板: xxx」➜「ESP32 Dev Module」。
 
 ![](https://i.imgur.com/IRjmHH4.png)
 
@@ -143,11 +143,11 @@ LINE Develpers console：<https://developers.line.biz/console/>
 
 ![](https://i.imgur.com/MBJeS2r.png)
 
-從裝置管理員中找到「連接埠 (COM 和 LPT)」🡲「Silicon Labs CP210x USB to UART Bridge」，並記下後面的 `(COM ?)`（在本教學中是 `COM5`）。
+從裝置管理員中找到「連接埠 (COM 和 LPT)」➜「Silicon Labs CP210x USB to UART Bridge」，並記下後面的 `(COM ?)`（在本教學中是 `COM5`）。
 
 ![](https://i.imgur.com/4CsG3Vk.png)
 
-從工具列點選「工具」🡲「序列埠」🡲「COM ?」（在本教學中是 `COM5`）。
+從工具列點選「工具」➜「序列埠」➜「COM ?」（在本教學中是 `COM5`）。
 
 ![](https://i.imgur.com/mKIPReJ.png)
 

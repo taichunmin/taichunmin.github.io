@@ -9,7 +9,7 @@ tags: [ithelp-ironman]
 開啟整合式終端機的方式有很多種：
 
 * 使用快捷鍵 ![](https://i.imgur.com/izURn5b.png)，這個按鍵在 `TAB` 的上方
-* 上方工具列「檢視(V)」🡲「終端機」
+* 上方工具列「檢視(V)」➜「終端機」
 * 透過「尋找及執行所有命令」![](https://i.imgur.com/EXvNZfc.png) 然後輸入 `terminal` 尋找並執行「檢視：切換整合式終端機」指令
 
 ![](https://i.imgur.com/veQmvfu.png)
