@@ -1,0 +1,20 @@
+//- https://github.com/livereload/livereload-js/blob/master/src/options.js
+if NODE_ENV !== 'production'
+  script.
+    ;(function () {
+      const url = new URL(location)
+      const options = window.LiveReloadOptions = {
+        host: url.hostname,
+        snipver: 1,
+        ...(url.protocol === 'https:' ? {
+          port: url.port ?? 443,
+          https: true
+        } : {
+          port: url.port ?? 80
+        }),
+      }
+      const s = document.createElement('script')
+      s.src = 'https://cdn.jsdelivr.net/npm/livereload-js@4/dist/livereload.js'
+      const h = document.getElementsByTagName('head')[0]
+      h.appendChild(s)
+    })()

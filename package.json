@@ -1,0 +1,55 @@
+{
+  "author": "taichunmin <taichunmin@gmail.com>",
+  "description": "戴均民的個人網站，包含自我介紹、作品集、技術文章以及生活隨筆。",
+  "main": "index.js",
+  "name": "blog-v4",
+  "private": true,
+  "repository": "git@github.com:taichunmin/blog-v4.git",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "email": "taichunmin@gmail.com",
+      "name": "Chunmin Tai",
+      "url": "https://taichunmin.idv.tw"
+    }
+  ],
+  "resolutions": {
+    "**/jstransformer-scss": "^2.0.0"
+  },
+  "dependencies": {
+    "@tsconfig/node-lts": "^22.0.2",
+    "@types/finalhandler": "^1.2.4",
+    "@types/html-minifier": "^4.0.5",
+    "@types/livereload": "^0.9.5",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^24.5.2",
+    "@types/pug": "^2.0.10",
+    "@types/serve-static": "^1.15.8",
+    "@types/uglify-js": "^3.17.5",
+    "concurrently": "^9.2.1",
+    "debug": "^4.4.3",
+    "dotenv": "^17.2.2",
+    "fast-glob": "^3.3.3",
+    "finalhandler": "^2.1.0",
+    "html-minifier": "^4.0.0",
+    "jstransformer-sass": "^1.0.0",
+    "livereload": "^0.10.3",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "node-watch": "^0.7.4",
+    "pug": "^3.0.3",
+    "rimraf": "^6.0.1",
+    "serve-static": "^2.2.0",
+    "tsx": "^4.20.5",
+    "uglify-js": "^3.19.3"
+  },
+  "scripts": {
+    "build:page": "tsx ./build/page.ts",
+    "build": "yarn clean && yarn build:page",
+    "clean": "rimraf ./dist",
+    "dev:https": "tsx ./build/https.ts",
+    "dev:page": "tsx watch --clear-screen=false --include './page/**/*.pug' --include './layout/**/*.pug' ./build/page.ts",
+    "dev": "yarn clean && concurrently -c auto --names 'PAGE,HTTPS' 'yarn dev:page' 'yarn dev:https'",
+    "mkcert": "mkdir ./mkcert && mkcert -key-file ./mkcert/key.pem -cert-file ./mkcert/cert.pem -ecdsa localhost"
+  }
+}

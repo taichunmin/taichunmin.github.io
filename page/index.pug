@@ -1,0 +1,143 @@
+extends ../layout/bootstrap5
+
+block beforehtml
+  - title = '戴均民'
+
+block style
+  style
+    :sass
+      [v-cloak]
+        display: none
+      body, html
+        max-height: 100svh
+        max-height: 100vh
+        overflow: hidden
+      #app
+        height: 100svh
+        height: 100vh
+        overflow: auto
+      .container
+        z-index: 10
+        padding-bottom: 100px
+      .bg-desktop, .bg-mobile
+        -o-object-fit: cover
+        height: 100%
+        left: 0
+        object-fit: cover
+        position: fixed
+        top: 0
+        width: 100vw
+      .btn-social
+        padding: 12px
+        >img
+          width: 32px
+          height: 32px
+      .btn-icon-block
+        padding: 16px
+        >img
+          width: 32px
+          height: 32px
+          left: 12px
+      .btn-share
+        padding: 8px
+        >img
+          width: 16px
+          height: 16px
+      .bgicon
+        aspect-ratio: 1/1
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
+        display: inline-block
+        width: .875em
+
+block content
+  #app(v-cloak)
+    img.bg-mobile.d-block.d-md-none(src="https://i.imgur.com/51SG3TN.png")
+    img.bg-desktop.d-none.d-md-block(src="https://i.imgur.com/CPlJuz9.png")
+    .my-3.container.text-center.position-relative.text-light
+      .row.align-items-start.justify-content-center
+        .col.col-lg-8.col-xl-6.col-xxl-5.px-3
+          .d-flex.justify-content-end
+            button.btn-share.btn.btn-light.rounded-circle(type="button" data-bs-toggle="modal" data-bs-target="#modal-share")
+              img.d-block(src="https://api.iconify.design/material-symbols:share.svg")
+          img.d-block.rounded-circle.mt-4.mx-auto.w-100(src="https://www.gravatar.com/avatar/8d9b432d861e4ac0e40954a800ae90a1?s=2048" style="max-width: 128px")
+          h2.mt-4= site.name
+          p.mt-2= description
+          .d-flex.align-items-center.justify-content-between.mt-4
+            a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="mailto:taichunmin@gmail.com")
+              img.d-block(src="https://api.iconify.design/garden:email-stroke-16.svg")
+            a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="https://fb.me/taichunmin")
+              img.d-block(src="https://api.iconify.design/garden:facebook-stroke-16.svg")
+            a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="https://line.me/ti/p/VEiQ7TuTPO")
+              img.d-block(src="https://api.iconify.design/garden:line-social-stroke-16.svg")
+            a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="https://github.com/taichunmin")
+              img.d-block(src="https://api.iconify.design/garden:github-stroke-16.svg")
+            a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="https://www.linkedin.com/in/taichunmin")
+              img.d-block(src="https://api.iconify.design/tabler:brand-linkedin.svg")
+          .d-grid.gap-3.mt-4
+            a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="blog/")
+              img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/ph:article-medium.svg")
+              | 技術文章及生活隨筆
+            a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="works/")
+              img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/solar:code-circle-outline.svg")
+              | 作品集及小工具
+            a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="resume.html")
+              img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/material-symbols:account-circle-outline.svg")
+              | 經歷
+            a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="experiences.html")
+              img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/mdi:timeline-text-outline.svg")
+              | Timeline
+            a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="https://taichunmin.idv.tw/liff-businesscard/")
+              img.position-absolute.top-50.translate-middle-y.rounded-circle(src="https://i.imgur.com/IQyPjax.png")
+              | LINE 數位版名片
+            a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk")
+              img.position-absolute.top-50.translate-middle-y.rounded-circle(src="https://i.imgur.com/VFrARck.png")
+              | Flex 開發人員工具
+    #modal-share.modal.fade(tabindex="-1" ref="modal-share")
+      .modal-dialog.modal-dialog-centered
+        .modal-content
+          .modal-header
+            h5.modal-title #[.bgicon.mr-1(style="background-image: url(https://api.iconify.design/material-symbols:share.svg)")] 分享
+            button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+          .modal-body
+            img.img-thumbnail.d-block.mx-auto.w-100(src="https://i.imgur.com/Cp7GXXi.png" style="max-width: 192px")
+            .input-group.input-group-sm.mt-4
+              span.input-group-text
+                .bgicon(style="background-image: url(https://api.iconify.design/material-symbols:link.svg)")
+              input#shareUrl.form-control(readonly value=`${ogUrl}`)
+              button#copyUrl.btn.btn-primary(type="button" @click=`btnCopy('${ogUrl}', modalShare).then(hintCopied)`) {{ isCopied ? '已複製！' : '複製連結' }}
+
+block script
+  script(type="module").
+    import { createApp, ref, useTemplateRef } from 'vue'
+
+    window.vm = createApp({
+      setup () {
+        const isCopied = ref(false)
+        const modalShare = useTemplateRef('modal-share')
+
+        async function btnCopy (text, container = null) {
+          container ??= document.body
+          const dom = document.createElement('textarea')
+          dom.value = text = `${text}`
+          container.appendChild(dom)
+          dom.select()
+          dom.setSelectionRange(0, 1e6) // For mobile devices
+          document.execCommand('copy')
+          container.removeChild(dom)
+        }
+
+        async function sleep (ms) {
+          return new Promise(resolve => setTimeout(resolve, ms))
+        }
+
+        async function hintCopied () {
+          isCopied.value = true
+          await sleep(2000)
+          isCopied.value = false
+        }
+
+        return { btnCopy, hintCopied, isCopied, modalShare, sleep }
+      },
+    }).mount('#app')
