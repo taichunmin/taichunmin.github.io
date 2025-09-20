@@ -11,7 +11,7 @@ import UglifyJS from 'uglify-js'
 import { fileURLToPath } from 'url'
 import { inspect } from 'util'
 import pkg from '../package.json' assert { type: 'json' }
-import { errToJson } from './utils'
+import { errToJson, genSitemap } from './utils'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const pageDir = path.resolve(__dirname, '../page/')
@@ -76,6 +76,9 @@ export async function build (): Promise<void> {
     }
   }
   if (pugErrors > 0) throw new Error(`Failed to render ${pugErrors} pug files.`)
+
+  // sitemap
+  await genSitemap({ baseurl: PUG_OPTIONS.baseurl, dist: distDir, urls: sitemapUrls })
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

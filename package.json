@@ -27,6 +27,7 @@
     "@types/serve-static": "^1.15.8",
     "@types/uglify-js": "^3.17.5",
     "concurrently": "^9.2.1",
+    "dayjs": "^1.11.18",
     "debug": "^4.4.3",
     "dotenv": "^17.2.2",
     "fast-glob": "^3.3.3",
