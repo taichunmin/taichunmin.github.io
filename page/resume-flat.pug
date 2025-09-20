@@ -1,0 +1,204 @@
+extends ../layout/bootstrap5
+
+block beforehtml
+  - title = '戴均民的履歷'
+
+block style
+  style
+    :sass
+      [v-cloak]
+        display: none
+      #resume
+        padding-bottom: 100px
+        font-weight: 300
+        .container-fluid
+          max-width: 720px
+        .col-sm-9
+          font-size: 0.875rem
+        h4
+          font-size: 1.125rem
+        a
+          color: #2ecc71
+          &:focus, &:hover
+            color: #f1c40f
+        .company
+          img
+            width: 1.125rem
+
+block content
+  #app(v-cloak)
+    #resume(v-if="resume")
+      header.py-5.bg-body-secondary
+        #resume-header.container-fluid
+          .row.gx-5.align-items-center
+            .col-sm-3.mb-4.mb-sm-0.text-center
+              img.avatar.w-100.rounded-circle(:src="resume.basics.picture" style="max-width: 128px")
+            .col-sm-9
+              h1 {{ resume.basics.name }}
+              h3.text-secondary {{ resume.basics.label }}
+      #resume-body.container-fluid
+        section#contact.row.gx-5.mt-4
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Contact]
+          .col-sm-9: .row.gy-2
+            .col-sm-6
+              strong Email
+              .email: a.text-decoration-none(:href="'mailto:' + resume.basics.email") {{ resume.basics.email }}
+            .col-sm-6
+              strong Phone
+              .phone: a.text-decoration-none(:href="'tel:' + resume.basics.phone") {{ resume.basics.phone }}
+            .col-sm-6
+              strong Website
+              .website: a.text-decoration-none(target="_blank", :href="resume.basics.website") {{ trimProto(resume.basics.website) }}
+        section#about.row.gx-5.mt-4
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 About]
+          .col-sm-9 #[p {{ resume.basics.summary }}]
+        section#profiles.row.gx-5.mt-4(v-if="resume.basics.profiles.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Profiles]
+          .col-sm-9: .row.gy-2
+            .col-6(v-for="profile of resume.basics.profiles")
+              strong {{ profile.network }}
+              .username(v-if="profile.username")
+                .url(v-if="profile.url")
+                  a.text-decoration-none(target="_blank", :href="profile.url") {{ profile.username }}
+                template(v-else) {{ profile.username }}
+              .url(v-else-if="profile.url")
+                a.text-decoration-none(target="_blank", :href="profile.url") {{ trimProto(profile.url) }}
+        section#work.row.gx-5.mt-4(v-if="resume.work.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Work]
+          .col-sm-9: .row
+            .col-12.mb-4(v-for="work of resume.work")
+              .text-info-emphasis {{ work.startDate }} ~ {{ work.endDate || '至今' }}
+              h4.d-flex.align-items-center.company.mt-2.mb-0
+                img(src="https://api.iconify.design/material-symbols:work-outline.svg")
+                .ms-1 {{ work.company }}
+                small.ms-2.text-secondary {{ work.position }}
+              a.d-block.text-decoration-none(target="_blank" v-if="work.website" :href="work.website") {{ trimProto(work.website) }}
+              .summary.mt-2 #[p {{ work.summary }}]
+              .mt-3(v-if="work.highlights.length")
+                h4 Highlights
+                ul.highlights
+                  li.bullet(v-for="highlight of work.highlights") {{ highlight }}
+        section#volunteer.row.gx-5.mt-4(v-if="resume.volunteer.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Volunteer]
+          .col-sm-9: .row
+            .col-12.mb-4(v-for="volunteer of resume.volunteer")
+              .text-info-emphasis {{ volunteer.startDate }} — {{ volunteer.endDate || '至今' }}
+              h4.d-flex.align-items-center.company.mt-2.mb-0
+                img(src="https://api.iconify.design/eos-icons:organization-outlined.svg")
+                .ms-1 {{ volunteer.organization }}
+                small.ms-2.text-secondary {{ volunteer.position }}
+              a.d-block.text-decoration-none(target="_blank" v-if="volunteer.website" :href="volunteer.website") {{ trimProto(volunteer.website) }}
+              .summary.mt-2 #[p {{ volunteer.summary }}]
+              .mt-3(v-if="volunteer.highlights.length")
+                h4 Highlights
+                ul.highlights
+                  li.bullet(v-for="highlight of volunteer.highlights") {{ highlight }}
+        section#education.row.gx-5.mt-4(v-if="resume.education.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Education]
+          .col-sm-9: .row
+            .col-12.mb-4(v-for="education of resume.education")
+              .text-info-emphasis {{ education.startDate }} — {{ education.endDate || '至今' }}
+              h4.d-flex.align-items-center.company.mt-2.mb-0
+                img(src="https://api.iconify.design/eos-icons:organization-outlined.svg")
+                .ms-1 {{ education.institution }}
+                small.ms-2.text-secondary {{ education.studyType }}
+              .area.mt-1 {{ education.area }}
+              template(v-if="education.courses.length")
+                h4 Courses
+                ul.courses
+                  li.bullet(v-for="course of education.courses") {{ course }}
+        section#awards.row.gx-5.mt-4(v-if="resume.awards.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Awards]
+          .col-sm-9: .row
+            .col-12.mb-4(v-for="award of resume.awards")
+              .text-info-emphasis {{ award.date }}
+              h4.d-flex.align-items-center.company.mt-2.mb-0
+                img(src="https://api.iconify.design/bx:trophy.svg")
+                .ms-1 {{ award.title }}
+              .awarder.mt-2
+                em.me-1 by
+                strong {{ award.awarder }}
+              .summary.mt-2 {{ award.summary }}
+        section#publications.row.gx-5.mt-4(v-if="resume.publications.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Publications]
+          .col-sm-9: .row
+            .col-12.mb-4(v-for="publication of resume.publications")
+              h4.strike-through
+                span {{ publication.name }}
+                span.date {{ publication.releaseDate }}
+              .website.pull-right
+                a.text-decoration-none(target="_blank", :href="publication.website") {{ trimProto(publication.website) }}
+              .publisher
+                em.mr-1 Published by
+                strong {{ publication.publisher }}
+              .summary #[p {{ publication.summary }}]
+        section#skills.row.gx-5.mt-4(v-if="resume.skills.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Skills]
+          .col-sm-9: .row
+            .col-sm-6(v-for="skill of resume.skills")
+              .name #[h4 {{ skill.name }}]
+              ul.keywords(v-if="skill.keywords.length")
+                li(v-for="keyword of skill.keywords") {{ keyword }}
+        section#languages.row.gx-5.mt-4(v-if="resume.languages.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Languages]
+          .col-sm-9: .row.languages
+            .col-12.mb-2(v-for="language of resume.languages")
+              strong.language {{ language.language }}
+              span.fluency.ms-1 ({{ language.fluency }})
+        section#interests.row.gx-5.mt-4(v-if="resume.interests.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 Interests]
+          .col-sm-9: .row
+            .col-sm-6(v-for="interest of resume.interests")
+              .name #[h4 {{ interest.name }}]
+              ul.keywords(v-if="interest.keywords.length")
+                li(v-for="keyword of interest.keywords") {{ keyword }}
+        section#references.row.gx-5.mt-4(v-if="resume.references.length")
+          aside.col-sm-3.text-sm-end #[h4.text-warning.display-6 References]
+          .col-sm-9: .row
+            .col-12.mb-4(v-for="reference of resume.references")
+              blockquote.reference
+                p {{ reference.reference }}
+                p.name #[strong {{ reference.name }}]
+
+block script
+  script(type="module").
+    import { createApp, onMounted, ref } from 'vue'
+    // https://gist.github.com/taichunmin/5521c4d0e9dab5303a8e02f2bd0fcc5e
+    const JSONRESUME_URL = 'https://gist.githubusercontent.com/taichunmin/5521c4d0e9dab5303a8e02f2bd0fcc5e/raw/resume.json'
+
+    window.vm = createApp({
+      setup () {
+        const resume = ref(null)
+
+        function showLoading (opts = {}) {
+          opts = {
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            ...opts,
+          }
+          if (Swal.isVisible()) return Swal.update(_.omit(opts, ['progressStepsDistance']))
+          Swal.fire({ ...opts, didRender: () => { Swal.showLoading() } })
+        }
+
+        function trimProto (url) {
+          return url.replace(/^https?:\/\//, '')
+        }
+
+        onMounted(async () => {
+          try {
+            showLoading({ text: '讀取中...' })
+            const { fetch } = window
+            const url = new URL(JSONRESUME_URL)
+            url.searchParams.set('cachebust', +new Date())
+            const res = await fetch(url.href)
+            if (!res.ok) throw new Error(`Failed to fetch ${url.href}`)
+            resume.value = await res.json()
+            Swal.close()
+          } catch (err) {
+            console.error(err)
+          }
+        })
+
+        return { resume, trimProto }
+      }
+    }).mount('#app')

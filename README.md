@@ -45,3 +45,8 @@ yarn dev
 ```
 
 這個指令會同時監聽相關檔案的變動並自動重新編譯以及啟動一個本地的 HTTPS 伺服器。
+
+## 小圖示 icones
+
+- [搜尋圖示並取得 SVG 網址 - icones](https://icones.js.org/)
+- [搜尋圖示 - iconify](https://icon-sets.iconify.design/)

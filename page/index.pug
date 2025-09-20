@@ -1,7 +1,7 @@
 extends ../layout/bootstrap5
 
 block beforehtml
-  - title = '戴均民'
+  - title = '戴均民的連結'
 
 block style
   style
@@ -66,7 +66,7 @@ block content
           p.mt-2= description
           .d-flex.align-items-center.justify-content-between.mt-4
             a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="mailto:taichunmin@gmail.com")
-              img.d-block(src="https://api.iconify.design/garden:email-stroke-16.svg")
+              img.d-block(src="https://api.iconify.design/material-symbols:mail-outline.svg")
             a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="https://fb.me/taichunmin")
               img.d-block(src="https://api.iconify.design/garden:facebook-stroke-16.svg")
             a.btn.btn-light.btn-social.rounded-circle(target="_blank" href="https://line.me/ti/p/VEiQ7TuTPO")
@@ -77,17 +77,17 @@ block content
               img.d-block(src="https://api.iconify.design/tabler:brand-linkedin.svg")
           .d-grid.gap-3.mt-4
             a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="blog/")
-              img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/ph:article-medium.svg")
+              img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/streamline:markdown-circle-programming.svg")
               | 技術文章及生活隨筆
             a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="works/")
               img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/solar:code-circle-outline.svg")
               | 作品集及小工具
             a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="resume.html")
               img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/material-symbols:account-circle-outline.svg")
-              | 經歷
+              | 履歷 Resume
             a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="experiences.html")
               img.position-absolute.top-50.translate-middle-y(src="https://api.iconify.design/mdi:timeline-text-outline.svg")
-              | Timeline
+              | 經歷 Timeline
             a.btn.btn-light.rounded-pill.btn-icon-block.position-relative(type="button" href="https://taichunmin.idv.tw/liff-businesscard/")
               img.position-absolute.top-50.translate-middle-y.rounded-circle(src="https://i.imgur.com/IQyPjax.png")
               | LINE 數位版名片
@@ -98,7 +98,7 @@ block content
       .modal-dialog.modal-dialog-centered
         .modal-content
           .modal-header
-            h5.modal-title #[.bgicon.mr-1(style="background-image: url(https://api.iconify.design/material-symbols:share.svg)")] 分享
+            h5.modal-title #[.bgicon.me-1(style="background-image: url(https://api.iconify.design/material-symbols:share.svg)")] 分享
             button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
           .modal-body
             img.img-thumbnail.d-block.mx-auto.w-100(src="https://i.imgur.com/Cp7GXXi.png" style="max-width: 192px")
@@ -110,6 +110,7 @@ block content
 
 block script
   script(type="module").
+    // https://bio.link/taichunmin
     import { createApp, ref, useTemplateRef } from 'vue'
 
     window.vm = createApp({

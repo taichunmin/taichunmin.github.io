@@ -4,12 +4,12 @@ import finalhandler from 'finalhandler'
 import { promises as fsPromises } from 'fs'
 import https from 'https'
 import livereload from 'livereload'
-import * as _ from 'lodash-es'
 import watch from 'node-watch'
 import path from 'path'
 import serveStatic from 'serve-static'
 import { fileURLToPath } from 'url'
 import { errToJson } from './utils'
+import * as _ from 'lodash-es'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const pageDir = path.resolve(__dirname, '../page/')
@@ -28,28 +28,36 @@ async function readMkcert (): Promise<{ cert: Buffer, key: Buffer }> {
 }
 
 async function main (): Promise<void> {
-  const publicDir = path.resolve(__dirname, '../dist')
-
   const httpsServer = https.createServer(await readMkcert(), (req, res) => {
-    serveStatic(publicDir, {
+    serveStatic(distDir, {
       index: ['index.html', 'index.htm'],
     })(req, res, finalhandler(req, res))
   })
 
   const livereloadServer = livereload.createServer({
     port: getPort(),
+    // debug: true,
+    delay: 1000,
+    exts: ['html', 'css', 'js'],
     server: httpsServer,
   }) as LiveReloadServer1
 
-  livereloadServer._filterRefresh = (livereloadServer as any).filterRefresh
-  livereloadServer.filterRefresh = _.debounce((filepath: string) => { livereloadServer._filterRefresh?.(filepath) }, 1000)
-  livereloadServer.watch(publicDir)
-  console.log(`build finish. Visit: ${getSiteurl()}`)
 
-  watch([path.resolve(__dirname, '../page')], { recursive: true }, async (e, name) => {
+  watch([pageDir], { recursive: true }, async (e, name) => {
     if (e !== 'update') return
     console.log(getSiteurl(`./${path.relative(pageDir, name).replace(/\.pug$/, '.html')}`))
   })
+
+  let latestDistFilepath = ''
+  const debounceRefresh = _.debounce(() => { livereloadServer.refresh(latestDistFilepath) }, 500)
+  watch([distDir], { recursive: true }, async (e, name) => {
+    if (e !== 'update') return
+    if (!_.includes(['.html', '.css', '.js'], path.extname(name))) return
+    latestDistFilepath = name
+    debounceRefresh()
+  })
+
+  console.log(`build finish. Visit: ${getSiteurl()}`)
 }
 
 type LiveReloadServer1 = livereload.LiveReloadServer & { _filterRefresh?: livereload.LiveReloadServer['filterRefresh'] }

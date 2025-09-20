@@ -37,6 +37,7 @@
     "livereload": "^0.10.3",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
+    "mkdirp": "^3.0.1",
     "node-watch": "^0.7.4",
     "pug": "^3.0.3",
     "rimraf": "^6.0.1",
@@ -47,10 +48,10 @@
   "scripts": {
     "build:page": "tsx ./build/page.ts",
     "build": "yarn clean && yarn build:page",
-    "clean": "rimraf ./dist",
+    "clean": "rimraf ./dist/**/*",
     "dev:https": "tsx ./build/https.ts",
     "dev:page": "tsx watch --clear-screen=false --include './page/**/*.pug' --include './layout/**/*.pug' ./build/page.ts",
-    "dev": "yarn clean && concurrently -c auto --names 'PAGE,HTTPS' 'yarn dev:page' 'yarn dev:https'",
+    "dev": "mkdirp ./dist && yarn clean && concurrently -c auto --names 'PAGE,HTTPS' 'yarn dev:page' 'yarn dev:https'",
     "mkcert": "mkdir ./mkcert && mkcert -key-file ./mkcert/key.pem -cert-file ./mkcert/cert.pem -ecdsa localhost"
   }
 }
