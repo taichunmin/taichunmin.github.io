@@ -16,7 +16,7 @@ block style
       @each $item in $fs-px-items
         .fs-#{$item}
           font-size: $item
-      $ls-items: ("n1px": -1px, "dot4px": .4px, "1px": 1px)
+      $ls-items: ("n1px": -1px, "1px": 1px)
       @each $k, $v in $ls-items
         .ls-#{$k}
           letter-spacing: $v
@@ -307,4 +307,3 @@ block script
         return { home, icons, resume, trimProto }
       }
     }).mount('#app')
-

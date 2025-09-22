@@ -1,0 +1,210 @@
+extends ../layout/bootstrap5
+
+block beforehtml
+  - title = '戴均民的經歷 Timeline'
+
+block style
+  style
+    :sass
+      [v-cloak]
+        display: none
+      $fs-px-items: 1px, 11px, 12px, 14px, 16px, 40px
+      @each $item in $fs-px-items
+        .fs-#{$item}
+          font-size: $item
+      $ls-items: ("n1px": -1px, "1px": 1px)
+      @each $k, $v in $ls-items
+        .ls-#{$k}
+          letter-spacing: $v
+      @media (min-width: 768px)
+        .timeline-max-width
+          max-width: 720px
+      .card-text
+        p
+          margin-bottom: .5rem
+        ol, ul
+          padding-left: 1rem
+          margin-bottom: .5rem
+        :last-child
+          margin-bottom: 0 !important
+      img.card-img-top
+        aspect-ratio: 1200 / 630
+      .timeline
+        &>.col-12:first-child
+          margin-top: 1rem !important
+        &>.position-relative
+          &::before, &::after
+            content: ' '
+            position: absolute
+            z-index: 1
+            top: 18px
+          &::before
+            left: 15px
+            border: medium solid rgb(var(--bs-success-rgb))
+            border-width: 10px 10px 10px 0
+            border-color: transparent rgb(var(--bs-success-rgb)) transparent transparent
+          &::after
+            left: -13px
+            width: 20px
+            height: 20px
+            background-color: rgb(var(--bs-success-rgb))
+            border-radius: 50%
+
+block content
+  #app(v-cloak)
+    .container.p-3.pb-5(v-if="timeline")
+      header.text-center.mb-3
+        h1.fs-40px.ls-1px.fw-bold 經歷 #[span.fw-light Timeline]
+      section.timeline-max-width.mx-auto.d-block
+        .timeline.row.ms-3.border-start.border-success.border-5
+          .col-12.ps-4.mt-4.position-relative(v-for="item of timeline")
+            .card.position-relative
+              img.card-img-top(:src="item.media" :alt="item.mediaCaption")
+              .d-inline-flex.gap-2.position-absolute.top-0.start-0.m-3(v-if="item.tags?.length")
+                .badge.rounded-pill.text-bg-success.border(v-for="tag of item.tags") {{ tag }}
+              .card-body.border-top
+                .d-flex.justify-content-between
+                  .timeline-title
+                    h5.card-title.fs-16px.fw-bold {{ item.title }}
+                    h6.card-subtitle.fs-14px.fw-light(v-if="item.subtitle") {{ item.subtitle }}
+                  .timeline-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
+                    template(v-if="item.startDate !== item.endDate")
+                      .text-nowrap.lh-1 {{ item.endDate || 'Present' }}
+                      .d-flex(style="height: 1rem"): .vr.fs-1px.bg-success
+                    .text-nowrap.lh-1 {{ item.startDate }}
+                .card-text.fs-12px.mt-3(v-html="mdRender(item.summary)")
+                .d-inline-flex.gap-2.mt-3(v-if="item.btns?.length")
+                  a.btn.btn-sm.btn-outline-primary.fs-12px(v-for="btn of item.btns" target="_blank" :href="btn.url") {{ btn.text }}
+
+block script
+  script(src="https://cdn.jsdelivr.net/npm/markdown-it-imsize@2/dist/markdown-it-imsize.min.js")
+  script(type="module").
+    // https://mdbootstrap.com/docs/standard/extended/timeline/#section-timeline-gradient-bg
+    // https://docs.google.com/spreadsheets/d/1Sp7hUdQlc9xIJnA2wSYEoc0ul-QrLXG7UVxFbneQcRo/edit?gid=0#gid=0
+    import _ from 'lodash'
+    import { computed, createApp, onMounted, ref } from 'vue'
+    import * as z from 'zod'
+    import JSON5 from 'json5'
+    import markdownit from 'markdown-it'
+    import markdownitAbbr from 'markdown-it-abbr'
+    import markdownitContainer from 'markdown-it-container'
+    import markdownitDeflist from 'markdown-it-deflist'
+    import markdownitFootnote from 'markdown-it-footnote'
+    import markdownitIns from 'markdown-it-ins'
+    import markdownitMark from 'markdown-it-mark'
+    import markdownitSub from 'markdown-it-sub'
+    import markdownitSup from 'markdown-it-sup'
+    import Papa from 'papaparse'
+
+    const TIMELINE_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRhycKgnL59cw547gOQoj1hqc3P09g17oaqFuSx1WZu3OZVVeYth6e5ffHKssyOuPevzkgtBFMDbH7n/pub?gid=0&single=true&output=csv'
+
+    // markdown-it init
+    const md = markdownit('default', {
+      html: true,
+      langPrefix: '',
+      linkify: true,
+      typographer: true,
+      highlight (code, lang) {
+        if (!lang || /no(-?)highlight|plain|text|mermaid/.test(lang)) return
+        //- console.log({ code, lang, highlight: Prism.highlight(code, Prism.languages[lang] || Prism.languages.plain, lang) })
+        const result = Prism.highlight(code, Prism.languages[lang] || Prism.languages.plain, lang)
+        return `<pre class="rounded language-${lang}"><code>${result}</code></pre>`
+      },
+    })
+    for (const plugin of [markdownitAbbr, markdownitDeflist, markdownitFootnote, markdownitIns, markdownitMark, markdownitSub, markdownitSup]) md.use(plugin)
+    md.use(window['markdown-it-imsize.js'])
+    if (!_.isNil(markdownitContainer)) {
+      const render = (tokens, idx, options, env, self) => {
+        tokens[idx].attrJoin('role', 'alert')
+        tokens[idx].attrJoin('class', 'alert')
+        tokens[idx].attrJoin('class', `alert-${tokens[idx].info.trim().toLowerCase()}`)
+        return self.renderToken(...arguments)
+      }
+      // bootstrap 5 alert types
+      const alertTypes = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']
+      for (const alertType of alertTypes) md.use(markdownitContainer, alertType, { render })
+    }
+    function mdRender (str) {
+      str = _.trim(str)
+      const hasNewLine = str.indexOf('\n') >= 0
+      return hasNewLine ? md.render(str) : md.renderInline(str)
+    }
+
+    window.vm = createApp({
+      setup () {
+        const timeline = ref([])
+
+        function showLoading (opts = {}) {
+          opts = {
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            ...opts,
+          }
+          if (Swal.isVisible()) return Swal.update(_.omit(opts, ['progressStepsDistance']))
+          Swal.fire({ ...opts, didRender: () => { Swal.showLoading() } })
+        }
+
+        async function getCsv (url, cachetime = 3e4) {
+          const { fetch } = window
+          const tmp = new URL(url)
+          tmp.searchParams.set('cachebust', _.floor(Date.now() / cachetime))
+          const res = await fetch(tmp.href)
+          if (!res.ok) throw new Error(`Failed to fetch ${tmp.href}`)
+          return Papa.parse(await res.text(), { encoding: 'utf8', header: true })?.data ?? []
+        }
+
+        function parseJson5OrDefault (str, defaultVal) {
+          try {
+            return JSON5.parse(str)
+          } catch (err) {
+            return defaultVal
+          }
+        }
+
+        const ZodTimelineItem = z.object({
+          startDate: z.iso.date(),
+          endDate: z.iso.date().catch(null),
+          mediaType: z.string().trim().min(1).catch('image'),
+          tags: z.string().transform(str => _.chain(str).split(/\s*,\s*/).map(_.trim).compact().value()),
+          title: z.string().trim().min(1),
+          subtitle: z.string().trim().min(1).catch(null),
+          summary: z.string().trim().min(1).catch(null),
+          media: z.string().trim().min(1).catch(null),
+          mediaCredit: z.string().trim().min(1).catch(null),
+          mediaCaption: z.string().trim().min(1).catch(null),
+          btns: z.string().transform(str => parseJson5OrDefault(str, [])),
+        })
+
+        onMounted(async () => {
+          try {
+            showLoading({ text: '讀取中...' })
+            const rows = await getCsv(TIMELINE_URL)
+            console.log(`rows.length = ${JSON.stringify(rows.length)}`)
+            console.log(rows)
+
+            timeline.value = _.chain(rows)
+              .map(row => {
+                try {
+                  return ZodTimelineItem.parse(row)
+                } catch (err) {
+                  console.log(`row = ${JSON.stringify(row)}`)
+                  console.error(err)
+                  return null
+                }
+              })
+              .compact()
+              .orderBy(['startDate', 'endDate'], ['desc', 'desc'])
+              .value()
+            console.log(`timeline.value.length = ${JSON.stringify(timeline.value.length)}`)
+            console.log(timeline.value)
+
+            Swal.close()
+          } catch (err) {
+            console.error(err)
+          }
+        })
+
+        return { mdRender, timeline, ZodTimelineItem }
+      }
+    }).mount('#app')
+
