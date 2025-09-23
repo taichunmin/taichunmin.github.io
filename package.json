@@ -27,6 +27,7 @@
     "@types/serve-static": "^1.15.8",
     "@types/uglify-js": "^3.17.5",
     "concurrently": "^9.2.1",
+    "cpy-cli": "^6.0.0",
     "dayjs": "^1.11.18",
     "debug": "^4.4.3",
     "dotenv": "^17.2.2",
@@ -46,12 +47,14 @@
     "uglify-js": "^3.19.3"
   },
   "scripts": {
+    "build:asset": "cpy 'asset/**/*.{cjs,css,gif,jpeg,jpg,js,mjs,png,svg,webp}' ./dist",
     "build:page": "tsx ./build/page.ts",
-    "build": "yarn clean && yarn build:page",
+    "build": "yarn clean && yarn build:asset && yarn build:page",
     "clean": "rimraf ./dist/**/*",
+    "dev:asset": "tsx watch --clear-screen=false --include './asset/**/*' ./node_modules/cpy-cli/cli.js 'asset/**/*.{cjs,css,gif,jpeg,jpg,js,mjs,png,svg,webp}' ./dist",
     "dev:https": "tsx ./build/https.ts",
     "dev:page": "tsx watch --clear-screen=false --include './page/**/*.pug' --include './layout/**/*.pug' ./build/page.ts",
-    "dev": "mkdirp ./dist && yarn clean && concurrently -c auto --names 'PAGE,HTTPS' 'yarn dev:page' 'yarn dev:https'",
+    "dev": "mkdirp ./dist && yarn clean && concurrently -c auto --names 'PAGE,HTTPS,ASSET' 'yarn dev:page' 'yarn dev:https' 'yarn dev:asset'",
     "mkcert": "mkdir ./mkcert && mkcert -key-file ./mkcert/key.pem -cert-file ./mkcert/cert.pem -ecdsa localhost"
   }
 }

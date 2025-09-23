@@ -1,7 +1,7 @@
 extends ../layout/bootstrap5
 
 block beforehtml
-  - title = '戴均民的連結'
+  - title = '戴均民的連結牆'
 
 block style
   style
@@ -112,26 +112,12 @@ block script
   script(type="module").
     // https://bio.link/taichunmin
     import { createApp, ref, useTemplateRef } from 'vue'
+    import { btnCopy, sleep } from '@app/js/utils.mjs'
 
     window.vm = createApp({
       setup () {
         const isCopied = ref(false)
         const modalShare = useTemplateRef('modal-share')
-
-        async function btnCopy (text, container = null) {
-          container ??= document.body
-          const dom = document.createElement('textarea')
-          dom.value = text = `${text}`
-          container.appendChild(dom)
-          dom.select()
-          dom.setSelectionRange(0, 1e6) // For mobile devices
-          document.execCommand('copy')
-          container.removeChild(dom)
-        }
-
-        async function sleep (ms) {
-          return new Promise(resolve => setTimeout(resolve, ms))
-        }
 
         async function hintCopied () {
           isCopied.value = true
@@ -139,6 +125,6 @@ block script
           isCopied.value = false
         }
 
-        return { btnCopy, hintCopied, isCopied, modalShare, sleep }
+        return { btnCopy, hintCopied, isCopied, modalShare }
       },
     }).mount('#app')

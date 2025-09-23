@@ -50,14 +50,15 @@ async function main (): Promise<void> {
 
   let latestDistFilepath = ''
   const debounceRefresh = _.debounce(() => { livereloadServer.refresh(latestDistFilepath) }, 500)
+  const exts = 'cjs,css,gif,html,jpeg,jpg,js,mjs,png,svg,webp'.split(',')
   watch([distDir], { recursive: true }, async (e, name) => {
     if (e !== 'update') return
-    if (!_.includes(['.html', '.css', '.js'], path.extname(name))) return
+    if (!_.includes(exts, path.extname(name).slice(1))) return
     latestDistFilepath = name
     debounceRefresh()
   })
 
-  console.log(`build finish. Visit: ${getSiteurl()}`)
+  console.log(`https server started: ${getSiteurl()}`)
 }
 
 type LiveReloadServer1 = livereload.LiveReloadServer & { _filterRefresh?: livereload.LiveReloadServer['filterRefresh'] }

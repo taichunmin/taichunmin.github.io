@@ -1,7 +1,9 @@
 extends ../layout/bootstrap5
 
 block beforehtml
-  - title = '戴均民的履歷'
+  -
+    title = '戴均民的履歷'
+    description = '這是戴均民的履歷，包含工作、學歷、擅長技術、社群參與、程式專案、獲獎記錄、聯絡方式……等。'
 
 block style
   style
@@ -248,6 +250,7 @@ block script
     // https://github.com/biosan/jsonresume-theme-macchiato
     import _ from 'lodash'
     import { computed, createApp, onMounted, ref } from 'vue'
+    import { getJson } from '@app/js/utils.mjs'
     // https://gist.github.com/taichunmin/5521c4d0e9dab5303a8e02f2bd0fcc5e
     const JSONRESUME_URL = 'https://gist.githubusercontent.com/taichunmin/5521c4d0e9dab5303a8e02f2bd0fcc5e/raw/resume.json'
 
@@ -288,16 +291,12 @@ block script
             showLoading({ text: '讀取中...' })
 
             // try to fetch jsonresume url from search params
-            const { fetch } = window
             let resumeUrl = new URL(JSONRESUME_URL)
             try {
               const pageUrl = new URL(location)
               resumeUrl = new URL(pageUrl.searchParams.get('jsonresume') ?? JSONRESUME_URL)
             } catch (err) {}
-            resumeUrl.searchParams.set('cachebust', +new Date())
-            const res = await fetch(resumeUrl.href)
-            if (!res.ok) throw new Error(`Failed to fetch ${resumeUrl.href}`)
-            resume.value = await res.json()
+            resume.value = await getJson(resumeUrl)
             Swal.close()
           } catch (err) {
             console.error(err)

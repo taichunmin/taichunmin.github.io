@@ -1,7 +1,9 @@
 extends ../layout/bootstrap5
 
 block beforehtml
-  - title = '戴均民的經歷 Timeline'
+  -
+    title = '戴均民的經歷 Timeline'
+    description = '這是戴均民的工作、社群、演講經歷。'
 
 block style
   style
@@ -55,6 +57,7 @@ block content
     .container.p-3.pb-5(v-if="timeline")
       header.text-center.mb-3
         h1.fs-40px.ls-1px.fw-bold 經歷 #[span.fw-light Timeline]
+        p.fs-16px.fw-light.ls-n1px= description
       section.timeline-max-width.mx-auto.d-block
         .timeline.row.ms-3.border-start.border-success.border-5
           .col-12.ps-4.mt-4.position-relative(v-for="item of timeline")
@@ -83,8 +86,9 @@ block script
     // https://docs.google.com/spreadsheets/d/1Sp7hUdQlc9xIJnA2wSYEoc0ul-QrLXG7UVxFbneQcRo/edit?gid=0#gid=0
     import _ from 'lodash'
     import { computed, createApp, onMounted, ref } from 'vue'
+    import { getCsv, parseJson5OrDefault, showLoading } from '@app/js/utils.mjs'
+    import { mdRender } from '@app/js/markdownit.mjs'
     import * as z from 'zod'
-    import JSON5 from 'json5'
     import markdownit from 'markdown-it'
     import markdownitAbbr from 'markdown-it-abbr'
     import markdownitContainer from 'markdown-it-container'
@@ -94,72 +98,12 @@ block script
     import markdownitMark from 'markdown-it-mark'
     import markdownitSub from 'markdown-it-sub'
     import markdownitSup from 'markdown-it-sup'
-    import Papa from 'papaparse'
 
     const TIMELINE_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRhycKgnL59cw547gOQoj1hqc3P09g17oaqFuSx1WZu3OZVVeYth6e5ffHKssyOuPevzkgtBFMDbH7n/pub?gid=0&single=true&output=csv'
-
-    // markdown-it init
-    const md = markdownit('default', {
-      html: true,
-      langPrefix: '',
-      linkify: true,
-      typographer: true,
-      highlight (code, lang) {
-        if (!lang || /no(-?)highlight|plain|text|mermaid/.test(lang)) return
-        //- console.log({ code, lang, highlight: Prism.highlight(code, Prism.languages[lang] || Prism.languages.plain, lang) })
-        const result = Prism.highlight(code, Prism.languages[lang] || Prism.languages.plain, lang)
-        return `<pre class="rounded language-${lang}"><code>${result}</code></pre>`
-      },
-    })
-    for (const plugin of [markdownitAbbr, markdownitDeflist, markdownitFootnote, markdownitIns, markdownitMark, markdownitSub, markdownitSup]) md.use(plugin)
-    md.use(window['markdown-it-imsize.js'])
-    if (!_.isNil(markdownitContainer)) {
-      const render = (tokens, idx, options, env, self) => {
-        tokens[idx].attrJoin('role', 'alert')
-        tokens[idx].attrJoin('class', 'alert')
-        tokens[idx].attrJoin('class', `alert-${tokens[idx].info.trim().toLowerCase()}`)
-        return self.renderToken(...arguments)
-      }
-      // bootstrap 5 alert types
-      const alertTypes = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']
-      for (const alertType of alertTypes) md.use(markdownitContainer, alertType, { render })
-    }
-    function mdRender (str) {
-      str = _.trim(str)
-      const hasNewLine = str.indexOf('\n') >= 0
-      return hasNewLine ? md.render(str) : md.renderInline(str)
-    }
 
     window.vm = createApp({
       setup () {
         const timeline = ref([])
-
-        function showLoading (opts = {}) {
-          opts = {
-            allowOutsideClick: false,
-            showConfirmButton: false,
-            ...opts,
-          }
-          if (Swal.isVisible()) return Swal.update(_.omit(opts, ['progressStepsDistance']))
-          Swal.fire({ ...opts, didRender: () => { Swal.showLoading() } })
-        }
-
-        async function getCsv (url, cachetime = 3e4) {
-          const { fetch } = window
-          const tmp = new URL(url)
-          tmp.searchParams.set('cachebust', _.floor(Date.now() / cachetime))
-          const res = await fetch(tmp.href)
-          if (!res.ok) throw new Error(`Failed to fetch ${tmp.href}`)
-          return Papa.parse(await res.text(), { encoding: 'utf8', header: true })?.data ?? []
-        }
-
-        function parseJson5OrDefault (str, defaultVal) {
-          try {
-            return JSON5.parse(str)
-          } catch (err) {
-            return defaultVal
-          }
-        }
 
         const ZodTimelineItem = z.object({
           startDate: z.iso.date(),
