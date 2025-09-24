@@ -1,0 +1,129 @@
+extends ../../layout/bootstrap5
+
+block beforehtml
+  -
+    title = '戴均民的作品集'
+    description = '這是戴均民的程式作品集，包含過往專案、小工具……等。'
+
+block style
+  style
+    :sass
+      [v-cloak]
+        display: none
+      $ls-items: ("n1px": -1px, "1px": 1px)
+      @each $k, $v in $ls-items
+        .ls-#{$k}
+          letter-spacing: $v
+      .card-text
+        p
+          margin-bottom: .5rem
+        ol, ul
+          padding-left: 1rem
+          margin-bottom: .5rem
+        :last-child
+          margin-bottom: 0 !important
+      img.card-img-top
+        aspect-ratio: 1200 / 630
+
+block content
+  #app(v-cloak)
+    .container.p-3.pb-5(v-if="works")
+      header.text-center.mb-3
+        h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/solar:code-circle-outline.svg)")
+          | 作品集
+        p.fs-16px.fw-light.ls-n1px= description
+      section.row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4
+        .col(v-for="work, workIdx of works" :key="work.image"): .card.h-100
+          img.card-img-top(v-if="work.image" :src="work.image" :alt="work.title")
+          .card-body.border-top.d-flex.flex-column
+            h5.card-title.fs-16px.fw-bold.mb-0 {{ work.title }}
+            .card-text.flex-fill.fs-12px.mt-3(v-html="mdRender(work.summary)")
+            .d-inline-flex.gap-2.mt-3
+              button.icon-link.btn.btn-sm.btn-outline-primary.fs-14px(v-if="work.album?.length" type="button" data-bs-toggle="modal" :data-bs-target="`#modal-album-${workIdx}`")
+                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/carbon:carousel-horizontal.svg)")
+                | 圖集
+              a.icon-link.btn.btn-sm.btn-outline-primary.fs-14px(v-if="work.url" :href="work.url" target="_blank")
+                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
+                | 網站
+    template(v-for="work, workIdx of works" :key="work.image")
+      .modal.modal-xl.fade(v-if="work.album?.length" tabindex="-1" :id="`modal-album-${workIdx}`")
+        .modal-dialog.modal-dialog-centered
+          .modal-content
+            .modal-header
+              h5.modal-title.icon-link
+                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/carbon:carousel-horizontal.svg)")
+                | 圖集：{{ work.title }}
+              button.btn-close(type="button" data-bs-dismiss="modal")
+            .modal-body.p-0
+              .carousel.slide(:id="`carousel-work-${workIdx}`")
+                .carousel-indicators
+                  button(v-for="item, itemIdx of work.album" type="button" data-bs-target="`#carousel-work-${workIdx}`" :data-bs-slide-to="itemIdx" :class="{ active: itemIdx === 0 }")
+                .carousel-inner
+                  .carousel-item(v-for="item, itemIdx of work.album" :class="{ active: itemIdx === 0 }")
+                    img.d-block.w-100(:src="item.img")
+                    .carousel-caption.d-none.d-md-block.bg-secondary.rounded(style="--bs-bg-opacity: .5")
+                      p.fs-12px(v-html="mdRender(item.caption)")
+                button.carousel-control-prev(type="button" :data-bs-target="`#carousel-work-${workIdx}`" data-bs-slide="prev")
+                  span.carousel-control-prev-icon(aria-hidden="true")
+                  span.visually-hidden 上一張
+                button.carousel-control-next(type="button" :data-bs-target="`#carousel-work-${workIdx}`" data-bs-slide="next")
+                  span.carousel-control-next-icon(aria-hidden="true")
+                  span.visually-hidden 下一張
+            .modal-footer
+              button.btn.btn-secondary(type="button" data-bs-dismiss="modal") 關閉
+
+block script
+  script(type="module").
+    // https://docs.google.com/spreadsheets/d/1Sp7hUdQlc9xIJnA2wSYEoc0ul-QrLXG7UVxFbneQcRo/edit?gid=314619109#gid=314619109
+    import _ from 'lodash'
+    import { computed, createApp, onMounted, ref } from 'vue'
+    import { getCsv, parseJson5OrDefault, showLoading } from '@app/js/utils.mjs'
+    import { mdRender } from '@app/js/markdownit.mjs'
+    import * as z from 'zod'
+
+    const WORKS_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRhycKgnL59cw547gOQoj1hqc3P09g17oaqFuSx1WZu3OZVVeYth6e5ffHKssyOuPevzkgtBFMDbH7n/pub?gid=314619109&single=true&output=csv'
+
+    window.vm = createApp({
+      setup () {
+        const works = ref([])
+
+        const ZodWorkItem = z.object({
+          title: z.string().trim().min(1),
+          image: z.string().trim().min(1).catch('https://i.imgur.com/MlJ4h87.png'),
+          url: z.string().trim().min(1).catch(null),
+          summary: z.string().trim().min(1).catch(null),
+          album: z.string().transform(str => parseJson5OrDefault(str, [])),
+        })
+
+        onMounted(async () => {
+          try {
+            showLoading({ text: '讀取中...' })
+            const rows = await getCsv(WORKS_URL)
+            console.log(`rows.length = ${JSON.stringify(rows.length)}`)
+            console.log(rows)
+
+            works.value = _.chain(rows)
+              .map(row => {
+                try {
+                  return ZodWorkItem.parse(row)
+                } catch (err) {
+                  console.log(`row = ${JSON.stringify(row)}`)
+                  console.error(err)
+                  return null
+                }
+              })
+              .compact()
+              .value()
+            console.log(`works.value.length = ${JSON.stringify(works.value.length)}`)
+            console.log(works.value)
+
+            Swal.close()
+          } catch (err) {
+            console.error(err)
+          }
+        })
+
+        return { mdRender, works, ZodWorkItem }
+      }
+    }).mount('#app')

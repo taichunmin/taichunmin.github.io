@@ -49,6 +49,20 @@ for (const alertType of alertTypes) md.use(markdownitContainer, alertType, { ren
 
 if (!_.isNil(markdownitImsize)) md.use(markdownitImsize)
 
+// add target="_blank" to links
+// const origin = new URL(window.location).origin
+console.log(`origin = ${origin}`)
+const oldRenderLinkOpen = md.renderer.rules.link_open ?? function (tokens, idx, options, env, self) {
+  return self.renderToken(tokens, idx, options);
+}
+md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+  // Add a new `target` attribute, or replace the value of the existing one.
+  if ((new URL(tokens[idx].attrGet('href') ?? '', location)?.origin) !== origin) tokens[idx].attrSet('target', '_blank')
+
+  // Pass the token to the default renderer.
+  return oldRenderLinkOpen(tokens, idx, options, env, self)
+}
+
 export function mdRender (str) {
   str = _.trim(str)
   const hasNewLine = str.indexOf('\n') >= 0

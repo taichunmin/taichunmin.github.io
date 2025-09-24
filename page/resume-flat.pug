@@ -69,7 +69,7 @@ block content
             .col-12.mb-4(v-for="work of resume.work")
               .text-info-emphasis {{ work.startDate }} ~ {{ work.endDate || '至今' }}
               h4.d-flex.align-items-center.company.mt-2.mb-0
-                img(src="https://api.iconify.design/material-symbols:work-outline.svg")
+                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:work-outline.svg)")
                 .ms-1 {{ work.company }}
                 small.ms-2.text-secondary {{ work.position }}
               a.d-block.text-decoration-none(target="_blank" v-if="work.website" :href="work.website") {{ trimProto(work.website) }}
@@ -84,7 +84,7 @@ block content
             .col-12.mb-4(v-for="volunteer of resume.volunteer")
               .text-info-emphasis {{ volunteer.startDate }} — {{ volunteer.endDate || '至今' }}
               h4.d-flex.align-items-center.company.mt-2.mb-0
-                img(src="https://api.iconify.design/eos-icons:organization-outlined.svg")
+                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:volunteer-activism-outline.svg)")
                 .ms-1 {{ volunteer.organization }}
                 small.ms-2.text-secondary {{ volunteer.position }}
               a.d-block.text-decoration-none(target="_blank" v-if="volunteer.website" :href="volunteer.website") {{ trimProto(volunteer.website) }}
@@ -99,7 +99,7 @@ block content
             .col-12.mb-4(v-for="education of resume.education")
               .text-info-emphasis {{ education.startDate }} — {{ education.endDate || '至今' }}
               h4.d-flex.align-items-center.company.mt-2.mb-0
-                img(src="https://api.iconify.design/eos-icons:organization-outlined.svg")
+                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/tdesign:education.svg)")
                 .ms-1 {{ education.institution }}
                 small.ms-2.text-secondary {{ education.studyType }}
               .area.mt-1 {{ education.area }}
@@ -113,7 +113,7 @@ block content
             .col-12.mb-4(v-for="award of resume.awards")
               .text-info-emphasis {{ award.date }}
               h4.d-flex.align-items-center.company.mt-2.mb-0
-                img(src="https://api.iconify.design/bx:trophy.svg")
+                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/bx:trophy.svg)")
                 .ms-1 {{ award.title }}
               .awarder.mt-2
                 em.me-1 by

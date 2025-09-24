@@ -14,19 +14,10 @@ block style
         border-width: 10px !important
       .fw-200
         font-weight: 200 !important
-      $fs-px-items: 1px, 10px, 11px, 12px, 13px, 14px, 15px, 16px, 40px
-      @each $item in $fs-px-items
-        .fs-#{$item}
-          font-size: $item
       $ls-items: ("n1px": -1px, "1px": 1px)
       @each $k, $v in $ls-items
         .ls-#{$k}
           letter-spacing: $v
-      $icon-sizes: 14px, 16px
-      @each $size in $icon-sizes
-        .icon-#{$size}
-          width: $size
-          height: $size
       .resume
         &, a, .badge.bg-body-secondary
           color: #39424B
@@ -54,15 +45,15 @@ block content
           .col-12.col-sm-8
             section.resume-summary.mt-4(v-if="resume.basics.summary")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:grade-outline-rounded.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:grade-outline-rounded.svg)")
                   | Summary
                 .resume-divider.mt-2.border-top
               p.fs-11px.my-2 {{ resume.basics.summary }}
             section.resume-works.mt-4(v-if="resume.work?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:work-outline.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:work-outline.svg)")
                   | Work
                 .resume-divider.mt-2.border-top
               .row.gy-2.my-2
@@ -72,7 +63,7 @@ block content
                       h4.fs-14px.fw-bold.mb-1
                         a.text-decoration-none.icon-link(v-if="work.website" target="_blank" :href="work.website")
                           | {{ work.name ?? work.company }}
-                          img.icon-14px(src="https://api.iconify.design/lucide:external-link.svg")
+                          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
                         template(v-else) {{ work.name ?? work.company }}
                       h5.fs-12px.fw-light.mb-1 {{ work.position }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
@@ -84,8 +75,8 @@ block content
                     li.bullet(v-for="highlight of work.highlights") {{ highlight }}
             section.resume-projects.mt-4(v-if="resume.projects?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:folder-data-outline-rounded.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:folder-data-outline-rounded.svg)")
                   | Project
                 .resume-divider.mt-2.border-top
               .row.gy-2.my-2
@@ -94,7 +85,7 @@ block content
                     a.text-decoration-none.resume-project-title(v-if="project.url ?? project.website" target="_blank" :href="project.url ?? project.website")
                       h4.fs-14px.fw-bold.mb-1.icon-link
                         | {{ project.name }}
-                        img.icon-14px(src="https://api.iconify.design/lucide:external-link.svg")
+                        span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
                       h5.fs-10px.fw-light.fw-200.mb-1 {{ project.url ?? project.website }}
                     .resume-project-title(v-else)
                       h4.fs-14px.fw-bold.mb-1 {{ project.name }}
@@ -107,8 +98,8 @@ block content
                     li.bullet(v-for="highlight of project.highlights") {{ highlight }}
             section.resume-education.mt-4(v-if="resume.education?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/tdesign:education.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/tdesign:education.svg)")
                   | Education
                 .resume-divider.mt-2.border-top
               .row.gy-2.my-2
@@ -123,8 +114,8 @@ block content
                       .text-nowrap.lh-1 {{ edu.startDate }}
             section.resume-volunteers.mt-4(v-if="resume.volunteer?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:volunteer-activism-outline.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:volunteer-activism-outline.svg)")
                   | Volunteer
                 .resume-divider.mt-2.border-top
               .row.gy-2.my-2
@@ -134,7 +125,7 @@ block content
                       h4.fs-14px.fw-bold.mb-1
                         a.text-decoration-none.icon-link(v-if="volunteer.website" target="_blank" :href="volunteer.website")
                           | {{ volunteer.organization }}
-                          img.icon-14px(src="https://api.iconify.design/lucide:external-link.svg")
+                          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
                         template(v-else) {{ volunteer.organization }}
                       h5.fs-12px.fw-light.mb-1 {{ volunteer.position }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
@@ -146,8 +137,8 @@ block content
                     li.bullet(v-for="highlight of volunteer.highlights") {{ highlight }}
             section.resume-awards.mt-4(v-if="resume.awards?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:trophy-outline.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:trophy-outline.svg)")
                   | Awards
                 .resume-divider.mt-2.border-top
               .row.gy-2.my-2
@@ -161,8 +152,8 @@ block content
                   p.fs-11px.my-2 {{ award.summary }}
             section.resume-publications.mt-4(v-if="resume.publications?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:menu-book-outline.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:menu-book-outline.svg)")
                   | Publications
                 .resume-divider.mt-2.border-top
               .row.gy-2.my-2
@@ -172,7 +163,7 @@ block content
                       h4.fs-14px.fw-bold.mb-1
                         a.text-decoration-none.icon-link(v-if="publication.url" target="_blank" :href="publication.url")
                           | {{ publication.name }}
-                          img.icon-14px(src="https://api.iconify.design/lucide:external-link.svg")
+                          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
                         template(v-else) {{ publication.name }}
                       h5.fs-10px.fw-light.fw-200.mb-1 {{ publication.publisher }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
@@ -180,13 +171,13 @@ block content
                   p.fs-11px.my-2 {{ publication.summary }}
             section.resume-references.mt-4(v-if="resume.references?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:thumb-up-outline-rounded.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:thumb-up-outline-rounded.svg)")
                   | References
                 .resume-divider.mt-2.border-top
                 .row.gy-2.my-2
                   .resume-reference.d-flex(v-for="reference of resume.references")
-                    img.icon-16px.me-1(src="https://api.iconify.design/carbon:quotes.svg")
+                    .fs-16px.me-1: span.svgmask(style="--svgmask-url: url(https://api.iconify.design/carbon:quotes.svg)")
                     figure.mb-0
                       blockquote.blockquote.fs-11px.fst-italic.mb-0(style="white-space: pre-line") {{ reference.reference }}
                       figcaption.blockquote-footer.fs-11px.fw-light.my-1.text-end {{ reference.name }}
@@ -194,52 +185,52 @@ block content
             .vr.position-absolute.start-0.h-100.d-none.d-sm-block.mt-4
             section.resume-contact.mt-4
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:android-contacts-outline.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:android-contacts-outline.svg)")
                   | Contact
                 .resume-divider.mt-2.border-top
               .row.gy-2.my-2
-                .col-12.d-flex.align-items-center(v-if="home")
-                  img.icon-16px.me-1(v-if="resume?.basics?.location?.countryCode" :src="`https://api.iconify.design/circle-flags:${resume.basics.location.countryCode.toLowerCase()}.svg`")
-                  img.icon-16px.me-1(v-else src="https://api.iconify.design/material-symbols:home.svg")
+                .col-12.d-flex.align-items-center.icon-link(v-if="home")
+                  img.svgmask(v-if="resume?.basics?.location?.countryCode" :src="`https://api.iconify.design/circle-flags:${resume.basics.location.countryCode.toLowerCase()}.svg`")
+                  span.svgmask(v-else style="--svgmask-url: url(https://api.iconify.design/material-symbols:home.svg)")
                   .fs-12px.ls-n1px {{ home }}
-                .col-12.d-flex.align-items-center(v-if="resume.basics.birthday")
-                  img.icon-16px.me-1(src="https://api.iconify.design/icon-park-outline:birthday-cake.svg")
+                .col-12.d-flex.align-items-center.icon-link(v-if="resume.basics.birthday")
+                  span.svgmask(style="--svgmask-url: url(https://api.iconify.design/icon-park-outline:birthday-cake.svg)")
                   .fs-12px.ls-n1px {{ resume.basics.birthday }}
-                .col-12.d-flex.align-items-center(v-if="resume.basics.email")
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:mail-outline.svg")
+                .col-12.d-flex.align-items-center.icon-link(v-if="resume.basics.email")
+                  span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:mail-outline.svg)")
                   a.text-decoration-none.fs-12px(target="_blank" :href="`mailto:${resume.basics.email}`") {{ resume.basics.email }}
-                .col-12.d-flex.align-items-center(v-if="resume.basics.phone")
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:call-outline.svg")
+                .col-12.d-flex.align-items-center.icon-link(v-if="resume.basics.phone")
+                  span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:call-outline.svg)")
                   a.text-decoration-none.fs-12px(target="_blank" :href="`tel:${resume.basics.phone}`") {{ resume.basics.phone }}
-                .col-12.d-flex.align-items-center(v-if="resume.basics.website")
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:globe.svg")
+                .col-12.d-flex.align-items-center.icon-link(v-if="resume.basics.website")
+                  span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:globe.svg)")
                   a.text-decoration-none.fs-12px(target="_blank" :href="resume.basics.website") {{ trimProto(resume.basics.website) }}
                 template(v-for="profile of resume.basics.profiles")
-                  .col-12.d-flex.align-items-center(v-if="icons.has(profile.network.toLowerCase())")
-                    img.icon-16px.me-1(:src="icons.get(profile.network.toLowerCase())")
+                  .col-12.d-flex.align-items-center.icon-link(v-if="icons.has(profile.network.toLowerCase())")
+                    span.svgmask(:style="`--svgmask-url: url(${icons.get(profile.network.toLowerCase())})`")
                     a.text-decoration-none.fs-12px(target="_blank" :href="profile.url") {{ profile.username }}
             section.resume-skill.mt-4(v-for="skill of resume.skills")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/streamline:magic-wand-2-remix.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/streamline:magic-wand-2-remix.svg)")
                   | {{ skill.name }}
-                  .badge.text-bg-success.fs-10px.fw-light.ms-2 {{ skill.level }}
+                  .badge.text-bg-success.fs-10px.fw-light {{ skill.level }}
                 .resume-divider.mt-2.border-top
                 .resume-badges.mt-1.d-flex.flex-wrap
                   .badge.bg-body-secondary.fs-10px.fw-light.mt-1.ms-1(v-for="keyword of skill.keywords") {{ keyword }}
             section.resume-language.mt-4(v-if="resume.languages?.length")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:language.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:language.svg)")
                   | Languages
                 .resume-divider.mt-2.border-top
                 .resume-badges.mt-1.d-flex.flex-wrap
                   .badge.bg-body-secondary.fs-10px.fw-light.mt-1.ms-1(v-for="lang of resume.languages") {{ lang.language }} ({{ lang.fluency }})
             section.resume-interest.mt-4(v-for="interest of resume.interests")
               .resume-title
-                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center
-                  img.icon-16px.me-1(src="https://api.iconify.design/material-symbols:interests-outline.svg")
+                h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
+                  span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:interests-outline.svg)")
                   | {{ interest.name }}
                 .resume-divider.mt-2.border-top
                 .resume-badges.mt-1.d-flex.flex-wrap

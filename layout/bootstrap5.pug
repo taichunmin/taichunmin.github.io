@@ -71,6 +71,21 @@ html(lang="zh-Hant")
           font-family: "Fira Code", monospace
           font-optical-sizing: auto
           font-style: normal
+        $fs-px-items: 1px, 10px, 11px, 12px, 13px, 14px, 15px, 16px, 32px, 40px
+        @each $item in $fs-px-items
+          .fs-#{$item}
+            font-size: $item
+        // https://iconify.design/docs/usage/css/no-code/
+        .svgmask
+          display: inline-block
+          width: 1em
+          height: 1em
+          &:not(img)
+            background-color: currentColor
+            -webkit-mask: no-repeat center / 100%
+            mask: no-repeat center / 100%
+            -webkit-mask-image: var(--svgmask-url)
+            mask-image: var(--svgmask-url)
     block style
   body
     include ./livereload

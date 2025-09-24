@@ -3,17 +3,13 @@ extends ../layout/bootstrap5
 block beforehtml
   -
     title = '戴均民的經歷 Timeline'
-    description = '這是戴均民的工作、社群、演講經歷。'
+    description = '這是戴均民的工作、社群參與、演講經歷。'
 
 block style
   style
     :sass
       [v-cloak]
         display: none
-      $fs-px-items: 1px, 11px, 12px, 14px, 16px, 40px
-      @each $item in $fs-px-items
-        .fs-#{$item}
-          font-size: $item
       $ls-items: ("n1px": -1px, "1px": 1px)
       @each $k, $v in $ls-items
         .ls-#{$k}
@@ -56,7 +52,9 @@ block content
   #app(v-cloak)
     .container.p-3.pb-5(v-if="timeline")
       header.text-center.mb-3
-        h1.fs-40px.ls-1px.fw-bold 經歷 #[span.fw-light Timeline]
+        h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/mdi:timeline-text-outline.svg)")
+          | 經歷
         p.fs-16px.fw-light.ls-n1px= description
       section.timeline-max-width.mx-auto.d-block
         .timeline.row.ms-3.border-start.border-success.border-5
@@ -89,15 +87,6 @@ block script
     import { getCsv, parseJson5OrDefault, showLoading } from '@app/js/utils.mjs'
     import { mdRender } from '@app/js/markdownit.mjs'
     import * as z from 'zod'
-    import markdownit from 'markdown-it'
-    import markdownitAbbr from 'markdown-it-abbr'
-    import markdownitContainer from 'markdown-it-container'
-    import markdownitDeflist from 'markdown-it-deflist'
-    import markdownitFootnote from 'markdown-it-footnote'
-    import markdownitIns from 'markdown-it-ins'
-    import markdownitMark from 'markdown-it-mark'
-    import markdownitSub from 'markdown-it-sub'
-    import markdownitSup from 'markdown-it-sup'
 
     const TIMELINE_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRhycKgnL59cw547gOQoj1hqc3P09g17oaqFuSx1WZu3OZVVeYth6e5ffHKssyOuPevzkgtBFMDbH7n/pub?gid=0&single=true&output=csv'
 
@@ -151,4 +140,3 @@ block script
         return { mdRender, timeline, ZodTimelineItem }
       }
     }).mount('#app')
-
