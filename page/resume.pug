@@ -14,10 +14,6 @@ block style
         border-width: 10px !important
       .fw-200
         font-weight: 200 !important
-      $ls-items: ("n1px": -1px, "1px": 1px)
-      @each $k, $v in $ls-items
-        .ls-#{$k}
-          letter-spacing: $v
       .resume
         &, a, .badge.bg-body-secondary
           color: #39424B
@@ -29,8 +25,6 @@ block style
         .resume-title .resume-divider
           width: 45px
           border-top-color: #56817A !important
-        .resume-badges
-          margin-left: -.25rem
 
 block content
   #app(v-cloak)
@@ -217,24 +211,24 @@ block content
                   | {{ skill.name }}
                   .badge.text-bg-success.fs-10px.fw-light {{ skill.level }}
                 .resume-divider.mt-2.border-top
-                .resume-badges.mt-1.d-flex.flex-wrap
-                  .badge.bg-body-secondary.fs-10px.fw-light.mt-1.ms-1(v-for="keyword of skill.keywords") {{ keyword }}
+                .resume-badges.mt-2.d-flex.flex-wrap.gap-1
+                  .badge.bg-body-secondary.fs-10px.fw-light(v-for="keyword of skill.keywords") {{ keyword }}
             section.resume-language.mt-4(v-if="resume.languages?.length")
               .resume-title
                 h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
                   span.svgmask.fs-16px(style="--svgmask-url: url(https://api.iconify.design/material-symbols:language.svg)")
                   | Languages
                 .resume-divider.mt-2.border-top
-                .resume-badges.mt-1.d-flex.flex-wrap
-                  .badge.bg-body-secondary.fs-10px.fw-light.mt-1.ms-1(v-for="lang of resume.languages") {{ lang.language }} ({{ lang.fluency }})
+                .resume-badges.mt-2.d-flex.flex-wrap.gap-1
+                  .badge.bg-body-secondary.fs-10px.fw-light(v-for="lang of resume.languages") {{ lang.language }} ({{ lang.fluency }})
             section.resume-interest.mt-4(v-for="interest of resume.interests")
               .resume-title
                 h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
                   span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:interests-outline.svg)")
                   | {{ interest.name }}
                 .resume-divider.mt-2.border-top
-                .resume-badges.mt-1.d-flex.flex-wrap
-                  .badge.bg-body-secondary.fs-10px.fw-light.mt-1.ms-1(v-for="keyword of interest.keywords") {{ keyword }}
+                .resume-badges.mt-2.d-flex.flex-wrap.gap-1
+                  .badge.bg-body-secondary.fs-10px.fw-light(v-for="keyword of interest.keywords") {{ keyword }}
 
 block script
   script(type="module").

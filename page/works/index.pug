@@ -10,10 +10,6 @@ block style
     :sass
       [v-cloak]
         display: none
-      $ls-items: ("n1px": -1px, "1px": 1px)
-      @each $k, $v in $ls-items
-        .ls-#{$k}
-          letter-spacing: $v
       .card-text
         p
           margin-bottom: .5rem
@@ -34,7 +30,7 @@ block content
           | 作品集
         p.fs-16px.fw-light.ls-n1px= description
       section.row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4
-        .col(v-for="work, workIdx of works" :key="work.image"): .card.h-100
+        .col(v-for="work, workIdx of works" :key="work.image"): .card.h-100.shadow
           img.card-img-top(v-if="work.image" :src="work.image" :alt="work.title")
           .card-body.border-top.d-flex.flex-column
             h5.card-title.fs-16px.fw-bold.mb-0 {{ work.title }}

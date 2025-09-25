@@ -10,10 +10,6 @@ block style
     :sass
       [v-cloak]
         display: none
-      $ls-items: ("n1px": -1px, "1px": 1px)
-      @each $k, $v in $ls-items
-        .ls-#{$k}
-          letter-spacing: $v
       @media (min-width: 768px)
         .timeline-max-width
           max-width: 720px
@@ -59,7 +55,7 @@ block content
       section.timeline-max-width.mx-auto.d-block
         .timeline.row.ms-3.border-start.border-success.border-5
           .col-12.ps-4.mt-4.position-relative(v-for="item of timeline")
-            .card.position-relative
+            .card.position-relative.shadow
               img.card-img-top(:src="item.media" :alt="item.mediaCaption")
               .d-inline-flex.gap-2.position-absolute.top-0.start-0.m-3(v-if="item.tags?.length")
                 .badge.rounded-pill.text-bg-success.border(v-for="tag of item.tags") {{ tag }}

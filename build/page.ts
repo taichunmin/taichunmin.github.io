@@ -18,16 +18,15 @@ const pageDir = path.resolve(__dirname, '../page/')
 const distDir = path.resolve(__dirname, '../dist/')
 
 export async function build (): Promise<void> {
-  const sitemapUrls = []
-
   const PUG_OPTIONS = {
     basedir: path.resolve(__dirname),
     baseurl: getSiteurl(),
     NODE_ENV: getenv('NODE_ENV', 'production'),
     site: {
-      name: '筆記國度',
       description: pkg.description,
+      gravatar: 'https://www.gravatar.com/avatar/8d9b432d861e4ac0e40954a800ae90a1?s=2048',
       gtagId: 'G-KB8ZL6LPH5',
+      name: '筆記國度',
     },
   }
 
@@ -67,7 +66,6 @@ export async function build (): Promise<void> {
       const dist = path.resolve(distDir, file.replace(/\.pug$/, '.html'))
       await fsPromises.mkdir(path.dirname(dist), { recursive: true })
       await fsPromises.writeFile(dist, html)
-      sitemapUrls.push(ogUrl)
     } catch (err: any) {
       _.set(err, 'data.src', path.resolve(pageDir, file))
       console.log(`Failed to render pug, err = ${inspect(errToJson(err), { depth: 100, sorted: true })}`)
@@ -76,9 +74,6 @@ export async function build (): Promise<void> {
     }
   }
   if (pugErrors > 0) throw new Error(`Failed to render ${pugErrors} pug files.`)
-
-  // sitemap
-  await genSitemap({ baseurl: PUG_OPTIONS.baseurl, dist: distDir, urls: sitemapUrls })
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

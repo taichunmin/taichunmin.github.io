@@ -1,0 +1,92 @@
+extends ./bootstrap5
+
+block beforehtml
+  -
+    title = matter.data?.title ?? title
+    description = matter.data?.description ?? description
+    ogImage = matter.data?.image ?? ogImage
+    ogImageHeight = _.find(matter.data?.meta, { property: 'og:image:height' })?.content ?? ogImageHeight
+    ogImageWidth = _.find(matter.data?.meta, { property: 'og:image:width' })?.content ?? ogImageWidth
+    //- expose variables to browser
+    page = { baseurl, site, matter, markdownit, relatedPosts: (relatedPosts || []) }
+    pageStr = JSON.stringify(JSON.stringify(page)).slice(1, -1)
+
+block style
+  style
+    :sass
+      [v-cloak]
+        display: none
+      .blog-body
+        ol, ul
+          padding-left: 1rem
+        :last-child
+          margin-bottom: 0 !important
+        img
+          border-radius: 0.375rem
+          display: block
+          margin-bottom: 1rem
+          margin-top: 1rem
+          width: 100%
+        h1
+          text-align: center
+        h2
+          margin-top: 2rem
+        a
+          text-decoration: none
+        a.header-anchor
+          -webkit-user-select: none
+          font-size: .85em
+          margin-right: .5rem
+          user-select: none
+        p
+          font-weight: 300
+
+block content
+  #app.container.p-3.pb-5(v-cloak)
+    .card.shadow
+      .card-header
+        .d-flex.gap-3.justify-content-center.align-items-center
+          img.svgmask.rounded-circle.fs-30px.border.border-1(src=site.gravatar)
+          .d-flex.gap-3.fs-16px
+            .fw-bold.ls-1px 戴均民
+            .vr
+            .blog-date.fw-light {{ blogDate }}
+      .card-body.px-4.py-3: .blog-body !{ markdownit.html }
+      .card-footer
+        .blog-tags.d-flex.flex-wrap.gap-1.justify-content-center(v-if="page.matter.data?.tags?.length")
+          a.btn.btn-sm.btn-light.text-body-secondary.bg-body-secondary.rounded-pill(:href="getBlogTagUrl(tag)", v-for="tag in page.matter.data.tags", :key="tag") {{ tag }}
+    section.related-posts.mt-5(v-if="page.relatedPosts.length")
+      .text-center.fs-14px YOU MAY ALSO LIKE
+      .row.row-cols-1.row-cols-lg-3.g-4
+        .col(v-for="post, postIdx of page.relatedPosts" :key="post.path"): .card.h-100.shadow
+          img.card-img-top(v-if="post.matter.data?.image" :src="post.matter.data?.image" :alt="post.matter.data?.title")
+          .card-body.border-top.d-flex.flex-column
+            h5.card-title.fs-16px.fw-bold.mb-0 {{ post.matter.data?.title }}
+            .card-text.flex-fill.fs-12px.mt-3 {{ post.matter.data?.content }}
+
+block script
+  script(type="module").
+    // https://bracia.netlify.app/that-which-does-not-kill-us-makes-us-stronger
+    import { computed, createApp, onMounted, ref, reactive } from 'vue'
+    import { dayjs } from '@app/js/dayjs.mjs'
+    import JSON5 from 'json5'
+
+    const pageStr = "!{pageStr}"
+    window.vm = createApp({
+      setup () {
+        const page = reactive(JSON5.parse(pageStr))
+
+        function getBlogTagUrl (tag) {
+          const tmp = new URL('./', location)
+          tmp.searchParams.set('tag', tag)
+          return tmp.href
+        }
+
+        const blogDate = computed(() => {
+          const tmp = page.matter.data?.date
+          return dayjs(tmp).utcOffset(8).format('YYYY-MM-DD')
+        })
+
+        return { blogDate, getBlogTagUrl, page }
+      },
+    }).mount('#app')
