@@ -12,13 +12,42 @@ import pug from 'pug'
 import UglifyJS from 'uglify-js'
 import { fileURLToPath } from 'url'
 import { inspect } from 'util'
+import { z } from 'zod'
 import pkg from '../package.json' assert { type: 'json' }
-import { MarkdownItRenderedItem, mdRenderWithMeta } from './markdownit'
+import { dayjs } from './dayjs'
+import { mdRenderWithMeta } from './markdownit'
 import { errToJson } from './utils'
+import { JSDOM } from 'jsdom'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const blogDir = path.resolve(__dirname, '../blog/')
 const distDir = path.resolve(__dirname, '../dist/')
+const POST_DEFAULT_OGIMAGE = 'https://placehold.co/1200x630'
+
+const ZodPostContext = z.object({
+  date: z.date(),
+  description: z.string().trim(),
+  file: z.string().trim(),
+  ogImage: z.url().normalize(),
+  ogUrl: z.url().normalize(),
+  path: z.string().trim(),
+  tags: z.array(z.string().trim()).min(1).catch(['無標籤']),
+  title: z.string().trim(),
+  markdownit: z.object({
+    html: z.string().trim(),
+    meta: z.optional(z.record(z.string(), z.any())),
+  }),
+  matter: z.object({
+    data: z.record(z.string(), z.any()),
+    content: z.string().trim(),
+    excerpt: z.optional(z.string().trim()),
+    language: z.string().trim(),
+    matter: z.string().trim(),
+  }),
+  jsdom: z.any(),
+})
+
+export type PostContext = z.output<typeof ZodPostContext>
 
 export async function build (): Promise<void> {
   const PUG_OPTIONS = {
@@ -58,24 +87,32 @@ export async function build (): Promise<void> {
 
   // compile pug files
   const mdFiles = await fg('**/*.md', { cwd: blogDir })
-  const mdCtxMap = new Map<string, MdParsedItem>()
+  const postsMap = new Map<string, PostContext>()
 
   let mdParseErrCnt = 0
   for (const file of mdFiles) {
     try {
       const mdStr = await fsPromises.readFile(path.resolve(blogDir, file), 'utf8')
-      const mdCtx: Partial<MdParsedItem> = { file, path: file.replace(/\.md$/, '') }
-      mdCtx.ogUrl = getSiteurl(`blog/${mdCtx.path}.html`)
-      mdCtx.matter = grayMatter(mdStr, {
+      const post = { file, path: file.replace(/\.md$/, '') } as PostContext
+      post.ogUrl = getSiteurl(`blog/${post.path}.html`)
+      post.matter = grayMatter(mdStr, {
         excerpt: true,
         excerpt_separator: '<!-- more -->',
       })
-      mdCtx.markdownit = mdRenderWithMeta(mdStr)
+      post.markdownit = mdRenderWithMeta(mdStr)
+      post.jsdom = JSDOM.fragment(post.markdownit.html)
+      post.ogImage = post.matter.data?.image ?? POST_DEFAULT_OGIMAGE
 
       // TODO: title, description
-      mdCtx.title = mdCtx.matter.data?.title ?? '筆記國度'
-      mdCtx.description = mdCtx.matter.data?.content ?? PUG_OPTIONS.site.description
-      mdCtxMap.set(mdCtx.path ?? '', mdCtx as MdParsedItem)
+      post.title = post.matter.data?.title ?? post.jsdom.querySelector("h1")?.textContent ?? '筆記國度'
+      post.description = post.matter.data?.description ?? post.jsdom.querySelector("p")?.textContent ?? PUG_OPTIONS.site.description
+      post.date = dayjs(post.matter.data?.date).utcOffset(8).toDate()
+      post.tags = post.matter.data?.tags
+      try {
+        postsMap.set(post.path, ZodPostContext.parse(post))
+      } catch (err) {
+        throw _.set(err, 'data.build.mdCtx', post)
+      }
     } catch (err: any) {
       _.set(err, 'data.src', path.resolve(blogDir, file))
       console.log(`Failed to parse markdown, err = ${inspect(errToJson(err), { depth: 100, sorted: true })}`)
@@ -85,17 +122,35 @@ export async function build (): Promise<void> {
   }
   if (mdParseErrCnt > 0) throw new Error(`Failed to parse ${mdParseErrCnt} markdown files.`)
 
+  // render blog-index.pug
+  const posts = _.chain([...postsMap.values()])
+    .map(post => _.omit(post, ['markdownit.html', 'matter.content']))
+    .orderBy('date', 'desc')
+    .value()
+  const blogIndexPug = path.resolve(__dirname, '../layout/blog-index.pug')
+  try {
+    let html = pug.renderFile(blogIndexPug, { ...PUG_OPTIONS, posts })
+    if (PUG_OPTIONS.NODE_ENV === 'production') html = htmlMinifier(html, htmlMinifierOptions)
+    const dist = path.resolve(distDir, 'blog/index.html')
+    await fsPromises.mkdir(path.dirname(dist), { recursive: true })
+    await fsPromises.writeFile(dist, html)
+  } catch (err) {
+    _.set(err, 'data.src', blogIndexPug)
+    console.log(`Failed to render blog-index.pug, err = ${inspect(errToJson(err), { depth: 100, sorted: true })}`)
+    throw err
+  }
+
   let pugRenderErrCnt = 0
   const blogPagePug = path.resolve(__dirname, '../layout/blog-page.pug')
-  for (const [mdPath, mdCtx] of mdCtxMap.entries()) {
+  for (const [postPath, post] of postsMap.entries()) {
     try {
-      let html = pug.renderFile(blogPagePug, { ...PUG_OPTIONS, ...mdCtx })
+      let html = pug.renderFile(blogPagePug, { ...PUG_OPTIONS, post })
       if (PUG_OPTIONS.NODE_ENV === 'production') html = htmlMinifier(html, htmlMinifierOptions)
-      const dist = path.resolve(distDir, `blog/${mdPath}.html`)
+      const dist = path.resolve(distDir, `blog/${postPath}.html`)
       await fsPromises.mkdir(path.dirname(dist), { recursive: true })
       await fsPromises.writeFile(dist, html)
-    } catch (err: any) {
-      _.set(err, 'data.src', path.resolve(blogDir, mdPath))
+    } catch (err) {
+      _.set(err, 'data.src', path.resolve(blogDir, postPath))
       console.log(`Failed to render pug, err = ${inspect(errToJson(err), { depth: 100, sorted: true })}`)
       pugRenderErrCnt++
     }
@@ -107,14 +162,4 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   build().catch(err => {
     console.error(errToJson(err))
   })
-}
-
-interface MdParsedItem {
-  description: string
-  file: string
-  markdownit: MarkdownItRenderedItem
-  matter: grayMatter.GrayMatterFile<string>
-  ogUrl: string
-  path: string
-  title: string
 }

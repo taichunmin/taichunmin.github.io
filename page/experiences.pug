@@ -3,7 +3,7 @@ extends ../layout/bootstrap5
 block beforehtml
   -
     title = '戴均民的經歷 Timeline'
-    description = '這是戴均民的工作、社群參與、演講經歷。'
+    description = '這是戴均民的經歷，包含工作、社群參與、演講經歷……等。'
 
 block style
   style
@@ -45,33 +45,32 @@ block style
             border-radius: 50%
 
 block content
-  #app(v-cloak)
-    .container.p-3.pb-5(v-if="timeline")
-      header.text-center.mb-3
-        h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
-          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/mdi:timeline-text-outline.svg)")
-          | 經歷
-        p.fs-16px.fw-light.ls-n1px= description
-      section.timeline-max-width.mx-auto.d-block
-        .timeline.row.ms-3.border-start.border-success.border-5
-          .col-12.ps-4.mt-4.position-relative(v-for="item of timeline")
-            .card.position-relative.shadow
-              img.card-img-top(:src="item.media" :alt="item.mediaCaption")
-              .d-inline-flex.gap-2.position-absolute.top-0.start-0.m-3(v-if="item.tags?.length")
-                .badge.rounded-pill.text-bg-success.border(v-for="tag of item.tags") {{ tag }}
-              .card-body.border-top
-                .d-flex.justify-content-between
-                  .timeline-title
-                    h5.card-title.fs-16px.fw-bold {{ item.title }}
-                    h6.card-subtitle.fs-14px.fw-light(v-if="item.subtitle") {{ item.subtitle }}
-                  .timeline-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
-                    template(v-if="item.startDate !== item.endDate")
-                      .text-nowrap.lh-1 {{ item.endDate || 'Present' }}
-                      .d-flex(style="height: 1rem"): .vr.fs-1px.bg-success
-                    .text-nowrap.lh-1 {{ item.startDate }}
-                .card-text.fs-12px.mt-3(v-html="mdRender(item.summary)")
-                .d-inline-flex.gap-2.mt-3(v-if="item.btns?.length")
-                  a.btn.btn-sm.btn-outline-primary.fs-12px(v-for="btn of item.btns" target="_blank" :href="btn.url") {{ btn.text }}
+  #app.container.p-3.pb-5(v-cloak)
+    header.text-center.mb-3
+      h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
+        span.svgmask(style="--svgmask-url: url(https://api.iconify.design/mdi:timeline-text-outline.svg)")
+        | 經歷
+      p.fs-16px.fw-light.ls-n1px= description
+    section.timeline-max-width.mx-auto.d-block(v-if="timeline")
+      .timeline.row.ms-3.border-start.border-success.border-5
+        .col-12.ps-4.mt-4.position-relative(v-for="item of timeline")
+          .card.position-relative.shadow
+            img.card-img-top(:src="item.media" :alt="item.mediaCaption")
+            .d-inline-flex.gap-2.position-absolute.top-0.start-0.m-3(v-if="item.tags?.length")
+              .badge.rounded-pill.text-bg-success.border(v-for="tag of item.tags") {{ tag }}
+            .card-body.border-top
+              .d-flex.justify-content-between
+                .timeline-title
+                  h5.card-title.fs-16px.fw-bold {{ item.title }}
+                  h6.card-subtitle.fs-14px.fw-light(v-if="item.subtitle") {{ item.subtitle }}
+                .timeline-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
+                  template(v-if="item.startDate !== item.endDate")
+                    .text-nowrap {{ item.endDate || 'Present' }}
+                    .d-flex(style="height: 1rem"): .vr.fs-1px.bg-success
+                  .text-nowrap {{ item.startDate }}
+              .card-text.fs-12px.mt-3(v-html="mdRender(item.summary)")
+              .d-inline-flex.gap-2.mt-3(v-if="item.btns?.length")
+                a.btn.btn-sm.btn-outline-primary.fs-12px(v-for="btn of item.btns" target="_blank" :href="btn.url") {{ btn.text }}
 
 block script
   script(src="https://cdn.jsdelivr.net/npm/markdown-it-imsize@2/dist/markdown-it-imsize.min.js")

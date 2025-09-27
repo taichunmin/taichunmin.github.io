@@ -2,14 +2,14 @@ extends ./bootstrap5
 
 block beforehtml
   -
-    title = matter.data?.title ?? title
-    description = matter.data?.description ?? description
-    ogImage = matter.data?.image ?? ogImage
-    ogImageHeight = _.find(matter.data?.meta, { property: 'og:image:height' })?.content ?? ogImageHeight
-    ogImageWidth = _.find(matter.data?.meta, { property: 'og:image:width' })?.content ?? ogImageWidth
+    title = post.matter.data?.title ?? title
+    description = post.matter.data?.description ?? description
+    ogImage = post.ogImage ?? ogImage
+    ogImageHeight = _.find(post.matter.data?.meta, { property: 'og:image:height' })?.content ?? ogImageHeight
+    ogImageWidth = _.find(post.matter.data?.meta, { property: 'og:image:width' })?.content ?? ogImageWidth
     //- expose variables to browser
-    page = { baseurl, site, matter, markdownit, relatedPosts: (relatedPosts || []) }
-    pageStr = JSON.stringify(JSON.stringify(page)).slice(1, -1)
+    pageExport = { baseurl, markdownit, post, relatedPosts: (relatedPosts || []), site }
+    pageExportStr = JSON.stringify(JSON5.stringify(pageExport)).slice(1, -1)
 
 block style
   style
@@ -51,10 +51,10 @@ block content
             .fw-bold.ls-1px 戴均民
             .vr
             .blog-date.fw-light {{ blogDate }}
-      .card-body.px-4.py-3: .blog-body !{ markdownit.html }
+      .card-body.px-4.py-3: .blog-body !{ post.markdownit.html }
       .card-footer
-        .blog-tags.d-flex.flex-wrap.gap-1.justify-content-center(v-if="page.matter.data?.tags?.length")
-          a.btn.btn-sm.btn-light.text-body-secondary.bg-body-secondary.rounded-pill(:href="getBlogTagUrl(tag)", v-for="tag in page.matter.data.tags", :key="tag") {{ tag }}
+        .blog-tags.d-flex.flex-wrap.gap-1.justify-content-center(v-if="page.post.tags?.length")
+          a.btn.btn-sm.btn-light.text-body-secondary.bg-body-secondary.rounded-pill(:href="getBlogTagUrl(tag)", v-for="tag of page.post.tags", :key="tag") {{ tag }}
     section.related-posts.mt-5(v-if="page.relatedPosts.length")
       .text-center.fs-14px YOU MAY ALSO LIKE
       .row.row-cols-1.row-cols-lg-3.g-4
@@ -71,10 +71,10 @@ block script
     import { dayjs } from '@app/js/dayjs.mjs'
     import JSON5 from 'json5'
 
-    const pageStr = "!{pageStr}"
+    const pageExportStr = "!{pageExportStr}"
     window.vm = createApp({
       setup () {
-        const page = reactive(JSON5.parse(pageStr))
+        const page = reactive(JSON5.parse(pageExportStr))
 
         function getBlogTagUrl (tag) {
           const tmp = new URL('./', location)
@@ -83,7 +83,7 @@ block script
         }
 
         const blogDate = computed(() => {
-          const tmp = page.matter.data?.date
+          const tmp = page.post.matter?.data?.date
           return dayjs(tmp).utcOffset(8).format('YYYY-MM-DD')
         })
 

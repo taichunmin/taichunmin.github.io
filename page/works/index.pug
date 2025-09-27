@@ -22,26 +22,25 @@ block style
         aspect-ratio: 1200 / 630
 
 block content
-  #app(v-cloak)
-    .container.p-3.pb-5(v-if="works")
-      header.text-center.mb-3
-        h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
-          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/solar:code-circle-outline.svg)")
-          | 作品集
-        p.fs-16px.fw-light.ls-n1px= description
-      section.row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4
-        .col(v-for="work, workIdx of works" :key="work.image"): .card.h-100.shadow
-          img.card-img-top(v-if="work.image" :src="work.image" :alt="work.title")
-          .card-body.border-top.d-flex.flex-column
-            h5.card-title.fs-16px.fw-bold.mb-0 {{ work.title }}
-            .card-text.flex-fill.fs-12px.mt-3(v-html="mdRender(work.summary)")
-            .d-inline-flex.gap-2.mt-3
-              button.icon-link.btn.btn-sm.btn-outline-primary.fs-14px(v-if="work.album?.length" type="button" data-bs-toggle="modal" :data-bs-target="`#modal-album-${workIdx}`")
-                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/carbon:carousel-horizontal.svg)")
-                | 圖集
-              a.icon-link.btn.btn-sm.btn-outline-primary.fs-14px(v-if="work.url" :href="work.url" target="_blank")
-                span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
-                | 網站
+  #app.container.p-3.pb-5(v-cloak)
+    header.text-center.mb-3
+      h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
+        span.svgmask(style="--svgmask-url: url(https://api.iconify.design/solar:code-circle-outline.svg)")
+        | 作品集
+      p.fs-16px.fw-light.ls-n1px= description
+    section.row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4(v-if="works")
+      .col(v-for="work, workIdx of works" :key="work.image"): .card.h-100.shadow
+        img.card-img-top(v-if="work.image" :src="work.image" :alt="work.title")
+        .card-body.border-top.d-flex.flex-column
+          h5.card-title.fs-16px.fw-bold.mb-0 {{ work.title }}
+          .card-text.flex-fill.fs-12px.mt-3(v-html="mdRender(work.summary)")
+          .d-inline-flex.gap-2.mt-3
+            button.icon-link.btn.btn-sm.btn-outline-primary.fs-14px(v-if="work.album?.length" type="button" data-bs-toggle="modal" :data-bs-target="`#modal-album-${workIdx}`")
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/carbon:carousel-horizontal.svg)")
+              | 圖集
+            a.icon-link.btn.btn-sm.btn-outline-primary.fs-14px(v-if="work.url" :href="work.url" target="_blank")
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
+              | 網站
     template(v-for="work, workIdx of works" :key="work.image")
       .modal.modal-xl.fade(v-if="work.album?.length" tabindex="-1" :id="`modal-album-${workIdx}`")
         .modal-dialog.modal-dialog-centered

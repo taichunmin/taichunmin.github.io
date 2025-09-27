@@ -61,9 +61,9 @@ block content
                         template(v-else) {{ work.name ?? work.company }}
                       h5.fs-12px.fw-light.mb-1 {{ work.position }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
-                      .text-nowrap.lh-1 {{ work.endDate || 'Present' }}
+                      .text-nowrap {{ work.endDate || 'Present' }}
                       .d-flex(style="height: .5rem"): .vr.fs-1px.bg-success
-                      .text-nowrap.lh-1 {{ work.startDate }}
+                      .text-nowrap {{ work.startDate }}
                   p.fs-11px.my-2 {{ work.summary }}
                   ul.highlights.my-2.ps-3.fs-11px(v-if="work.highlights?.length")
                     li.bullet(v-for="highlight of work.highlights") {{ highlight }}
@@ -84,9 +84,9 @@ block content
                     .resume-project-title(v-else)
                       h4.fs-14px.fw-bold.mb-1 {{ project.name }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
-                      .text-nowrap.lh-1 {{ project.endDate || 'Present' }}
+                      .text-nowrap {{ project.endDate || 'Present' }}
                       .d-flex(style="height: .5rem"): .vr.fs-1px.bg-success
-                      .text-nowrap.lh-1 {{ project.startDate }}
+                      .text-nowrap {{ project.startDate }}
                   p.fs-11px.my-2 {{ project.description }}
                   ul.highlights.my-2.ps-3.fs-11px(v-if="project.highlights?.length")
                     li.bullet(v-for="highlight of project.highlights") {{ highlight }}
@@ -103,9 +103,9 @@ block content
                       h4.fs-14px.fw-bold.mb-1 {{ edu.institution }}
                       h5.fs-10px.fw-light.fw-200.mb-1 {{ edu.studyType }}, {{ edu.area }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
-                      .text-nowrap.lh-1 {{ edu.endDate || 'Present' }}
+                      .text-nowrap {{ edu.endDate || 'Present' }}
                       .d-flex(style="height: .5rem"): .vr.fs-1px.bg-success
-                      .text-nowrap.lh-1 {{ edu.startDate }}
+                      .text-nowrap {{ edu.startDate }}
             section.resume-volunteers.mt-4(v-if="resume.volunteer?.length")
               .resume-title
                 h3.fs-14px.fw-light.mb-0.d-flex.align-items-center.icon-link
@@ -123,9 +123,9 @@ block content
                         template(v-else) {{ volunteer.organization }}
                       h5.fs-12px.fw-light.mb-1 {{ volunteer.position }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
-                      .text-nowrap.lh-1 {{ volunteer.endDate || 'Present' }}
+                      .text-nowrap {{ volunteer.endDate || 'Present' }}
                       .d-flex(style="height: .5rem"): .vr.fs-1px.bg-success
-                      .text-nowrap.lh-1 {{ volunteer.startDate }}
+                      .text-nowrap {{ volunteer.startDate }}
                   p.fs-11px.my-2 {{ volunteer.summary }}
                   ul.highlights.my-2.ps-3.fs-11px(v-if="volunteer.highlights?.length")
                     li.bullet(v-for="highlight of volunteer.highlights") {{ highlight }}
@@ -142,7 +142,7 @@ block content
                       h4.fs-14px.fw-bold.mb-1 {{ award.title }}
                       h5.fs-10px.fw-light.fw-200.mb-1 {{ award.awarder }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
-                      .text-nowrap.lh-1 {{ award.date }}
+                      .text-nowrap {{ award.date }}
                   p.fs-11px.my-2 {{ award.summary }}
             section.resume-publications.mt-4(v-if="resume.publications?.length")
               .resume-title
@@ -161,7 +161,7 @@ block content
                         template(v-else) {{ publication.name }}
                       h5.fs-10px.fw-light.fw-200.mb-1 {{ publication.publisher }}
                     .resume-date.ls-n1px.d-flex.flex-column.align-items-center.fs-11px.fw-light.font-monospace.fst-italic
-                      .text-nowrap.lh-1 {{ publication.releaseDate }}
+                      .text-nowrap {{ publication.releaseDate }}
                   p.fs-11px.my-2 {{ publication.summary }}
             section.resume-references.mt-4(v-if="resume.references?.length")
               .resume-title

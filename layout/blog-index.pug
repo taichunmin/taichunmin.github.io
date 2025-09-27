@@ -1,0 +1,78 @@
+extends ./bootstrap5
+
+block beforehtml
+  -
+    title = '戴均民的文章列表'
+    description = '這是戴均民的文章列表，包含技術文章、生活隨筆……等。'
+    //- expose variables to browser
+    pageExport = { baseurl, posts: posts || [], site }
+    pageExportStr = JSON.stringify(JSON5.stringify(pageExport)).slice(1, -1)
+
+block style
+  style
+    :sass
+      [v-cloak]
+        display: none
+      .ratio-1200x630
+        aspect-ratio: 1200 / 630
+      .posts-list
+        a.stretched-link
+          text-decoration: none
+          color: inherit
+      .post-title
+        font-size: 18px
+        @media (min-width: 992px)
+          font-size: 20px
+      .post-summary
+        font-size: 14px
+        @media (min-width: 992px)
+          font-size: 16px
+          overflow: hidden
+          text-overflow: ellipsis
+          max-height: 140px
+
+block content
+  #app.container.p-3.pb-5(v-cloak)
+    header.text-center.mb-3
+      h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
+        span.svgmask(style="--svgmask-url: url(https://api.iconify.design/streamline:markdown-circle-programming.svg)")
+        | 文章列表
+      p.fs-16px.fw-light.ls-n1px= description
+    section.row.g-3.posts-list
+      .col-12(v-for="post of page.posts", :key="post.path")
+        .card.shadow.position-relative: .card-body: .row.gy-2.gx-4
+          .col-12.col-lg-4
+            img.rounded.w-100.border.ratio-1200x630(:src="post.ogImage")
+          .col-12.col-lg-8.d-flex.flex-column
+            .d-flex.justify-content-between.gap-1
+              a.post-title.fw-bold.stretched-link(:href="`${post.path}.html`") {{ post.title }}
+              .fs-11px.text-nowrap.fs-light.ls-n1px.font-monospace.fst-italic {{ toDateStr(post.date) }}
+            .post-summary.fw-light.flex-fill.mt-2 {{ post.description }}
+            .post-badges.mt-2.d-flex.flex-wrap.gap-1
+              .badge.rounded-pill.text-bg-secondary(v-for="tag of post.tags") {{ tag }}
+
+block script
+  script(type="module").
+    // https://bracia.netlify.app/that-which-does-not-kill-us-makes-us-stronger
+    import { computed, createApp, onMounted, ref, reactive } from 'vue'
+    import { dayjs } from '@app/js/dayjs.mjs'
+    import JSON5 from 'json5'
+
+    const pageExportStr = "!{pageExportStr}"
+    window.vm = createApp({
+      setup () {
+        const page = reactive(JSON5.parse(pageExportStr))
+
+        function getBlogTagUrl (tag) {
+          const tmp = new URL('./', location)
+          tmp.searchParams.set('tag', tag)
+          return tmp.href
+        }
+
+        function toDateStr (date) {
+          return dayjs(date).utcOffset(8).format('YYYY-MM-DD')
+        }
+
+        return { dayjs, getBlogTagUrl, page, toDateStr }
+      },
+    }).mount('#app')

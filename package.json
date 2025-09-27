@@ -31,6 +31,7 @@
     "@types/pug": "^2.0.10",
     "@types/serve-static": "^1.15.8",
     "@types/uglify-js": "^3.17.5",
+    "blogsearch": "^0.0.6",
     "concurrently": "^9.2.1",
     "cpy-cli": "^6.0.0",
     "dayjs": "^1.11.18",
@@ -43,6 +44,7 @@
     "html-minifier": "^4.0.0",
     "html-to-text": "^9.0.5",
     "js-yaml": "^4.1.0",
+    "jsdom": "^27.0.0",
     "json5": "^2.2.3",
     "jstransformer-sass": "^1.0.0",
     "livereload": "^0.10.3",
@@ -69,7 +71,8 @@
     "serve-static": "^2.2.0",
     "transliteration": "^2.3.5",
     "tsx": "^4.20.5",
-    "uglify-js": "^3.19.3"
+    "uglify-js": "^3.19.3",
+    "zod": "^4.1.11"
   },
   "scripts": {
     "build:asset": "cpy 'asset/**/*.{cjs,css,gif,jpeg,jpg,js,mjs,png,svg,webp}' ./dist",

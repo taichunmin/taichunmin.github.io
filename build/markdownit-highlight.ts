@@ -19,14 +19,14 @@ const langAliasMap = {
   rs: 'rust'
 }
 
-const noHighlightExts = ['mermaid', 'plain', 'text']
+const noHighlightExts = ['', 'mermaid', 'plain', 'text']
 
 function wrapText (code: string, lang: string): string {
   return `<pre class="rounded language-${lang}"><code>${_.escape(code)}</code></pre>`
 }
 
 const render = (str: string, lang: string, attrs: string): string => {
-  lang = _.toLower(lang ?? 'text')
+  lang = _.toLower(_.trim(lang) ?? 'text')
 
   // disable highlight for certain languages
   if (_.includes(noHighlightExts, lang)) return wrapText(str, lang)
