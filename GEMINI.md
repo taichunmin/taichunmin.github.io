@@ -4,6 +4,7 @@ This project is the personal website of 戴均民, featuring a self-introduction
 
 ## General Instructions:
 
+- Always use context7 when I need code generation, setup or configuration steps, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
 - Please follow `.editorconfig` settings for indentation and line endings.
 - For TypeScript files
   - When generating new TypeScript code, please follow the existing coding style and the JavaScript Standard Style coding style.

@@ -1,7 +1,7 @@
 ---
 date: '2024-12-21T00:00:00+0800'
 title: 在網頁上控制你的硬體設備：使用 Web Serial 及 Web Bluetooth
-description: 讓你的使用者只需要打開網頁就能使用硬體設備，並且能夠輕鬆達成跨平台支援。
+description: 我一直覺得為了用硬體，還要下載安裝一堆軟體實在太麻煩。沒想到現在竟然可以直接用瀏覽器搞定！想知道怎麼讓你的網頁也能直接控制硬體設備嗎？
 image: https://i.imgur.com/4bNgro2.png
 tags:
   - JavaScript
