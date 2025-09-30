@@ -78,12 +78,14 @@
     "build:asset": "cpy 'asset/**/*.{cjs,css,gif,jpeg,jpg,js,mjs,png,svg,webp}' ./dist",
     "build:blog": "tsx ./build/blog.ts",
     "build:page": "tsx ./build/page.ts",
-    "build": "yarn clean && yarn build:asset && yarn build:page && yarn build:blog",
+    "build:sitemap": "tsx ./build/sitemap.ts",
+    "build": "yarn clean && yarn build:asset && yarn build:page && yarn build:blog && yarn build:sitemap",
     "clean": "rimraf ./dist/**/*",
     "dev:asset": "tsx watch --clear-screen=false --include './asset/**/*' ./node_modules/cpy-cli/cli.js 'asset/**/*.{cjs,css,gif,jpeg,jpg,js,mjs,png,svg,webp}' ./dist",
     "dev:blog": "tsx watch --clear-screen=false --include './blog/**/*.md' --include './layout/**/blog-*.pug' ./build/blog.ts",
     "dev:https": "tsx ./build/https.ts",
     "dev:page": "tsx watch --clear-screen=false --include './page/**/*.pug' --include './layout/**/*.pug' ./build/page.ts",
+    "dev:sitemap": "tsx watch --clear-screen=false --include './dist/**/*.html' ./build/sitemap.ts",
     "dev": "mkdirp ./dist && yarn clean && concurrently -c auto --names 'PAGE,HTTPS,ASSET,BLOG' 'yarn dev:page' 'yarn dev:https' 'yarn dev:asset' 'yarn dev:blog'",
     "mkcert": "mkdir ./mkcert && mkcert -key-file ./mkcert/key.pem -cert-file ./mkcert/cert.pem -ecdsa localhost"
   }
