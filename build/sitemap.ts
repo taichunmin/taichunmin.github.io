@@ -1,6 +1,6 @@
 import { getSiteurl } from './dotenv'
 
-import * as _ from 'lodash-es'
+import _ from 'lodash'
 import { fileURLToPath } from 'url'
 import { promises as fsPromises } from 'fs'
 import dayjs from 'dayjs'

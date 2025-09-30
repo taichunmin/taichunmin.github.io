@@ -84,6 +84,6 @@ Bot link feature 的授權頁面中，是允許使用者不加入的，所以如
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License。
 :::

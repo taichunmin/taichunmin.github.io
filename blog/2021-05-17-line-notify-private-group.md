@@ -90,7 +90,7 @@ meta:
 
 ## 相關連結
 
-::: tip
+::: info
 若有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

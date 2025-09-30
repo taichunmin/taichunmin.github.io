@@ -127,7 +127,7 @@ v2:  https://liff.line.me/1656508316-k7jNojXm/abc/def
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以透過 [Facebook](https://www.facebook.com/taichunmin) 與我聯繫。
 :::
 

@@ -194,6 +194,6 @@ sudo docker-compose up -d && sudo docker-compose logs -f
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License。
 :::

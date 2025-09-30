@@ -34,7 +34,7 @@ meta:
 
 ## 產生器使用教學
 
-::: tip LINE 網址產生器
+::: info LINE 網址產生器
 * 網址：<https://taichunmin.idv.tw/pug/line-url-generator.html>
 :::
 
@@ -107,7 +107,7 @@ https://line.me/R/nv/recommendOA/@736cebrk
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

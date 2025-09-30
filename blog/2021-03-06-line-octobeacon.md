@@ -22,7 +22,7 @@ meta:
 
 ## 把程式燒到 ESP32
 
-::: tip
+::: info
 * 程式碼: <https://github.com/taichunmin/line-simplebeacon-esp32/tree/master/octobeacon>
 * 燒錄教學: <https://taichunmin.idv.tw/blog/2020-07-13-line-simple-beacon-workshop.html>
 
@@ -55,7 +55,7 @@ LINE Simple Beacon 沒有支援防偽機制，換句話說，只要複製藍牙�
 
 至於工程模式的權限控制問題，我想到 esp32devkit 這塊開發板上面有一個實體按鈕，我可以透過這顆按鈕來切換工程模式的開啟或關閉，在工程模式沒有開啟時，要禁止 Beacon 的資料被讀取或修改，這樣的方式應該就足夠了。
 
-::: tip
+::: info
 * 我所製作的工程模式設定網頁: <https://taichunmin.idv.tw/pug/line-octobeacon.html>
 
 本文範例程式的原始碼授權為 MIT License，如果有疑問可以透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聊聊。

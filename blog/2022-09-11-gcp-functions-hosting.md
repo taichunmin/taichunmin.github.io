@@ -30,7 +30,7 @@ meta:
 | 執行時間 | 級別 1 價格簡易算法：<br>(記憶體規格/128MB) × <br>$2.31e-7 / 每 0.1 秒 | 每月 RAM 部份 $1 +<br>CPU 部份 $2 |
 | 網路輸出 | $0.12 / GB                              | 每月前 5 GB |
 
-::: tip
+::: info
 上面的表格是以 2022/9/7 的[官方價格文件](https://cloud.google.com/functions/pricing)所歸納的簡易估價方式，金額僅供參考，實際收費請參考[原始文件](https://cloud.google.com/functions/pricing)：
 
 <https://cloud.google.com/functions/pricing>
@@ -59,7 +59,7 @@ Cloud Functions (第 2 代) 是直接串接 Cloud Run，所以收費方式也是
 | RAM 使用時間 | 級別 1 價格簡易算法：<br>(記憶體規格/128MB) × <br>$3.125e-8 / 每 0.1 秒 | 每月前 $0.9 免費 |
 | 網路輸出 | 約 $0.12 / GB                              | 每月前 1 GB (限北美地區) |
 
-::: tip
+::: info
 上面的表格是以 2022/9/7 的[官方價格文件](https://cloud.google.com/functions/pricing)所歸納的簡易估價方式，金額僅供參考，實際收費請參考[原始文件](https://cloud.google.com/functions/pricing)：
 
 <https://cloud.google.com/functions/pricing>
@@ -79,7 +79,7 @@ Cloud Functions (第 2 代) 是直接串接 Cloud Run，所以收費方式也是
 
 ### 建立專案
 
-::: tip GCP 官方的 Node.js 教學文件
+::: info GCP 官方的 Node.js 教學文件
 * <https://cloud.google.com/functions/docs/quickstart-nodejs>
 :::
 
@@ -102,7 +102,7 @@ git clone git@github.com:taichunmin/demo20220907.git
 cd demo20220907
 ```
 
-::: tip
+::: info
 關於 Git 的安裝及 SSH 非對稱式金鑰的設定不是本文的重點，所以在本文內不會多談，你可自行到網路上找相關教學。
 :::
 
@@ -132,7 +132,7 @@ yarn add -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-n e
 
 安裝完成以後，我們就可以先來建立一個由 HTTP 觸發的 Cloud Functions：
 
-::: tip
+::: info
 關於 Google Cloud 的註冊不是本文的重點，所以在本文內不會多談，你可自行到網路上找相關教學。
 :::
 
@@ -142,7 +142,7 @@ yarn add -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-n e
 
 因為 Cloud Functions 的 Node.js 是模擬 Express.js 這個後端框架，所以這個函式被呼叫時，會帶入 `req` 跟 `res` 這兩個參數，其中 `req` 裡面會有用戶端傳送過來的資料，`res` 則是你要回傳給用戶端的資料，如果想要學習 Express.js 框架如何使用，以及 req 跟 res 裡面有什麼東西可以使用，可以直接去看 Express.js 的 Reference。
 
-::: tip
+::: info
 關於 Express.js 框架如何使用的部份不是本文的重點，所以在本文內不會多談，你可自行到網路上找相關教學。
 :::
 
@@ -506,7 +506,7 @@ gcloud iam workload-identity-pools providers describe "${MY_PROVIDER}" --project
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

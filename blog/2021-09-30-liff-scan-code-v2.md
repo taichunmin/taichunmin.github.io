@@ -31,7 +31,7 @@ meta:
 
 ## 在手機上使用掃碼 API
 
-::: tip 筆者所寫的測試網頁
+::: info 筆者所寫的測試網頁
 * <https://liff.line.me/1654046335-4BDKExAV/20210930-scan-code-v2.html>
 :::
 
@@ -79,7 +79,7 @@ meta:
 
 ## 中文支援測試 2021/10/01 (已修正)
 
-::: tip
+::: info
 2022/02/14 更新：中文讀取後會變成亂碼的錯誤已經於 LIFF v2.18.2 修正。
 :::
 
@@ -107,7 +107,7 @@ meta:
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以透過 [Facebook](https://www.facebook.com/taichunmin) 與我聯繫。
 :::
 

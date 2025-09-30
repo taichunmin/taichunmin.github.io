@@ -25,7 +25,7 @@ meta:
 
 請先開啟「LINE 數位版名片網站」，並且選擇一個喜歡的樣板：
 
-::: tip
+::: info
 建立 LINE 數位版名片網站：<https://taichunmin.idv.tw/liff-businesscard/>
 :::
 
@@ -59,7 +59,7 @@ meta:
 
 請先去 GitHub 專案中 Fork 一份原始碼：
 
-::: tip
+::: info
 GitHub 原始碼：<https://github.com/taichunmin/liff-businesscard>
 :::
 
@@ -95,7 +95,7 @@ yarn install
 
 接下來需要幫你的名片樣板製作一個預覽圖，為了美觀，預覽圖的尺寸限制為 `1280x640` 像素。你可以透過 [Flex 開發人員工具](https://github.com/taichunmin/gcf-line-devbot) 來幫助你製作名片樣板預覽圖。
 
-::: tip
+::: info
 Flex 開發人員工具：<https://github.com/taichunmin/gcf-line-devbot>
 :::
 
@@ -103,7 +103,7 @@ Flex 開發人員工具：<https://github.com/taichunmin/gcf-line-devbot>
 
 ![](https://i.imgur.com/kxt3Us3.png)
 
-::: tip
+::: info
 * pugjs 語法教學：<https://pugjs.org/api/getting-started.html>
 * vue.js 語法教學：<https://vuejs.org/v2/guide/>
 * Bootstrap 語法教學：<https://getbootstrap.com/>
@@ -145,7 +145,7 @@ Flex 開發人員工具：<https://github.com/taichunmin/gcf-line-devbot>
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以[點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)然後在社群內發問。
 :::
 

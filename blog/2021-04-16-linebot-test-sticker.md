@@ -30,7 +30,7 @@ LINE 官方帳號每過一段時間後，就會更換一次 Messaging API 可以
 
 ## 去貼圖清單中選擇一個貼圖
 
-::: tip
+::: info
 可以傳送的貼圖清單: <https://developers.line.biz/en/docs/messaging-api/sticker-list/>
 :::
 
@@ -68,7 +68,7 @@ LINE 官方帳號每過一段時間後，就會更換一次 Messaging API 可以
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

@@ -5,7 +5,7 @@ import { promises as fsPromises } from 'fs'
 import grayMatter from 'gray-matter'
 import { minify as htmlMinifier } from 'html-minifier'
 import JSON5 from 'json5'
-import * as _ from 'lodash-es'
+import _ from 'lodash'
 import path from 'path'
 import process from 'process'
 import pug from 'pug'
@@ -18,6 +18,8 @@ import { dayjs } from './dayjs'
 import { mdRenderWithMeta } from './markdownit'
 import { errToJson } from './utils'
 import { JSDOM } from 'jsdom'
+import { Database as BSDatabase } from 'blogsearch-crawler/lib/database'
+import { checkFields as bsCheckFields } from 'blogsearch-crawler/lib/checkers'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const blogDir = path.resolve(__dirname, '../blog/')
@@ -53,7 +55,7 @@ export async function build (): Promise<void> {
   const PUG_OPTIONS = {
     _, // lodash
     JSON5, // JSON5
-    basedir: path.resolve(__dirname),
+    basedir: path.resolve(__dirname, '..'),
     baseurl: getSiteurl(),
     NODE_ENV: getenv('NODE_ENV', 'production'),
     site: {
@@ -85,7 +87,7 @@ export async function build (): Promise<void> {
     useShortDoctype: true,
   }
 
-  // compile pug files
+  // load all blog/**/*.md files
   const mdFiles = await fg('**/*.md', { cwd: blogDir })
   const postsMap = new Map<string, PostContext>()
 
@@ -103,7 +105,6 @@ export async function build (): Promise<void> {
       post.jsdom = JSDOM.fragment(post.markdownit.html)
       post.ogImage = post.matter.data?.image ?? POST_DEFAULT_OGIMAGE
 
-      // TODO: title, description
       post.title = post.matter.data?.title ?? post.jsdom.querySelector("h1")?.textContent ?? '筆記國度'
       post.description = post.matter.data?.description ?? post.jsdom.querySelector("p")?.textContent ?? PUG_OPTIONS.site.description
       post.date = dayjs(post.matter.data?.date).utcOffset(8).toDate()
@@ -123,12 +124,12 @@ export async function build (): Promise<void> {
   if (mdParseErrCnt > 0) throw new Error(`Failed to parse ${mdParseErrCnt} markdown files.`)
 
   // render blog-index.pug
-  const posts = _.chain([...postsMap.values()])
-    .map(post => _.omit(post, ['markdownit.html', 'matter.content']))
-    .orderBy('date', 'desc')
-    .value()
   const blogIndexPug = path.resolve(__dirname, '../layout/blog-index.pug')
   try {
+    const posts = _.chain([...postsMap.values()])
+      .map(post => _.omit(post, ['markdownit.html', 'matter.content']))
+      .orderBy('date', 'desc')
+      .value()
     let html = pug.renderFile(blogIndexPug, { ...PUG_OPTIONS, posts })
     if (PUG_OPTIONS.NODE_ENV === 'production') html = htmlMinifier(html, htmlMinifierOptions)
     const dist = path.resolve(distDir, 'blog/index.html')
@@ -140,6 +141,48 @@ export async function build (): Promise<void> {
     throw err
   }
 
+  // build blogsearch: https://github.com/kbumsik/blogsearch/blob/master/gatsby-plugin-blogsearch/src/gatsby-node.js
+  try {
+    const bsOptions = {
+      output: path.resolve(distDir, 'blogsearch.db.wasm'),
+      // fields configurations
+      // See: https://github.com/kbumsik/blogsearch#whats-in-the-index
+      fields: {
+        title: { enabled: true, indexed: true, hasContent: true },
+        body: { enabled: true, indexed: true, hasContent: true },
+        url: { enabled: true, indexed: true, hasContent: true },
+        categories: { enabled: false },
+        tags: { enabled: true, indexed: true, hasContent: true },
+      },
+    }
+
+    // Override existing database
+    await fsPromises.mkdir(path.dirname(bsOptions.output), { recursive: true })
+    await fsPromises.unlink(bsOptions.output).catch(() => {})
+
+    // Create database
+    const db = await BSDatabase.create({
+      filename: bsOptions.output,
+      columns: bsCheckFields(bsOptions),
+    })
+
+    for (const [rowid, post] of _.entries([...postsMap.values()])) {
+      db.insert(_.toInteger(rowid), {
+        title: post.title,
+        body: post.jsdom.textContent?.replace(/\s+/g, ' ') ?? '',
+        url: post.ogUrl,
+        categories: '',
+        tags: post.tags.join(' , '),
+      })
+    }
+
+    db.close()
+  } catch (err) {
+    console.log(`Failed to build blogsearch.db.wasm: ${err.message}`)
+    throw err
+  }
+
+  // render blog-page.pug
   let pugRenderErrCnt = 0
   const blogPagePug = path.resolve(__dirname, '../layout/blog-page.pug')
   for (const [postPath, post] of postsMap.entries()) {

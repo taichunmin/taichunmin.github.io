@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import * as _ from 'lodash-es'
+import _ from 'lodash'
 
 export function getenv<T extends string | undefined> (key: string, defaultVal: T): string | T {
   return process.env?.[key] ?? defaultVal
@@ -10,7 +10,7 @@ export function getPort (): number {
 }
 
 export function getSiteurl (path: string = ''): string {
-  const url = new URL(path, getenv('BASEURL', 'https://taichunmin.idv.tw/blog-v4/')).href
+  const url = new URL(path, getenv('BASEURL', 'https://taichunmin.idv.tw/')).href
   return url.replace(/[/]index\.html$/, '/')
 }
 

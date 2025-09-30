@@ -33,7 +33,7 @@ meta:
 
 ## 測試程式
 
-::: tip 筆者所寫的測試網頁
+::: info 筆者所寫的測試網頁
 * <https://liff.line.me/1654046335-4BDKExAV/20211012-share-target-picker-is-multiple.html>
 :::
 
@@ -81,7 +81,7 @@ meta:
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以透過 [Facebook](https://www.facebook.com/taichunmin) 與我聯繫。
 :::
 

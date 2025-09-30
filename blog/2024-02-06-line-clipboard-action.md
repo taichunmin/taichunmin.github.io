@@ -199,7 +199,7 @@ LINE 在 2024/02/05 發佈了可以把文字複製到剪貼簿的新功能[(查�
 
 ## 測試圖文選單中的 clipboard 動作
 
-::: tip 在「Flex 開發人員工具」啟用圖文選單遊樂場
+::: info 在「Flex 開發人員工具」啟用圖文選單遊樂場
 如果你正在使用手機，你可以直接[開啟這個連結並送出文字](https://line.me/R/oaMessage/@736cebrk/?%2FrichmenuPlayground)。你也可以用手機在「Flex 開發人員工具」中直接送出 `/richmenuPlayground` 指令。
 :::
 
@@ -221,7 +221,7 @@ LINE 在 2024/02/05 發佈了可以把文字複製到剪貼簿的新功能[(查�
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

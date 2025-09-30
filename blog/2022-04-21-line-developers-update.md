@@ -20,7 +20,7 @@ meta:
 
 ## 驗證圖文選單 API
 
-::: tip
+::: info
 * [驗證圖文選單 API 的英文文件](https://developers.line.biz/en/reference/messaging-api/#validate-rich-menu-object)
 :::
 
@@ -30,7 +30,7 @@ meta:
 
 ## LIFF 插件
 
-::: tip
+::: info
 * [LIFF 插件的英文文件](https://developers.line.biz/en/docs/liff/liff-plugin/)
 :::
 
@@ -66,7 +66,7 @@ LIFF 插件還能夠使用 LIFF SDK 的 hook 功能，目前有兩個內建的 h
 
 ### Webhook 重送機制實測
 
-::: tip
+::: info
 * [Webhook 重送機制實測原始碼在此](https://gist.github.com/taichunmin/2fee2f839d6b84859576f2851167a3c2)，歡迎自行建立一個自己的 Google Cloud Functions 進行測試
 :::
 
@@ -88,7 +88,7 @@ LIFF 插件還能夠使用 LIFF SDK 的 hook 功能，目前有兩個內建的 h
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

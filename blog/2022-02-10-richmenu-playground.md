@@ -19,7 +19,7 @@ LINE [在 2022/02/22 的新聞](https://developers.line.biz/en/news/2022/02/02/r
 
 只不過這個遊樂場只有提供日文版本，所以筆者特地把遊樂場翻譯成中文版，並且移植到[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)中，如果你不太會日文，但又想要快速認識圖文選單有什麼功能的話，現在你也能在[「Flex 開發人員工具」](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)裡面玩到喔！
 
-::: tip 本文章的 45 分鐘影片版
+::: info 本文章的 45 分鐘影片版
 本文有在「Will 保哥的技術交流中心」線上分享，[該次分享直播存檔的網址在此](https://fb.watch/biM1mKan93/)。
 :::
 
@@ -77,7 +77,7 @@ LINE [在 2022/02/22 的新聞](https://developers.line.biz/en/news/2022/02/02/r
 
 ## 啟用圖文選單遊樂場
 
-::: tip 在「Flex 開發人員工具」啟用圖文選單遊樂場
+::: info 在「Flex 開發人員工具」啟用圖文選單遊樂場
 如果你正在使用手機，你可以直接[開啟這個連結並送出文字](https://line.me/R/oaMessage/@736cebrk/?%2FrichmenuPlayground)。你也可以用手機在「Flex 開發人員工具」中直接送出 `/richmenuPlayground` 指令。
 :::
 
@@ -148,7 +148,7 @@ LINE [在 2022/02/22 的新聞](https://developers.line.biz/en/news/2022/02/02/r
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

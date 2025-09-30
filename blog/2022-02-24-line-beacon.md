@@ -133,7 +133,7 @@ LINE Beacon 就是由 LINE 所定義的特殊藍芽廣播訊號，當手機的 L
 
 ## 相關連結
 
-::: tip
+::: info
 如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

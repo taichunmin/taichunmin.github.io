@@ -48,7 +48,7 @@ LINE 數位版名片是一個可以在 LINE 這個通訊軟體上分享圖文並
 
 ## 建立測試用群組來測試實際結果
 
-::: tip 筆者開發的測試用機器人
+::: info 筆者開發的測試用機器人
 [![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 :::
@@ -75,7 +75,7 @@ LINE 數位版名片是一個可以在 LINE 這個通訊軟體上分享圖文並
 
 ## 「ChatGPT 問與答」樣板
 
-::: tip 「ChatGPT 問與答」樣板
+::: info 「ChatGPT 問與答」樣板
 * 製作頁面 <https://taichunmin.idv.tw/liff-businesscard/forms/chatgpt-1.html>
 :::
 
@@ -107,7 +107,7 @@ LINE 數位版名片是一個可以在 LINE 這個通訊軟體上分享圖文並
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以[點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)然後在社群內發問。
 :::
 

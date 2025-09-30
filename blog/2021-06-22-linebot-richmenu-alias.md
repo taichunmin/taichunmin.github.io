@@ -28,7 +28,7 @@ meta:
 
 ## 啟用選單切換範例
 
-::: tip 在「Flex 開發人員工具」啟用範例
+::: info 在「Flex 開發人員工具」啟用範例
 如果你正在使用手機，你可以直接[開啟這個連結並送出文字](https://line.me/R/oaMessage/@736cebrk/?%2FdemoRichmenuAlias)。你也可以在「Flex 開發人員工具」中直接送出 `/demoRichmenuAlias` 指令。
 :::
 
@@ -272,7 +272,7 @@ exports.deleteRichmenuAlias = async (channelAccessToken, richMenuAliasId) => {
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

@@ -3,7 +3,7 @@ import { getenv, getSiteurl } from './dotenv'
 import fg from 'fast-glob'
 import { promises as fsPromises } from 'fs'
 import { minify as htmlMinifier } from 'html-minifier'
-import * as _ from 'lodash-es'
+import _ from 'lodash'
 import path from 'path'
 import process from 'process'
 import pug from 'pug'
@@ -19,7 +19,7 @@ const distDir = path.resolve(__dirname, '../dist/')
 
 export async function build (): Promise<void> {
   const PUG_OPTIONS = {
-    basedir: path.resolve(__dirname),
+    basedir: path.resolve(__dirname, '..'),
     baseurl: getSiteurl(),
     NODE_ENV: getenv('NODE_ENV', 'production'),
     site: {

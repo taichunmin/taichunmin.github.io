@@ -1,0 +1,157 @@
+extends /layout/bootstrap5
+
+block beforehtml
+  -
+    title = '撲克牌 21 點 Black Jack'
+    description = '練習 Vue.js 所寫的撲克牌 21 點小遊戲。'
+
+block style
+  style
+    :sass
+      [v-cloak]
+        display: none
+      /* 梅花, 黑桃, 紅心, 方塊 */
+      $suits: (0:c, 1:s, 2:h, 3:d)
+      $ranks: (0:a, 1:2, 2:3, 3:4, 4:5, 5:6, 6:7, 7:8, 8:9, 9:t, 10:j, 11:q, 12:k)
+      @each $i, $suit in $suits
+        @each $j, $rank in $ranks
+          .poker-#{$suit}#{$rank}
+            background-position: -$j*72-1px $i*-96px
+      .poker
+        width: 72px
+        height: 96px
+        background-image: url(https://i.imgur.com/ipdScjr.png)
+        background-clip: border-box
+      .poker-back
+        background-image: url(https://i.imgur.com/TZq8UKh.png)
+        background-size: 100% 100%
+      .poker-back-heartstone
+        background-image: url(https://i.imgur.com/fIuNYVy.png)
+        background-size: 100% 100%
+
+block content
+  #app
+    nav-bar(baseurl=baseurl)
+    .container.p-3.pb-5(v-cloak)
+      h1 Black Jack #[small.text-body-secondary Score: {{ state.score }}]
+      .alert(:class="`alert-${state.alertType}`", role="alert", v-html="state.alertMsg || 'No message.'")
+      .row.g-3
+        .col: button.btn.w-100.btn-outline-success(@click="hit") Hit
+        .col: button.btn.w-100.btn-outline-primary(@click="stand") Stand
+        .col: button.btn.w-100.btn-outline-danger(@click="deal") Deal
+      .card.mt-3
+        .card-header.bg-success.text-white.d-flex.gap-2.icon-link
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/icon-park-outline:people.svg)")
+          | Player
+          span.badge.rounded-pill.text-bg-light {{ playerScore }}
+        .card-body.d-flex.flex-wrap.gap-3
+          .poker.rounded-1(v-for="card in state.player", :class="`poker-${card}`")
+      .card.mt-3
+        .card-header.bg-danger.text-white.d-flex.gap-2.icon-link
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/fluent:animal-paw-print-48-regular.svg)")
+          | Dealer
+          span.badge.rounded-pill.text-bg-light {{ state.playing ? '?' : dealerScore }}
+        .card-body.d-flex.flex-wrap.gap-3
+          .poker.rounded-1(v-for="(card, i) in state.dealer", :class="(state.playing && i==0) ? state.cardback : `poker-${card}`")
+  include /layout/bootstrap5-navbar-content
+
+block script
+  script(type="module").
+    import _ from 'lodash'
+    import { computed, createApp, onMounted, reactive, ref } from 'vue'
+    import NavBar from '@app/js/bootstrap5-navbar.mjs'
+
+    window.vm = createApp({
+      components: { NavBar },
+      setup () {
+        const state = reactive({
+          alertMsg: '',
+          alertType: 'info',
+          cardback: 'poker-back-heartstone',
+          dealer: [], // dealer hands
+          deck: [],
+          player: [], // player hands
+          playing: false,
+          ranks: ['a', '2', '3', '4', '5', '6', '7', '8', '9', 't', 'j', 'q', 'k'],
+          score: 0,
+          suits: ['c', 's', 'h', 'd'],
+        })
+
+        const playerScore = computed(() => calcScore(state.player))
+        const dealerScore = computed(() => calcScore(state.dealer))
+
+        function calcScore(hands) {
+          let score = 0
+          let ace = false
+          for (const card of hands) {
+            score += Math.min(10, state.ranks.indexOf(card[1])+1)
+            if(card[1] == 'a')
+              ace = true
+          }
+          if(ace && score <= 11) score += 10
+          if(score < 21 && hands.length > 4) score = 21
+          return score
+        }
+
+        function setMsg (msg, type='info') {
+          state.alertMsg = msg
+          state.alertType = type
+        }
+
+        function newDeck() {
+          let deck = []
+          for (const suit of state.suits) {
+            for (const rank of state.ranks) {
+              deck.push(suit + rank)
+            }
+          }
+          state.deck = _.shuffle(deck)
+          // console.log(state.deck)
+        }
+
+        function hit() {
+          if(!state.playing) return setMsg("Click <strong>Deal</strong> button to restart.")
+          if(playerScore.value <= 21) state.player.push(state.deck.pop())
+          if(playerScore.value > 21) return setMsg("<strong>Player</strong> have busted", 'warning')
+        }
+
+        function stand() {
+          if(!state.playing) return setMsg("Click <strong>Deal</strong> button to restart.")
+          if(playerScore.value <= 21) {
+            while(dealerScore.value < 17 || dealerScore.value < Math.min(playerScore.value, 21))
+              state.dealer.push(state.deck.pop())
+          }
+          state.playing = false
+          let playerWin = (playerScore.value <= 21 && dealerScore.value < playerScore.value || dealerScore.value > 21)
+          if(playerWin) {
+            state.score++
+            return setMsg('<strong>Player</strong> wins.', 'success')
+          } else {
+            state.score--
+            return setMsg('<strong>Dealer</strong> wins.', 'danger')
+          }
+        }
+
+        function deal() {
+          newDeck()
+          state.player = []
+          state.dealer = []
+          for(let i=0; i<2; i++) {
+            state.player.push(state.deck.pop())
+            state.dealer.push(state.deck.pop())
+          }
+          if(state.playing) {
+            state.score--
+            return setMsg("<strong>Player</strong> lose. <strong>Hit</strong> or <strong>stand</strong>?", "success")
+          } else {
+            state.playing = true
+            return setMsg("<strong>Hit</strong> or <strong>stand</strong>?")
+          }
+        }
+
+        onMounted(() => { deal() })
+
+        return { state, playerScore, dealerScore, newDeck, hit, stand, deal }
+      }
+    }).mount('#app')
+

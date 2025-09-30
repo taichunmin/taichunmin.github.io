@@ -164,7 +164,7 @@ const loginPromise = (async () => {
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License。
 :::
 

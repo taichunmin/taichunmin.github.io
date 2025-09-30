@@ -9,7 +9,7 @@ import path from 'path'
 import serveStatic from 'serve-static'
 import { fileURLToPath } from 'url'
 import { errToJson } from './utils'
-import * as _ from 'lodash-es'
+import _ from 'lodash'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const pageDir = path.resolve(__dirname, '../page/')

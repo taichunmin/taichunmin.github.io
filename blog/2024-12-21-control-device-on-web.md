@@ -44,7 +44,7 @@ meta:
 
 以下是均民用自己開發的 [chameleon-ultra.js](https://taichunmin.idv.tw/chameleon-ultra.js/) 所錄製的 DEMO 影片：
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tLmzMJK3D_Y?si=IAiNxQIOdSPlEwgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe style="width: 100%; aspect-ratio: 560/315" src="https://www.youtube.com/embed/tLmzMJK3D_Y?si=IAiNxQIOdSPlEwgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ChameleonUltra 這個硬體裝置，是目前研究 RFID/NFC 這塊領域體積最小的開源硬體，這個硬體主打的功能是讀取/寫入/模擬/破解 Mifare Classic 1K 這種很常見的 NFC 卡片。
 

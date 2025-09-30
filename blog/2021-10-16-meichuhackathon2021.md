@@ -20,7 +20,7 @@ meta:
 
 大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
 
-::: tip 官方英文文件
+::: info 官方英文文件
 <https://developers.line.biz/en/docs/messaging-api/>
 :::
 
@@ -96,7 +96,7 @@ meta:
 
 如果還沒註冊 [CodeSandbox](https://codesandbox.io/) 請先前往註冊。註冊完成後，請開啟下方的連結建立本次工作坊的範本：
 
-::: tip 從程式碼範本建立 CodeSandbox
+::: info 從程式碼範本建立 CodeSandbox
 請開啟此網頁來建立本次工作坊的範本：<https://githubbox.com/taichunmin/meichuhackathon2021>
 :::
 
@@ -114,13 +114,13 @@ meta:
 
 為了讓我們可以寫程式從 Webhook 接收使用者傳送到官方帳號的訊息，你需要先建立一個 Messaging API Chennel。
 
-::: tip 按照這個教學網頁建立 Messaging API
+::: info 按照這個教學網頁建立 Messaging API
 * <https://developers.line.biz/zh-hant/docs/messaging-api/getting-started/>
 :::
 
 Messaging API Chennel 建立完成之後，請前往 LINE Developer Console。
 
-::: tip 請點此開啟 LINE Develpers console
+::: info 請點此開啟 LINE Develpers console
 * <https://developers.line.biz/console/>
 :::
 
@@ -180,7 +180,7 @@ Messaging API Chennel 建立完成之後，請前往 LINE Developer Console。
 
 ## Messaging API 程式碼範本解說
 
-::: tip 記得自學基礎語法
+::: info 記得自學基礎語法
 這個工作坊不會教 express.js、javascript 跟 Node.js 的基礎語法，如果對這些語法還不太熟悉的朋友，建議可以去買書來學，或者是參考以下幾個線上的英文學習網站喔：
 
 * <https://learnjavascript.online/>
@@ -416,7 +416,7 @@ const eventHandler = middlewareCompose([
 
 ## LIFF 基礎知識
 
-::: tip LIFF 官方英文文件
+::: info LIFF 官方英文文件
 <https://developers.line.biz/en/docs/liff/>
 :::
 
@@ -460,7 +460,7 @@ LIFF 能夠在 Android、iOS 跟外部瀏覽器（如：電腦）中執行。如
 在建立 LINE Login 時有一個需要特別注意的地方，就是 LINE Login 和 Messaging API 頻道必須要建立在同一個 Provider 內，不然你會沒辦法抓到相同的 userId。
 :::
 
-::: tip 按照這個教學網頁建立 LINE Login
+::: info 按照這個教學網頁建立 LINE Login
 * <https://developers.line.biz/en/docs/liff/getting-started/>
 :::
 
@@ -508,7 +508,7 @@ LIFF 能夠在 Android、iOS 跟外部瀏覽器（如：電腦）中執行。如
 
 ## LIFF 程式碼範本解說
 
-::: tip 記得自學基礎語法
+::: info 記得自學基礎語法
 這個工作坊不會教 HTML、javascript、Bootstrap、express.js、Vue.js 跟 Pug 的基礎語法，如果對這些語法還不太熟悉的朋友，建議可以去買書來學，或者是參考以下幾個線上的英文學習網站喔：
 
 * <https://expressjs.com/en/starter/installing.html>
@@ -667,7 +667,7 @@ window.vm = new Vue({
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以透過 [Facebook](https://www.facebook.com/taichunmin) 與我聯繫。
 :::
 

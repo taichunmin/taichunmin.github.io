@@ -23,7 +23,7 @@ meta:
 
 <img src="https://i.imgur.com/0pbirUY.png" style="width: 480px">
 
-::: tip 本文章的 30 分鐘影片版
+::: info 本文章的 30 分鐘影片版
 本文是在 COSCUP 2021 所分享的議程，[這個議程的錄影檔的網址在此](https://youtu.be/RUUVg6ZfY0g)。
 :::
 
@@ -31,7 +31,7 @@ meta:
 
 ## 建立測試用群組來測試實際結果
 
-::: tip 筆者開發的測試用機器人
+::: info 筆者開發的測試用機器人
 [![](https://i.imgur.com/cP5purz.png)](https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk)
 加入好友: <https://liff.line.me/1645278921-kWRPP32q/?accountId=736cebrk>
 :::
@@ -56,7 +56,7 @@ meta:
 
 ## 製作多頁訊息範例
 
-::: tip LINE 數位版名片
+::: info LINE 數位版名片
 * 多頁訊息製作頁面 <https://taichunmin.idv.tw/liff-businesscard/forms/line-carousel-1.html>
 :::
 
@@ -104,7 +104,7 @@ meta:
 
 ## 「多頁訊息 1」名片客製化
 
-::: tip LINE 數位版名片
+::: info LINE 數位版名片
 * 多頁訊息製作頁面 <https://taichunmin.idv.tw/liff-businesscard/forms/line-carousel-1.html>
 :::
 
@@ -142,7 +142,7 @@ meta:
 
 ## 如何讓使用者能幫你分享名片？
 
-::: tip 推薦的短網址服務
+::: info 推薦的短網址服務
 * Lihi 短網址服務: <https://app.lihi.io/admin>
 :::
 
@@ -258,7 +258,7 @@ meta:
 
 ### 可以使用表情符號嗎？
 
-::: tip 查 Unicode 表情符號清單
+::: info 查 Unicode 表情符號清單
 * <https://tw.piliapp.com/emoji/list/>
 * <https://getemoji.com/>
 * <https://unicode-table.com/en/sets/emoji/>
@@ -279,7 +279,7 @@ meta:
 
 ### 如何製作電子郵件的網址？
 
-::: tip 電子郵件超連結教學
+::: info 電子郵件超連結教學
 * [如何建立電子郵件超連結 | MDN](https://developer.mozilla.org/zh-TW/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#e-mail_%E9%80%A3%E7%B5%90)
 :::
 
@@ -291,7 +291,7 @@ meta:
 
 ### Google 地圖跨平台網址產生方法
 
-::: tip 筆者寫的小工具
+::: info 筆者寫的小工具
 * [Google 地圖跨平台網址產生器](https://taichunmin.idv.tw/pug/google-maps-urls.html)
 :::
 
@@ -325,7 +325,7 @@ meta:
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以[點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)然後在社群內發問。
 :::
 

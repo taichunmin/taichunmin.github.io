@@ -125,7 +125,7 @@ console.log(liff.getVersion())
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問可以透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聊聊。
 :::
 

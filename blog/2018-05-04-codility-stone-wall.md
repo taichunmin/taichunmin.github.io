@@ -4,7 +4,7 @@ tags: [codility, C++, stack]
 ---
 # Codility: StoneWall 石牆
 
-::: tip
+::: info
 這題的敘述如果改成在牆上貼瓷磚會比較貼切，所以我就直接用貼瓷磚來描述了。
 :::
 

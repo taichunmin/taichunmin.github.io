@@ -1,4 +1,4 @@
-extends ./bootstrap5
+extends /layout/bootstrap5
 
 block beforehtml
   -
@@ -32,34 +32,39 @@ block style
           max-height: 140px
 
 block content
-  #app.container.p-3.pb-5(v-cloak)
-    header.text-center.mb-3
-      h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
-        span.svgmask(style="--svgmask-url: url(https://api.iconify.design/streamline:markdown-circle-programming.svg)")
-        | 文章列表
-      p.fs-16px.fw-light.ls-n1px= description
-    section.row.g-3.posts-list
-      .col-12(v-for="post of page.posts", :key="post.path")
-        .card.shadow.position-relative: .card-body: .row.gy-2.gx-4
-          .col-12.col-lg-4
-            img.rounded.w-100.border.ratio-1200x630(:src="post.ogImage")
-          .col-12.col-lg-8.d-flex.flex-column
-            .d-flex.justify-content-between.gap-1
-              a.post-title.fw-bold.stretched-link(:href="`${post.path}.html`") {{ post.title }}
-              .fs-11px.text-nowrap.fs-light.ls-n1px.font-monospace.fst-italic {{ toDateStr(post.date) }}
-            .post-summary.fw-light.flex-fill.mt-2 {{ post.description }}
-            .post-badges.mt-2.d-flex.flex-wrap.gap-1
-              .badge.rounded-pill.text-bg-secondary(v-for="tag of post.tags") {{ tag }}
+  #app
+    nav-bar(baseurl=baseurl)
+    .container.p-3.pb-5(v-cloak)
+      header.text-center.mb-3
+        h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/streamline:markdown-circle-programming.svg)")
+          | 文章列表
+        p.fs-16px.fw-light.ls-n1px= description
+      section.row.g-3.posts-list
+        .col-12(v-for="post of page.posts", :key="post.path")
+          .card.shadow.position-relative: .card-body: .row.gy-2.gx-4
+            .col-12.col-lg-4
+              img.rounded.w-100.border.ratio-1200x630(:src="post.ogImage")
+            .col-12.col-lg-8.d-flex.flex-column
+              .d-flex.justify-content-between.gap-1
+                a.post-title.fw-bold.stretched-link(:href="`${post.path}.html`") {{ post.title }}
+                .fs-11px.text-nowrap.fs-light.ls-n1px.font-monospace.fst-italic {{ toDateStr(post.date) }}
+              .post-summary.fw-light.flex-fill.mt-2 {{ post.description }}
+              .post-badges.mt-2.d-flex.flex-wrap.gap-1
+                .badge.rounded-pill.text-bg-secondary(v-for="tag of post.tags") {{ tag }}
+  include /layout/bootstrap5-navbar-content
 
 block script
   script(type="module").
     // https://bracia.netlify.app/that-which-does-not-kill-us-makes-us-stronger
     import { computed, createApp, onMounted, ref, reactive } from 'vue'
     import { dayjs } from '@app/js/dayjs.mjs'
+    import NavBar from '@app/js/bootstrap5-navbar.mjs'
     import JSON5 from 'json5'
 
     const pageExportStr = "!{pageExportStr}"
     window.vm = createApp({
+      components: { NavBar },
       setup () {
         const page = reactive(JSON5.parse(pageExportStr))
 

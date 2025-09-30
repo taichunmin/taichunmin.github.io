@@ -675,7 +675,7 @@ Mifare Classic 1k 卡片內有 1024 Bytes 的記憶體，可切分成 16 個區�
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

@@ -4,7 +4,7 @@ tags: [docker, docker-compose, openvpn, ubuntu]
 ---
 # 透過 Docker 快速建立 openvpn 伺服器
 
-::: tip
+::: info
 本文章使用 DigitalOcean Ubuntu 16.04 x64 作為範例。
 :::
 

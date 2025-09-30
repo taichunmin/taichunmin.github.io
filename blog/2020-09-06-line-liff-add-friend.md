@@ -23,7 +23,7 @@ meta:
 
 這是我第一次實作這個機制，歡迎大家點下方「活動邀請連結」來試玩看看：
 
-::: tip 「微笑小學堂」活動
+::: info 「微笑小學堂」活動
 * 活動說明：[https://kadacha.work/qUXoy](https://kadacha.work/qUXoy?openExternalBrowser=1)
 * 活動期間：2020/9/7 到 2020/9/30（活動結束後不保證能執行）
 * 這是我的[活動邀請連結](https://liff.line.me/1654198613-pV2QdV5Q/atvt200821-quest?inviter=Ud9c999fc1fe73e1460bfb1303bc80c94)
@@ -185,7 +185,7 @@ async function init () {
 
 ## 相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License。
 :::
 

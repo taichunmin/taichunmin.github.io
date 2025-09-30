@@ -31,7 +31,7 @@ meta:
 
 ## Metamask 錢包註冊
 
-::: tip
+::: info
 * Metamask 官方網站：<https://metamask.io/>
 > 務必確認瀏覽器上的網址列，避免不小心連到詐騙網站！！
 :::

@@ -14,6 +14,7 @@ import pluginSub from 'markdown-it-sub'
 import pluginSup from 'markdown-it-sup'
 import { slugify } from 'transliteration'
 import pluginBootstrap5Alert from './markdownit-bootstrap5-alert'
+import pluginBootstrap5Table from './markdownit-bootstrap5-table'
 import pluginExternalLink from './markdownit-external-link'
 import highlightRender from './markdownit-highlight'
 import pluginMeta from './markdownit-meta'
@@ -31,6 +32,7 @@ for (const [pluginIdx, plugin] of _.entries([
   pluginAbbr,
   pluginAttrs,
   pluginBootstrap5Alert,
+  pluginBootstrap5Table,
   pluginDeflist,
   pluginEmoji.full,
   pluginExternalLink,

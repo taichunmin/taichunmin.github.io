@@ -35,7 +35,7 @@ OpenAPI 的前身是 Swagger，是一個被廣泛使用的公開規範，它使�
 
 由於 LINE 是直接提供 YAML 格式的檔案，所以通常要先用工具轉換成給開發者看的文件，均民找了一個名為 Stoplight Elements 的工具，並且把每個文件的連結直接整理到 HackMD 上面方便大家使用：
 
-::: tip LINE OpenAPI
+::: info LINE OpenAPI
 * [請點此開啟均民整理的 LINE OpenAPI 文件清單](https://hackmd.io/@taichunmin/line-openapi/)
 :::
 
@@ -96,7 +96,7 @@ OpenAPI 的前身是 Swagger，是一個被廣泛使用的公開規範，它使�
 
 ![](https://hackmd.io/_uploads/Hy5qQuIKn.png)
 
-::: tip
+::: info
 LINE 的部分 API 沒有給予跨來源資源共用（CORS）所需的 HTTP Headers，所以這部份的 API 會遇到 [CORS 的問題](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)，沒辦法直接在 OpenAPI 的所產生的文件上面測試。
 :::
 
@@ -148,7 +148,7 @@ Postman 也支援匯入 OpenAPI 的檔案，你可以跟著 Postman 網站上的
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

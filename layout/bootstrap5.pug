@@ -8,6 +8,7 @@ doctype html
   let importmap = {
     '@app/': baseurl,
     '@popperjs/core': 'https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/esm/popper.min.js',
+    'blogsearch': 'https://cdn.jsdelivr.net/npm/blogsearch@0/+esm',
     'bootstrap': 'https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.esm.min.js',
     'dayjs': 'https://cdn.jsdelivr.net/npm/dayjs@1/+esm',
     'dayjs/plugin/customParseFormat': 'https://cdn.jsdelivr.net/npm/dayjs@1/plugin/customParseFormat/+esm',
@@ -120,5 +121,7 @@ html(lang="zh-Hant")
     script(crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js")
     script(crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js")
     script(crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js")
+    script(crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/blogsearch@0/dist/blogsearch.umd.js")
+    script(crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/blogsearch@0/dist/worker.umd.js")
     script(type="importmap") !{JSON.stringify({ imports: importmap }, null, 2)}
     block script

@@ -95,7 +95,7 @@ meta:
 
 ## 相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License。
 :::
 

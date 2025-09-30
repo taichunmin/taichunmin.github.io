@@ -17,7 +17,7 @@ meta:
 
 # LINE 數位版名片工作坊
 
-::: tip 相關連結
+::: info 相關連結
 * 開場投影片：<https://hackmd.io/@taichunmin/chatbot-tw-202010>
 * 共筆：<https://hackmd.io/@chatbot-tw/chatbots-meetup-in-central-taiwan-010>
 * 作者：戴均民 [(taichunmin)](https://taichunmin.idv.tw/)
@@ -36,7 +36,7 @@ meta:
 
 ## 透過講者的免費樣板網站製作名片
 
-::: tip 數位版名片 免費樣版網站
+::: info 數位版名片 免費樣版網站
 <https://taichunmin.idv.tw/liff-businesscard/>
 :::
 
@@ -92,7 +92,7 @@ meta:
 
 ### 準備 CSV 資料
 
-::: tip 相關連結
+::: info 相關連結
 * [議程資料 CSV](https://taichunmin.idv.tw/liff-businesscard/csv/chatbot-tw-coscup-2020.csv): `https://taichunmin.idv.tw/liff-businesscard/csv/chatbot-tw-coscup-2020.csv`
 :::
 
@@ -116,7 +116,7 @@ meta:
 
 ### 把 CSV 上傳到 GitHub Gist 上
 
-::: tip 相關連結
+::: info 相關連結
 * [GitHub](https://github.com/)
 * [新增 GitHub Gist](https://gist.github.com/)
 :::
@@ -154,7 +154,7 @@ CSV 檔案匯出以後，我們需要把這個 CSV 檔案放到網路上可以�
 
 ### 填寫 CSV 網址並製作範例名片
 
-::: tip 相關連結
+::: info 相關連結
 * [製作 CSV 名片](https://taichunmin.idv.tw/liff-businesscard/forms/csv.html)
 * [COSCUP 議程名片樣板](https://taichunmin.idv.tw/liff-businesscard/cards/chatbot-tw-coscup-2020.txt): `https://taichunmin.idv.tw/liff-businesscard/cards/chatbot-tw-coscup-2020.txt`
 :::
@@ -177,7 +177,7 @@ CSV 檔案匯出以後，我們需要把這個 CSV 檔案放到網路上可以�
 
 ### 客製化 Flex 訊息
 
-::: tip 相關連結
+::: info 相關連結
 * [Flex 訊息官方文件](https://developers.line.biz/en/docs/messaging-api/using-flex-messages/)
 * [Flex 訊息模擬器](https://developers.line.biz/flex-simulator/)
 :::
@@ -188,7 +188,7 @@ LINE 所支援的 Flex 訊息可以做出千變萬化的版面，但由於每個
 
 ### 改善使用者體驗
 
-::: tip 相關連結
+::: info 相關連結
 * [Google Maps 網址文件](https://developers.google.com/maps/documentation/urls/guide)
 :::
 
@@ -217,7 +217,7 @@ id,name,image,image_ratio,rating,place,time,tel,website
 
 ### 將資料使用變數替換
 
-::: tip 相關連結
+::: info 相關連結
 * 完整範例：[card1](https://gist.github.com/taichunmin/ce55953ba0199052cd6e871b61b60cdb)、[card2](https://gist.github.com/taichunmin/6b8138bca07224dc560ca7711dbe3797)
 * [Lodash 的 `_.template` 函式](https://lodash.com/docs/4.17.15#template)
 * [JSON5 的語法](https://json5.org/)
@@ -243,7 +243,7 @@ CSV 製作完成後，我們就要把樣板中的資料使用變數替換掉。
 
 ### 透過 JS 的函式讓樣板更彈性
 
-::: tip 相關連結
+::: info 相關連結
 * 完整範例：[card3](https://gist.github.com/taichunmin/fd6c330f77c611d31558ccba1c9c6f21)
 :::
 
@@ -270,7 +270,7 @@ function imgStar (isGold) {
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以[點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)然後在社群內發問。
 :::
 

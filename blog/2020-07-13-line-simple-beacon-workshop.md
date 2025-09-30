@@ -36,13 +36,13 @@ meta:
 如果要使用我所提供的 Webhook，所以請記得建立一個不重要的 Messaging API 頻道以避免 Access Token 洩漏喔！
 :::
 
-::: tip 請點此開啟網頁
+::: info 請點此開啟網頁
 建立 Messaging API 頻道：<https://developers.line.biz/zh-hant/docs/messaging-api/getting-started/>
 :::
 
 當你建立一個 Messaging API 的頻道後，你需要前往 LINE Develpers console 把他設定成聊天機器人模式。
 
-::: tip 請點此開啟網頁
+::: info 請點此開啟網頁
 LINE Develpers console：<https://developers.line.biz/console/>
 :::
 
@@ -119,7 +119,7 @@ LINE Develpers console：<https://developers.line.biz/console/>
 
 為了要讓電腦能夠識別我們的 ESP32 開發板，我們需要安裝 ESP32 開發板的驅動程式。請選擇跟你作業系統相符的驅動程式下載並安裝（在本教學中是 `Windows 10`）。
 
-::: tip
+::: info
 驅動程式連結：<https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers>
 :::
 
@@ -171,7 +171,7 @@ LINE Develpers console：<https://developers.line.biz/console/>
 
 LINE Simple Beacon Hardware ID，簡稱「硬體 ID」，是 LINE 為了識別這個 LINE Simple Beacon 是屬於哪個 Messaging API 所需要的唯一 ID，一個 Messaging API 最多可以申請 10 組。
 
-::: tip
+::: info
 申請網址：<https://manager.line.biz/beacon/register>
 :::
 
@@ -199,13 +199,13 @@ LINE Simple Beacon Hardware ID，簡稱「硬體 ID」，是 LINE 為了識別�
 
 首先，你要授權你手機上的 LINE 接收 Beacon 訊號。
 
-::: tip
+::: info
 請用手機開啟這個連結：<https://line.me/R/nv/settings/privacy/provideUsageData/beacon>
 :::
 
 接下來你要去複製 LINE Simple Beacon for ESP32 的程式碼。
 
-::: tip
+::: info
 程式碼網址：<https://github.com/taichunmin/line-simplebeacon-esp32/blob/master/sample/sample.ino>
 :::
 

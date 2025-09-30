@@ -1,4 +1,4 @@
-extends ../layout/bootstrap5
+extends /layout/bootstrap5
 
 block beforehtml
   -
@@ -28,6 +28,7 @@ block style
 
 block content
   #app(v-cloak)
+    nav-bar(baseurl=baseurl)
     .container.p-3.pb-5(v-if="resume")
       main.resume.p-4.border-top.border-success.border-10.shadow
         header.d-flex.justify-content-between.align-items-center.mb-3
@@ -229,6 +230,7 @@ block content
                 .resume-divider.mt-2.border-top
                 .resume-badges.mt-2.d-flex.flex-wrap.gap-1
                   .badge.bg-body-secondary.fs-10px.fw-light(v-for="keyword of interest.keywords") {{ keyword }}
+  include /layout/bootstrap5-navbar-content
 
 block script
   script(type="module").
@@ -236,10 +238,12 @@ block script
     import _ from 'lodash'
     import { computed, createApp, onMounted, ref } from 'vue'
     import { getJson } from '@app/js/utils.mjs'
+    import NavBar from '@app/js/bootstrap5-navbar.mjs'
     // https://gist.github.com/taichunmin/5521c4d0e9dab5303a8e02f2bd0fcc5e
     const JSONRESUME_URL = 'https://gist.githubusercontent.com/taichunmin/5521c4d0e9dab5303a8e02f2bd0fcc5e/raw/resume.json'
 
     window.vm = createApp({
+      components: { NavBar },
       setup () {
         const resume = ref(null)
         const icons = ref(new Map([

@@ -35,7 +35,7 @@ LINE 在 2022/05/13 針對開發者發布了一個新功能[（查看英文公�
 
 ## 啟用圖文選單遊樂場
 
-::: tip 在「Flex 開發人員工具」啟用圖文選單遊樂場
+::: info 在「Flex 開發人員工具」啟用圖文選單遊樂場
 如果你正在使用手機，你可以直接[點此並送出文字](https://line.me/R/oaMessage/@736cebrk/?%2FrichmenuPlayground)。你也可以用手機在「Flex 開發人員工具」中直接送出 `/richmenuPlayground` 指令。
 :::
 
@@ -68,7 +68,7 @@ LINE 在 2022/05/13 針對開發者發布了一個新功能[（查看英文公�
 
 ## 原始碼及參考連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，如果有疑問歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。
 :::
 

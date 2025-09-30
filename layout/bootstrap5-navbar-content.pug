@@ -1,0 +1,56 @@
+template#template-bootstrap5-navbar
+  nav#navbar.navbar.shadow-sm.navbar-expand-lg.bg-body-tertiary.sticky-top
+    .container-fluid
+      a.navbar-brand.icon-link(href=baseurl)
+        img.svgmask.rounded-circle(src=site.gravatar style="max-width: 24px")
+        | 筆記國度
+      button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarSupportedContent
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          li.nav-item.position-relative
+            a.nav-link.stretched-link.icon-link(href=baseurl)
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/ri:links-line.svg)")
+              | 連結牆
+          li.nav-item.position-relative
+            a.nav-link.stretched-link.icon-link(href=`${baseurl}blog/`)
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/streamline:markdown-circle-programming.svg)")
+              | 部落格
+          li.nav-item.position-relative
+            a.nav-link.stretched-link.icon-link(href=`${baseurl}works/`)
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/solar:code-circle-outline.svg)")
+              | 作品集
+          li.nav-item.position-relative
+            a.nav-link.stretched-link.icon-link(href=`${baseurl}resume.html`)
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:account-circle-outline.svg)")
+              | 履歷
+          li.nav-item.position-relative
+            a.nav-link.stretched-link.icon-link(href=`${baseurl}experiences.html`)
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/mdi:timeline-text-outline.svg)")
+              | 經歷
+          li.nav-item.position-relative
+            button.nav-link.stretched-link.icon-link(type="button" data-bs-toggle="modal" data-bs-target="#modal-blogsearch")
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:search-rounded.svg)")
+              | 搜尋
+  .modal.fade#modal-blogsearch(tabindex="-1")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h5.modal-title.fs-5.icon-link
+            span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:search-rounded.svg)")
+            | 搜尋部落格文章
+          button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+        .modal-body
+          .input-group.mb-3
+            span.input-group-text.icon-link
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:search-rounded.svg)")
+            input.form-control(placeholder="輸入關鍵字搜尋文章...", v-model="searchText")
+            button.btn.btn-outline-danger.icon-link(type="button" @click="searchText = ''")
+              span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:delete-outline.svg)")
+          .text-body-secondary(v-if="searchPosts.length === 0") 目前搜尋結果為空，請嘗試輸入其他關鍵字進行搜尋。
+          ul.list-group(v-else)
+            a.list-group-item.list-group-item-action.d-flex.flex-column.gap-1(v-for="post in searchPosts" :key="post.url" :href="post.url")
+              .blogsearch-title.fs-14px.fw-bold {{ post.title }}
+              .blogsearch-tags.fs-12px.d-flex.flex-wrap.gap-1
+                span.badge.bg-secondary(v-for="tag of post.tags" :key="tag") {{ tag.value }}
+              .blogsearch-body.fs-12px.fw-light(v-html="post.body_highlight")

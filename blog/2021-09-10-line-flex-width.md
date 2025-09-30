@@ -17,7 +17,7 @@ meta:
 
 大家好，我是做出「LINE 數位版名片」的 LINE API 專家均民。
 
-::: tip 2023/07/04 更新
+::: info 2023/07/04 更新
 Flex 訊息有新增幾個新的卡片尺寸，卡片尺寸由小到大依序為：`nano`、`micro`、`deca`、`hecto`、`kilo`、`mega` 以及 `giga`。
 :::
 
@@ -31,7 +31,7 @@ Flex 訊息有新增幾個新的卡片尺寸，卡片尺寸由小到大依序為
 
 ## 如何快速測試朋友手機的寬度？
 
-::: tip 透過數位版名片分享給好友來快速實測 Flex 寬度
+::: info 透過數位版名片分享給好友來快速實測 Flex 寬度
 * [測試寬度名片 1](https://lihi1.com/zzUs3): 可用來測試 `nano`、`micro`、`deca`、`hecto`、`kilo`。
 * [測試寬度名片 2](https://lihi2.com/dMG82): 可用來測試 `mega`、`giga`。
 :::
@@ -214,7 +214,7 @@ https://gist.githubusercontent.com/taichunmin/f7741777fe93aa55b9816c859a02d363/r
 
 ## 原始碼與相關連結
 
-::: tip
+::: info
 本文範例程式的原始碼授權為 MIT License，若您有任何疑惑，你可以[點此加入「數位版名片技術討論群」](https://lihi1.com/CVjIx/blog)然後在社群內發問。
 :::
 

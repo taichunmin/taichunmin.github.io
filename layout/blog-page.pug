@@ -1,4 +1,4 @@
-extends ./bootstrap5
+extends /layout/bootstrap5
 
 block beforehtml
   -
@@ -17,17 +17,20 @@ block style
       [v-cloak]
         display: none
       .blog-body
-        ol, ul
-          padding-left: 1rem
         :last-child
           margin-bottom: 0 !important
+        ol, ul
+          padding-left: 1rem
         img
           border-radius: 0.375rem
           display: block
           margin-bottom: 1rem
           margin-top: 1rem
+          max-width: 100%
           width: 100%
-        h1
+        h1, .h1
+          font-size: 24px
+          margin-bottom: 1.5rem
           text-align: center
         h2
           margin-top: 2rem
@@ -40,39 +43,46 @@ block style
           user-select: none
         p
           font-weight: 300
+        iframe, object, embed
+          width: 100%
 
 block content
-  #app.container.p-3.pb-5(v-cloak)
-    .card.shadow
-      .card-header
-        .d-flex.gap-3.justify-content-center.align-items-center
-          img.svgmask.rounded-circle.fs-30px.border.border-1(src=site.gravatar)
-          .d-flex.gap-3.fs-16px
-            .fw-bold.ls-1px 戴均民
-            .vr
-            .blog-date.fw-light {{ blogDate }}
-      .card-body.px-4.py-3: .blog-body !{ post.markdownit.html }
-      .card-footer
-        .blog-tags.d-flex.flex-wrap.gap-1.justify-content-center(v-if="page.post.tags?.length")
-          a.btn.btn-sm.btn-light.text-body-secondary.bg-body-secondary.rounded-pill(:href="getBlogTagUrl(tag)", v-for="tag of page.post.tags", :key="tag") {{ tag }}
-    section.related-posts.mt-5(v-if="page.relatedPosts.length")
-      .text-center.fs-14px YOU MAY ALSO LIKE
-      .row.row-cols-1.row-cols-lg-3.g-4
-        .col(v-for="post, postIdx of page.relatedPosts" :key="post.path"): .card.h-100.shadow
-          img.card-img-top(v-if="post.matter.data?.image" :src="post.matter.data?.image" :alt="post.matter.data?.title")
-          .card-body.border-top.d-flex.flex-column
-            h5.card-title.fs-16px.fw-bold.mb-0 {{ post.matter.data?.title }}
-            .card-text.flex-fill.fs-12px.mt-3 {{ post.matter.data?.content }}
+  #app
+    nav-bar(baseurl=baseurl)
+    .container.p-3.pb-5(v-cloak)
+      .card.shadow
+        .card-header
+          .d-flex.gap-3.justify-content-center.align-items-center
+            img.svgmask.rounded-circle.fs-30px.border.border-1(src=site.gravatar)
+            .d-flex.gap-3.fs-16px
+              .fw-bold.ls-1px 戴均民
+              .vr
+              .blog-date.fw-light {{ blogDate }}
+        .card-body.px-4.py-3: .blog-body !{ post.markdownit.html }
+        .card-footer
+          .blog-tags.d-flex.flex-wrap.gap-1.justify-content-center(v-if="page.post.tags?.length")
+            a.btn.btn-sm.btn-light.text-body-secondary.bg-body-secondary.rounded-pill(:href="getBlogTagUrl(tag)", v-for="tag of page.post.tags", :key="tag") {{ tag }}
+      section.related-posts.mt-5(v-if="page.relatedPosts.length")
+        .text-center.fs-14px YOU MAY ALSO LIKE
+        .row.row-cols-1.row-cols-lg-3.g-4
+          .col(v-for="post, postIdx of page.relatedPosts" :key="post.path"): .card.h-100.shadow
+            img.card-img-top(v-if="post.matter.data?.image" :src="post.matter.data?.image" :alt="post.matter.data?.title")
+            .card-body.border-top.d-flex.flex-column
+              h5.card-title.fs-16px.fw-bold.mb-0 {{ post.matter.data?.title }}
+              .card-text.flex-fill.fs-12px.mt-3 {{ post.matter.data?.content }}
+  include /layout/bootstrap5-navbar-content
 
 block script
   script(type="module").
     // https://bracia.netlify.app/that-which-does-not-kill-us-makes-us-stronger
     import { computed, createApp, onMounted, ref, reactive } from 'vue'
     import { dayjs } from '@app/js/dayjs.mjs'
+    import NavBar from '@app/js/bootstrap5-navbar.mjs'
     import JSON5 from 'json5'
 
     const pageExportStr = "!{pageExportStr}"
     window.vm = createApp({
+      components: { NavBar },
       setup () {
         const page = reactive(JSON5.parse(pageExportStr))
 
