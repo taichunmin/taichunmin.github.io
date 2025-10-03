@@ -29,7 +29,7 @@ block style
 block content
   #app(v-cloak)
     nav-bar(baseurl=baseurl)
-    .container.p-3.pb-5(v-if="resume")
+    .container.p-3.pb-5.mw-print-100(v-if="resume")
       main.resume.p-4.border-top.border-success.border-10.shadow
         header.d-flex.justify-content-between.align-items-center.mb-3
           .resume-basics
@@ -56,7 +56,7 @@ block content
                   .d-flex.justify-content-between
                     .resume-work-title
                       h4.fs-14px.fw-bold.mb-1
-                        a.text-decoration-none.icon-link(v-if="work.website" target="_blank" :href="work.website")
+                        a.text-decoration-none.icon-link(v-if="work.url ?? work.website" target="_blank" :href="work.url ?? work.website")
                           | {{ work.name ?? work.company }}
                           span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
                         template(v-else) {{ work.name ?? work.company }}
@@ -118,7 +118,7 @@ block content
                   .d-flex.justify-content-between
                     .resume-volunteer-title
                       h4.fs-14px.fw-bold.mb-1
-                        a.text-decoration-none.icon-link(v-if="volunteer.website" target="_blank" :href="volunteer.website")
+                        a.text-decoration-none.icon-link(v-if="volunteer.url ?? volunteer.website" target="_blank" :href="volunteer.url ?? volunteer.website")
                           | {{ volunteer.organization }}
                           span.svgmask(style="--svgmask-url: url(https://api.iconify.design/lucide:external-link.svg)")
                         template(v-else) {{ volunteer.organization }}
@@ -198,9 +198,9 @@ block content
                 .col-12.d-flex.align-items-center.icon-link(v-if="resume.basics.phone")
                   span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:call-outline.svg)")
                   a.text-decoration-none.fs-12px(target="_blank" :href="`tel:${resume.basics.phone}`") {{ resume.basics.phone }}
-                .col-12.d-flex.align-items-center.icon-link(v-if="resume.basics.website")
+                .col-12.d-flex.align-items-center.icon-link(v-if="resume.basics.url ?? resume.basics.website")
                   span.svgmask(style="--svgmask-url: url(https://api.iconify.design/material-symbols:globe.svg)")
-                  a.text-decoration-none.fs-12px(target="_blank" :href="resume.basics.website") {{ trimProto(resume.basics.website) }}
+                  a.text-decoration-none.fs-12px(target="_blank" :href="resume.basics.url ?? resume.basics.website") {{ trimProto(resume.basics.url ?? resume.basics.website) }}
                 template(v-for="profile of resume.basics.profiles")
                   .col-12.d-flex.align-items-center.icon-link(v-if="icons.has(profile.network.toLowerCase())")
                     span.svgmask(:style="`--svgmask-url: url(${icons.get(profile.network.toLowerCase())})`")

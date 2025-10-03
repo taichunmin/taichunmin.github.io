@@ -106,15 +106,20 @@ html(lang="zh-Hant")
             margin-left: $v !important
         // https://iconify.design/docs/usage/css/no-code/
         .svgmask
+          -webkit-print-color-adjust: exact
+          print-color-adjust: exact
           display: inline-block
-          width: 1em
           height: 1em
+          width: 1em
           &:not(img)
             background-color: currentColor
             -webkit-mask: no-repeat center / 100%
             mask: no-repeat center / 100%
             -webkit-mask-image: var(--svgmask-url)
             mask-image: var(--svgmask-url)
+        .mw-print-100
+          @media print
+            max-width: 100% !important
     block style
   body
     include ./livereload
