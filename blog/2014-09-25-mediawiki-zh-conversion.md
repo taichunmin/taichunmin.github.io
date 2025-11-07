@@ -1,7 +1,6 @@
 ---
 date: "2014-09-25T11:41:00+0800"
-categories: PHP
-tags: [PHP, mediawiki, zhtw, zhcn]
+tags: [PHP]
 ---
 # mediawiki 中文繁簡轉換程式
 

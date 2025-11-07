@@ -1,7 +1,6 @@
 ---
 date: "2017-09-29T08:26:00+0800"
-categories: [Nodejs, Docker]
-tags: [Nodejs, Docker]
+tags: [NODEJS, Docker]
 ---
 # Node Docker 的使用方法
 

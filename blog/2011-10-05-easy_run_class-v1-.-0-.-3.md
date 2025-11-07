@@ -1,8 +1,8 @@
 ---
 title: Easy_run_class v1.0.3
-date: 2011-10-05T01:02:00+08
+date: '2011-10-05T01:02:00+0800'
 tags:
-  - Easy_run_class
+  - 程式設計
   - java
 ---
 # Easy_run_class v1.0.3

@@ -5,10 +5,8 @@ description: 用 localtunnel 幫開發 LINE chatbot 用的後端伺服器變成 
 image: https://i.imgur.com/zg2yDJp.png
 tags:
   - LINE
-  - https
-  - development
+  - 程式設計
   - backend
-  - webhook
 meta:
   - property: og:image:width
     content: 1200

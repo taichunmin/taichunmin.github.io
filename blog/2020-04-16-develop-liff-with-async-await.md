@@ -6,8 +6,6 @@ image: https://i.imgur.com/SPHXp8d.png
 tags:
   - LINE
   - LIFF
-  - async
-  - await
 meta:
   - property: og:image:width
     content: 1200

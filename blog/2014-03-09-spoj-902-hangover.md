@@ -1,6 +1,5 @@
 ---
 date: "2014-03-09T03:54:00+0800"
-categories: SPOJ
 tags: [SPOJ, python]
 ---
 # SPOJ 902. Hangover.py

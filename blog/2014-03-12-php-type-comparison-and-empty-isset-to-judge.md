@@ -1,7 +1,6 @@
 ---
 date: "2014-03-12T10:47:00+0800"
-categories: PHP
-tags: [PHP, empty, isset]
+tags: [PHP]
 ---
 # PHP 型態比較與 empty, isset 判斷
 

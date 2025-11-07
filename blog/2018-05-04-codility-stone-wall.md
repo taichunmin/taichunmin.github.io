@@ -1,6 +1,6 @@
 ---
 date: "2018-05-04T14:52:00+0800"
-tags: [codility, C++, stack]
+tags: [codility, cpp]
 ---
 # Codility: StoneWall 石牆
 

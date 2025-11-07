@@ -1,6 +1,6 @@
 ---
 title: jQuery 在 google 的一些在線資源
-date: 2011-10-20T22:33:00+08
+date: '2011-10-20T22:33:00+0800'
 tags:
   - Deprecated
 ---

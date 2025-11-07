@@ -1,7 +1,6 @@
 ---
 date: "2014-04-11T11:20:00+0800"
-categories: Linux
-tags: [Linux, ssh-key, keychain]
+tags: [Linux]
 ---
 # 生產 ssh, 複製公鑰, keychain 管理
 

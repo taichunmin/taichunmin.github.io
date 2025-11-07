@@ -6,7 +6,6 @@ image: https://i.imgur.com/ZkfbVn5.png
 tags:
   - LINE
   - LIFF
-  - referral
 meta:
   - property: og:image:width
     content: 1200

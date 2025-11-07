@@ -9,7 +9,7 @@ block beforehtml
     ogImageWidth = _.find(post.matter.data?.meta, { property: 'og:image:width' })?.content ?? ogImageWidth
     //- expose variables to browser
     pageExport = { baseurl, markdownit, post, relatedPosts: (relatedPosts || []), site }
-    pageExportStr = JSON.stringify(JSON5.stringify(pageExport)).slice(1, -1)
+    pageExportBase64 = Buffer.from(JSON5.stringify(pageExport)).toString('base64url')
 
 block style
   style
@@ -80,11 +80,11 @@ block script
     import NavBar from '@app/js/bootstrap5-navbar.mjs'
     import JSON5 from 'json5'
 
-    const pageExportStr = "!{pageExportStr}"
+    const pageExportBase64 = "!{pageExportBase64}"
     window.vm = createApp({
       components: { NavBar },
       setup () {
-        const page = reactive(JSON5.parse(pageExportStr))
+        const page = reactive(JSON5.parse(Buffer.from(pageExportBase64, 'base64url').toString()))
 
         function getBlogTagUrl (tag) {
           const tmp = new URL('./', location)

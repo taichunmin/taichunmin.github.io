@@ -1,7 +1,6 @@
 ---
 date: "2017-04-10T11:53:00+0800"
-categories: Skycarpenter
-tags: [MySQL, default_password_lifetime]
+tags: [MySQL, Skycarpenter]
 ---
 # MySQL 5.7+ Your password has expired
 

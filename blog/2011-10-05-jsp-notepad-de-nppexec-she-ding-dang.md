@@ -1,6 +1,6 @@
 ---
 title: "[JSP]Notepad++的NppExec設定檔"
-date: 2011-10-05T01:24:00+08
+date: '2011-10-05T01:24:00+0800'
 tags:
   - JSP
 ---

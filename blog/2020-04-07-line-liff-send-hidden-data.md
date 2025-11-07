@@ -6,7 +6,6 @@ image: https://i.imgur.com/kocTL0R.png
 tags:
   - LINE
   - LIFF
-  - postback
 meta:
   - property: og:image:width
     content: 1200

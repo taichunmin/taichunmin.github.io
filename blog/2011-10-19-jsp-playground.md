@@ -1,6 +1,6 @@
 ---
 date: "2011-10-19T20:18:00+0800"
-categories: JSP
+tags: [JSP]
 ---
 # JSP 20111019 上課練習
 

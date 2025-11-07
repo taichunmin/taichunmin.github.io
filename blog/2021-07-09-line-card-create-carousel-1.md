@@ -7,7 +7,6 @@ tags:
   - 電子名片
   - LINE
   - LIFF
-  - businesscard
 meta:
   - property: og:image:width
     content: 1280

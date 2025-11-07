@@ -5,6 +5,7 @@ description: 把 ESP32 變成能輪播 8 個 LINE Beacon 訊號，並支援防�
 image: https://i.imgur.com/ccsm0RH.png
 tags:
   - LINE
+  - LINE Beacon
 meta:
   - property: og:image:width
     content: 1280

@@ -5,8 +5,8 @@ block beforehtml
     title = '戴均民的文章列表'
     description = '這是戴均民的文章列表，包含技術文章、生活隨筆……等。'
     //- expose variables to browser
-    pageExport = { baseurl, posts: posts || [], site }
-    pageExportStr = JSON.stringify(JSON5.stringify(pageExport)).slice(1, -1)
+    pageExport = { baseurl, posts: _.map(posts, post => _.pick(post, ['path', 'ogImage', 'title', 'date', 'description', 'tags'])) || [], site }
+    pageExportBase64 = Buffer.from(JSON5.stringify(pageExport)).toString('base64url')
 
 block style
   style
@@ -40,37 +40,61 @@ block content
           span.svgmask(style="--svgmask-url: url(https://api.iconify.design/streamline:markdown-circle-programming.svg)")
           | 文章列表
         p.fs-16px.fw-light.ls-n1px= description
+      .card.shadow.mb-3
+        a.fs-6.card-header.mb-0.icon-link.text-decoration-none(@click="showTags = !showTags")
+          span.svgmask(v-if="showTags" style="--svgmask-url: url(https://api.iconify.design/mdi:arrow-collapse-vertical.svg)")
+          span.svgmask(v-else style="--svgmask-url: url(https://api.iconify.design/mdi:arrow-expand-vertical.svg)")
+          | 文章標籤
+          span.badge.text-bg-primary.rounded-pill {{ postCntByTag.length }}
+        .card-body(v-show="showTags")
+          .blog-tags.d-flex.flex-wrap.gap-2.justify-content-center.ls-n1px(v-if="postCntByTag?.length")
+            a.btn.btn-sm.rounded-pill.position-relative.fs-12px(
+              :class="[urlTags.includes(tag[0]) ? 'btn-primary' : 'btn-light text-body-secondary bg-body-secondary']"
+              :href="getBlogTagUrl(urlTags.includes(tag[0]) ? null : tag[0])"
+              v-for="tag of postCntByTag", :key="tag[0]"
+            )
+              | {{ tag[0] }}
+              span.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger {{ tag[1] }}
       section.row.g-3.posts-list
-        .col-12(v-for="post of page.posts", :key="post.path")
-          .card.shadow.position-relative: .card-body: .row.gy-2.gx-4
-            .col-12.col-lg-4
-              img.rounded.w-100.border.ratio-1200x630(:src="post.ogImage")
-            .col-12.col-lg-8.d-flex.flex-column
-              .d-flex.justify-content-between.gap-1
-                a.post-title.fw-bold.stretched-link(:href="`${post.path}.html`") {{ post.title }}
-                .fs-11px.text-nowrap.fs-light.ls-n1px.font-monospace.fst-italic {{ toDateStr(post.date) }}
-              .post-summary.fw-light.flex-fill.mt-2 {{ post.description }}
-              .post-badges.mt-2.d-flex.flex-wrap.gap-1
-                .badge.rounded-pill.text-bg-secondary(v-for="tag of post.tags") {{ tag }}
+        template(v-for="post of page.posts", :key="post.path")
+          .col-12(v-if="urlTags.length === 0 || tagsIntersection(post.tags, urlTags).length > 0")
+            .card.shadow.position-relative: .card-body: .row.gy-2.gx-4
+              .col-12.col-lg-4
+                img.rounded.w-100.border.ratio-1200x630(:src="post.ogImage")
+              .col-12.col-lg-8.d-flex.flex-column
+                .d-flex.justify-content-between.gap-1
+                  a.post-title.fw-bold.stretched-link(:href="`${post.path}.html`") {{ post.title }}
+                  .fs-11px.text-nowrap.fs-light.ls-n1px.font-monospace.fst-italic {{ toDateStr(post.date) }}
+                .post-summary.fw-light.flex-fill.mt-2 {{ post.description }}
+                .post-badges.mt-2.d-flex.flex-wrap.gap-1
+                  .badge.rounded-pill.text-bg-secondary(v-for="tag of post.tags") {{ tag }}
   include /layout/bootstrap5-navbar-content
 
 block script
   script(type="module").
     // https://bracia.netlify.app/that-which-does-not-kill-us-makes-us-stronger
+    import _ from 'lodash'
+    import { Buffer } from '@taichunmin/buffer'
     import { computed, createApp, onMounted, ref, reactive } from 'vue'
     import { dayjs } from '@app/js/dayjs.mjs'
-    import NavBar from '@app/js/bootstrap5-navbar.mjs'
     import JSON5 from 'json5'
+    import NavBar from '@app/js/bootstrap5-navbar.mjs'
 
-    const pageExportStr = "!{pageExportStr}"
+    const pageExportBase64 = "!{pageExportBase64}"
     window.vm = createApp({
       components: { NavBar },
       setup () {
-        const page = reactive(JSON5.parse(pageExportStr))
+        const page = reactive(JSON5.parse(Buffer.from(pageExportBase64, 'base64url').toString()))
+        const showTags = ref(false)
+        const urlTags = ref([])
+
+        function tagNormalize (tag) {
+          return tag.trim().toUpperCase()
+        }
 
         function getBlogTagUrl (tag) {
           const tmp = new URL('./', location)
-          tmp.searchParams.set('tag', tag)
+          if (_.isString(tag)) tmp.searchParams.set('tag', tagNormalize(tag))
           return tmp.href
         }
 
@@ -78,6 +102,33 @@ block script
           return dayjs(date).utcOffset(8).format('YYYY-MM-DD')
         }
 
-        return { dayjs, getBlogTagUrl, page, toDateStr }
+        let postCntByTag = {}
+        for (const post of page.posts) {
+          const tags = post.tags || ['無標籤']
+          for (let tag of tags) {
+            tag = tag.trim().toUpperCase()
+            postCntByTag[tag] = (postCntByTag[tag] ?? 0) + 1
+          }
+        }
+        postCntByTag = _.chain(postCntByTag)
+          .entries()
+          .filter(([, cnt]) => cnt > 1)
+          .orderBy([1], ['desc'])
+          .thru(reactive)
+          .value()
+
+        // urlTags
+        const url = new URL(location)
+        const tags = url.searchParams.getAll('tag')
+        urlTags.value = _.intersection(_.map(tags, tagNormalize), _.map(postCntByTag, 0))
+        if (urlTags.value.length > 0) showTags.value = true
+
+        function tagsIntersection (tags1, tags2) {
+          tags1 ??= ['無標籤']
+          tags2 ??= ['無標籤']
+          return _.intersection(tags1, tags2)
+        }
+
+        return { dayjs, getBlogTagUrl, page, postCntByTag, showTags, toDateStr, urlTags, tagsIntersection }
       },
     }).mount('#app')

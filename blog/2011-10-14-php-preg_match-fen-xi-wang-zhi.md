@@ -1,10 +1,8 @@
 ---
 title: "PHP preg_match 分析網址"
-date: 2011-10-14T00:25:00+08
+date: '2011-10-14T00:25:00+0800'
 tags:
   - php
-  - preg
-  - url
 ---
 # PHP preg_match 分析網址
 

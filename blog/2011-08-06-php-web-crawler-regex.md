@@ -1,17 +1,8 @@
 ---
 title: "要對網頁使用 preg 之前，記得先去除換行!"
-date: 2011-08-06T17:38:00+08
+date: '2011-08-06T17:38:00+0800'
 tags:
-  - 動態網頁
-  - 正則表達式處理網頁
-  - PHP處理網頁
-  - taichunmin
   - PHP
-  - preg
-  - 正則表達式
-  - preg_match
-  - preg_match_all
-  - 換行
 ---
 # 要對網頁使用 preg 之前，記得先去除換行!
 

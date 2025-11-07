@@ -1,7 +1,6 @@
 ---
 date: "2014-01-18T23:09:00+0800"
-categories: Diary
-tags: [C, CPP, diary]
+tags: [diary]
 ---
 # 吳永輝老師培訓
 

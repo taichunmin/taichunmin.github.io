@@ -1,7 +1,6 @@
 ---
 date: "2014-03-25T17:33:00+0800"
-categories: NCHUIT
-tags: [NCHUIT, CPE, ACM]
+tags: [ACM, CPE, NCHUIT]
 ---
 # CPE 培訓 2014-02-25
 

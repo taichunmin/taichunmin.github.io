@@ -1,7 +1,6 @@
 ---
 date: "2017-09-13T14:08:00+0800"
-categories: Docker
-tags: [Docker, MongoDB, Seeding]
+tags: [Docker, MongoDB]
 ---
 # 用 Docker 來製作優雅的 MongoDB Seeder
 

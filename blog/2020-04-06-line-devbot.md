@@ -5,8 +5,7 @@ description: 在官方模擬器看到的結果，不一定跟手機上面的相�
 image: https://i.imgur.com/3vUdhWw.png
 tags:
   - LINE
-  - Flex Message
-  - Simulator
+  - LINE Flex Message
 meta:
   - property: og:image:width
     content: 1200

@@ -1,6 +1,6 @@
 ---
 date: "2018-09-13T11:11:00+0800"
-tags: [MySQL, aggregate, group, 'group by', subquery, join, 'left join']
+tags: [MySQL]
 ---
 # MySQL 取得指定 type 中編號最大的武器的附屬欄位
 

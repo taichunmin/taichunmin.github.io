@@ -5,10 +5,6 @@ description: 可以從 CSV 讀取資料，對每個 LINE 使用者推送專屬�
 image: https://i.imgur.com/MtBpKAr.png
 tags:
   - LINE
-  - pushMessage
-  - csv
-  - template
-  - Lodash
 meta:
   - property: og:image:width
     content: 1200

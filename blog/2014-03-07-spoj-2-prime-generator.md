@@ -1,6 +1,5 @@
 ---
 date: "2014-03-07T04:51:00+0800"
-categories: SPOJ
 tags: [SPOJ, python]
 ---
 # SPOJ 2. Prime Generator.py

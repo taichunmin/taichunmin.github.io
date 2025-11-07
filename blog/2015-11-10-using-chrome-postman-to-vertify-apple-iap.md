@@ -1,7 +1,6 @@
 ---
 date: "2015-11-10T11:02:00+0800"
-categories: Skycarpenter
-tags: [postman, 'In App Purchase']
+tags: [PHP, Skycarpenter]
 ---
 # 使用 Chrome 的 POSTMAN 來手動確認 Apple IAP 訂單
 

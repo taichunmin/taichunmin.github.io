@@ -1,7 +1,6 @@
 ---
 date: "2014-01-07T02:22:00+0800"
-categories: C
-tags: [C, 'Binary Search Tree', algorithm, BST]
+tags: [C]
 ---
 # Binary Search Tree
 

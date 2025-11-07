@@ -1,7 +1,6 @@
 ---
 date: "2015-12-14T17:23:00+0800"
-categories: Skycarpenter
-tags: [PHP, 'Google Play', 'In App Purchase', 'Google Developer Console', 'Google Play Developer Console']
+tags: [PHP, Skycarpenter]
 ---
 # PHP 驗證 Google Play In App Purchase
 

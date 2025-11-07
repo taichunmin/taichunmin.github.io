@@ -1,7 +1,6 @@
 ---
 date: "2014-03-21T00:16:00+0800"
-categories: Reference
-tags: [reference, dns]
+tags: [devops]
 ---
 # DNS list in SetDNS App
 

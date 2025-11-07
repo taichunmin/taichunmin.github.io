@@ -5,7 +5,6 @@ description: 把聊天機器人加到使用者的手機主畫面，讓使用者�
 image: https://i.imgur.com/SiyFKsh.png
 tags:
   - LINE
-  - desktop shortcut
 meta:
   - property: og:image:width
     content: 1200

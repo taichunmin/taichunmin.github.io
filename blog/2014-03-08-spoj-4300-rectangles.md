@@ -1,6 +1,5 @@
 ---
 date: "2014-03-08T19:28:00+0800"
-categories: SPOJ
 tags: [SPOJ, python]
 ---
 # SPOJ 4300. Rectangles.py

@@ -1,6 +1,6 @@
 ---
 date: "2018-05-08T14:15:00+0800"
-tags: [codility, C++, stack]
+tags: [codility, cpp]
 ---
 # Codility: Fish 魚
 

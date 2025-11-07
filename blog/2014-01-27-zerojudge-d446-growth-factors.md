@@ -1,6 +1,5 @@
 ---
 date: "2014-01-27T09:17:00+0800"
-categories: ZeroJudge
 tags: [zerojudge, CPP]
 ---
 # ZeroJudge d446. 生成因數

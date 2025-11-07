@@ -1,7 +1,6 @@
 ---
 date: "2014-03-28T11:42:00+0800"
-categories: C
-tags: [C, gdb, debug]
+tags: [C]
 ---
 # GDB 教學
 

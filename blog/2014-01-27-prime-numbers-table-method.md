@@ -1,7 +1,6 @@
 ---
 date: "2014-01-27T09:36:00+0800"
-categories: CPP
-tags: [CPP, reference]
+tags: [CPP]
 ---
 # 產生質數 (建表法)
 

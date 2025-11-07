@@ -1,9 +1,8 @@
 ---
 title: "gmnxix(果凍)、看板: C_and_CPP"
-date: 2011-06-18T11:02:00+08
+date: '2011-06-18T11:02:00+0800'
 tags:
-  - CMD程式
-  - gmnxix
+  - CMD
   - c
 ---
 # gmnxix(果凍)、看板: C_and_CPP

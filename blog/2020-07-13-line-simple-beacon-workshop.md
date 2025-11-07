@@ -5,7 +5,7 @@ description: 用 ESP32-DevKitC 來做一個自己的 LINE Simple Beacon 吧！
 image: https://i.imgur.com/39XtRgF.png
 tags:
   - LINE
-  - Beacon
+  - LINE Beacon
   - workshop
 meta:
   - property: og:image:width

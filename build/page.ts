@@ -12,6 +12,7 @@ import { fileURLToPath } from 'url'
 import { inspect } from 'util'
 import pkg from '../package.json' assert { type: 'json' }
 import { errToJson, genSitemap } from './utils'
+import { Buffer } from '@taichunmin/buffer'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const pageDir = path.resolve(__dirname, '../page/')
@@ -19,6 +20,8 @@ const distDir = path.resolve(__dirname, '../dist/')
 
 export async function build (): Promise<void> {
   const PUG_OPTIONS = {
+    Buffer, // Buffer
+    _, // lodash
     basedir: path.resolve(__dirname, '..'),
     baseurl: getSiteurl(),
     NODE_ENV: getenv('NODE_ENV', 'production'),

@@ -5,6 +5,7 @@ description: 這是均民特地去 2022 高雄燈會後所寫的紀錄文章，�
 image: https://i.imgur.com/9m0PSUP.png
 tags:
   - LINE
+  - LINE Beacon
 meta:
   - property: og:image:width
     content: 1200

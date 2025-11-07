@@ -1,7 +1,6 @@
 ---
 date: "2017-09-13T15:48:00+0800"
-categories: Tutorial
-tags: [Google, Form, Tutorial]
+tags: [轉載]
 ---
 # 使用 Google 表單來追蹤電子郵件開啟
 

@@ -1,9 +1,13 @@
 import { getenv, getSiteurl } from './dotenv'
 
+import { Buffer } from '@taichunmin/buffer'
+import { checkFields as bsCheckFields } from 'blogsearch-crawler/lib/checkers'
+import { Database as BSDatabase } from 'blogsearch-crawler/lib/database'
 import fg from 'fast-glob'
 import { promises as fsPromises } from 'fs'
 import grayMatter from 'gray-matter'
 import { minify as htmlMinifier } from 'html-minifier'
+import { JSDOM } from 'jsdom'
 import JSON5 from 'json5'
 import _ from 'lodash'
 import path from 'path'
@@ -17,9 +21,6 @@ import pkg from '../package.json' assert { type: 'json' }
 import { dayjs } from './dayjs'
 import { mdRenderWithMeta } from './markdownit'
 import { errToJson } from './utils'
-import { JSDOM } from 'jsdom'
-import { Database as BSDatabase } from 'blogsearch-crawler/lib/database'
-import { checkFields as bsCheckFields } from 'blogsearch-crawler/lib/checkers'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const blogDir = path.resolve(__dirname, '../blog/')
@@ -33,7 +34,7 @@ const ZodPostContext = z.object({
   ogImage: z.url().normalize(),
   ogUrl: z.url().normalize(),
   path: z.string().trim(),
-  tags: z.array(z.string().trim()).min(1).catch(['無標籤']),
+  tags: z.array(z.string().trim().toUpperCase()).min(1).catch(['無標籤']),
   title: z.string().trim(),
   markdownit: z.object({
     html: z.string().trim(),
@@ -54,6 +55,7 @@ export type PostContext = z.output<typeof ZodPostContext>
 export async function build (): Promise<void> {
   const PUG_OPTIONS = {
     _, // lodash
+    Buffer, // Buffer
     JSON5, // JSON5
     basedir: path.resolve(__dirname, '..'),
     baseurl: getSiteurl(),

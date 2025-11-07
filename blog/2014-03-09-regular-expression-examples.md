@@ -1,7 +1,6 @@
 ---
 date: "2014-03-09T00:47:00+0800"
-categories: Reference
-tags: [reference, regexp]
+tags: [程式設計]
 ---
 # 正規表示法範例
 

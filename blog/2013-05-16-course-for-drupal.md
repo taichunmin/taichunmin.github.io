@@ -1,14 +1,9 @@
 ---
 title: 大開學長 Drupal 版型初分享
-date: 2013-05-16T01:06:00+08
+date: '2013-05-16T01:06:00+0800'
 tags:
-  - 動態網頁
   - Drupal
-  - CSS
   - Slideshow
-  - colorbox
-  - quicktab
-  - Display Suite
 ---
 # 大開學長 Drupal 版型初分享
 

@@ -4,6 +4,8 @@ title: 認識常見的 RFID 卡片及魔術卡
 description: RFID 門禁卡讓你頭昏眼花？ID 卡、M1 卡差在哪？UID、CUID 這些魔術卡又是什麼？別怕！這篇文章我會用最白話的方式，帶你一次搞懂各種 RFID 卡片與魔術卡的祕密，讓你瞬間變身 RFID 達人！
 image: https://i.imgur.com/57CZ6Ym.png
 tags:
+  - ithelp-ironman
+  - NFC
   - RFID
 meta:
   - property: og:image:width

@@ -1,6 +1,6 @@
 ---
 title: "PHP curl 使用 https 遇到 SSL certificate problem"
-date: 2011-09-25T01:28:00+08
+date: '2011-09-25T01:28:00+0800'
 tags:
   - php
 ---

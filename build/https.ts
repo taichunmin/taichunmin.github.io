@@ -49,7 +49,7 @@ async function main (): Promise<void> {
   })
 
   let latestDistFilepath = ''
-  const debounceRefresh = _.debounce(() => { livereloadServer.refresh(latestDistFilepath) }, 500)
+  const debounceRefresh = _.debounce(() => { livereloadServer.refresh(latestDistFilepath) }, 3000)
   const exts = 'cjs,css,gif,html,jpeg,jpg,js,mjs,png,svg,webp'.split(',')
   watch([distDir], { recursive: true }, async (e, name) => {
     if (e !== 'update') return

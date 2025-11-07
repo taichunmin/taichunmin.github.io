@@ -1,6 +1,5 @@
 ---
 date: "2014-03-08T20:04:00+0800"
-categories: SPOJ
 tags: [SPOJ, python]
 ---
 # SPOJ 7974. What’s Next.py

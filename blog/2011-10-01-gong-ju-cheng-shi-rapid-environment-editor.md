@@ -1,8 +1,8 @@
 ---
 title: "[工具程式]Rapid Environment Editor"
-date: 2011-10-01T17:24:00+08
+date: '2011-10-01T17:24:00+0800'
 tags:
-  - Easy_run_class
+  - 程式設計
 ---
 # [工具程式]Rapid Environment Editor
 

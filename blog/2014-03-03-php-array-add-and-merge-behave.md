@@ -1,7 +1,6 @@
 ---
 date: "2014-03-03T20:02:00+0800"
-categories: PHP
-tags: [PHP, array_merge]
+tags: [PHP]
 ---
 # PHP array add and merge behave
 

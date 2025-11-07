@@ -1,6 +1,5 @@
 ---
 date: "2014-03-08T02:28:00+0800"
-categories: SPOJ
 tags: [SPOJ, python]
 ---
 # SPOJ 1025. Fashion Shows.py

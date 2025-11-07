@@ -1,7 +1,6 @@
 ---
 date: "2014-01-07T05:25:00+0800"
-categories: Reprint
-tags: [daughter, story]
+tags: [轉載]
 ---
 # 教育女兒成長過程中的自我保護意識
 

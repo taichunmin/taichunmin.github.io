@@ -1,7 +1,8 @@
 ---
 title: "Windows7 找不到 localhost 的問題"
-date: 2011-08-06T18:08:00+08
+date: '2011-08-06T18:08:00+0800'
 tags:
+  - 程式設計
   - windows
 ---
 # Windows7 找不到 localhost 的問題

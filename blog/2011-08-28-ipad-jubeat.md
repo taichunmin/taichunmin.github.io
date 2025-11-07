@@ -1,6 +1,6 @@
 ---
 title: jubeat plus成功加歌
-date: 2011-08-28T09:02:00+08
+date: '2011-08-28T09:02:00+0800'
 tags:
   - Diary
 ---

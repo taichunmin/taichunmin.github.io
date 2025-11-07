@@ -1,7 +1,6 @@
 ---
 date: "2014-03-16T22:49:00+0800"
-categories: Conference
-tags: [conference, SITCON, diary]
+tags: [SITCON, diary]
 ---
 # SITCON 2014 參加心得 & 講師
 
