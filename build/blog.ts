@@ -189,7 +189,7 @@ export async function build (): Promise<void> {
   const blogPagePug = path.resolve(__dirname, '../layout/blog-page.pug')
   for (const [postPath, post] of postsMap.entries()) {
     try {
-      let html = pug.renderFile(blogPagePug, { ...PUG_OPTIONS, post })
+      let html = pug.renderFile(blogPagePug, { ...PUG_OPTIONS, ogUrl: post.ogUrl, post })
       if (PUG_OPTIONS.NODE_ENV === 'production') html = htmlMinifier(html, htmlMinifierOptions)
       const dist = path.resolve(distDir, `blog/${postPath}.html`)
       await fsPromises.mkdir(path.dirname(dist), { recursive: true })
