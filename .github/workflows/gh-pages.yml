@@ -11,7 +11,7 @@ permissions:
   pages: write
 
 concurrency:
-  group: gh-pages-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -35,11 +35,12 @@ jobs:
               "vars": ${{ toJSON(vars) }}
             }
         run: echo "$ACTION_CONTEXT" | jq .
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: lts/*
           cache: 'yarn'
+          node-version: lts/*
+          registry-url: 'https://registry.npmjs.org'
       - name: install and build
         run: |
           set -ex

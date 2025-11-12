@@ -22,7 +22,8 @@ const langAliasMap = {
 const noHighlightExts = ['', 'mermaid', 'plain', 'text']
 
 function wrapText (code: string, lang: string): string {
-  return `<pre class="rounded language-${lang}"><code>${_.escape(code)}</code></pre>`
+  if (lang === 'mermaid') return `<pre v-pre class="rounded ${lang}">${_.escape(code)}</pre>`
+  return `<pre v-pre class="rounded language-${lang}"><code>${_.escape(code)}</code></pre>`
 }
 
 const render = (str: string, lang: string, attrs: string): string => {

@@ -9,12 +9,14 @@ tags:
   - RFID
 meta:
   - property: og:image:width
-    content: 1280
+    content: 1200
   - property: og:image:height
-    content: 640
+    content: 630
 ---
 
 # RFID 硬體介紹、購買及使用經驗分享
+
+![](https://i.imgur.com/YHCLV7C.png)
 
 想要研究 RFID 的人，不可避免都要先花一筆不小的錢購買一批讀卡機硬體。均民特地寫這篇文章，來分享自己對於這些 RFID 硬體的購買經驗，幫助想踏入這個領域的朋友可以少踩一些坑，快速購買到符合自己所需的硬體。由於這類商品主要的賣家都在中國大陸，為了說明方便，均民會放上來自中國的商品截圖，請讀者見諒。
 
@@ -160,3 +162,7 @@ Flipper Zero 目前可以模擬低頻及高頻卡的卡號，也能夠使用針�
 ### 非官方功能
 
 如果 Flipper Zero 官方提供的功能不符需求，這個硬體也有不少其他網友提供的非官方功能。均民建議可以參考 [djsime1/awesome-flipperzero](https://github.com/djsime1/awesome-flipperzero) 進一步研究。
+
+## 相關連結
+
+如果在看過文章之後，想跟我進行交流，歡迎透過 [Facebook](https://www.facebook.com/taichunmin) 跟我聯繫。

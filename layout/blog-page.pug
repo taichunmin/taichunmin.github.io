@@ -50,6 +50,8 @@ block style
           color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity))
           padding-left: 1rem
           padding: 0 1em
+        details
+          margin-bottom: 1rem
 
 block content
   #app
@@ -85,6 +87,9 @@ block script
     import { dayjs } from '@app/js/dayjs.mjs'
     import JSON5 from 'json5'
     import NavBar from '@app/js/bootstrap5-navbar.mjs'
+    import mermaid from 'mermaid'
+
+    mermaid.initialize({ startOnLoad: false })
 
     const pageExportBase64 = "!{pageExportBase64}"
     window.vm = createApp({
@@ -101,6 +106,10 @@ block script
         const blogDate = computed(() => {
           const tmp = page.post.matter?.data?.date
           return dayjs(tmp).utcOffset(8).format('YYYY-MM-DD')
+        })
+
+        onMounted(async () => {
+          await mermaid.run({ querySelector: '.mermaid' })
         })
 
         return { blogDate, getBlogTagUrl, page }
