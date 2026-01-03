@@ -1,8 +1,6 @@
-
 import _ from 'lodash'
 import { default as markdownit, default as MarkdownIt, type PluginSimple, type PluginWithOptions } from 'markdown-it'
 import pluginAbbr from 'markdown-it-abbr'
-import pluginAnchor from 'markdown-it-anchor'
 import pluginAttrs from 'markdown-it-attrs'
 import pluginDeflist from 'markdown-it-deflist'
 import pluginEmoji from 'markdown-it-emoji'
@@ -12,7 +10,7 @@ import pluginIns from 'markdown-it-ins'
 import pluginMark from 'markdown-it-mark'
 import pluginSub from 'markdown-it-sub'
 import pluginSup from 'markdown-it-sup'
-import { slugify } from 'transliteration'
+import pluginAnchor from './markdownit-anchor'
 import pluginBootstrap5Alert from './markdownit-bootstrap5-alert'
 import pluginBootstrap5Table from './markdownit-bootstrap5-table'
 import pluginExternalLink from './markdownit-external-link'
@@ -30,6 +28,7 @@ const md: MarkdownItWithMeta = markdownit('default', {
 
 for (const [pluginIdx, plugin] of _.entries([
   pluginAbbr,
+  pluginAnchor,
   pluginAttrs,
   pluginBootstrap5Alert,
   pluginBootstrap5Table,
@@ -52,14 +51,6 @@ for (const [pluginIdx, plugin] of _.entries([
 }
 
 // pluginAnchor should come after pluginAttrs
-md.use(pluginAnchor, {
-  level: 2,
-  slugify,
-  permalink: pluginAnchor.permalink.ariaHidden({
-    placement: 'before',
-    space: false,
-  }),
-})
 
 export function mdRenderWithMeta (str: string): MarkdownItRenderedItem {
   try {

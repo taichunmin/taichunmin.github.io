@@ -90,7 +90,7 @@ export async function build (): Promise<void> {
   }
 
   // load all blog/**/*.md files
-  const mdFiles = await fg('**/*.md', { cwd: blogDir })
+  const mdFiles = _.orderBy(await fg('**/*.md', { cwd: blogDir }), undefined, 'desc')
   const postsMap = new Map<string, PostContext>()
 
   let mdParseErrCnt = 0
