@@ -12,6 +12,7 @@ block beforehtml
     pageExportBase64 = Buffer.from(JSON5.stringify(pageExport)).toString('base64url')
 
 block style
+  link(rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.css")
   style
     :sass
       [v-cloak]
@@ -34,13 +35,15 @@ block style
           font-size: 24px
           margin-bottom: 1.5rem
           text-align: center
-        h2
-          margin-top: 2rem
+        :not(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6) + :is(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6)
+          margin-top: .8em
         a
           text-decoration: none
         a.header-anchor
           -webkit-user-select: none
-          font-size: .85em
+          font-size: .8em
+          font-weight: 100
+          letter-spacing: -1px
           margin-right: .5rem
           user-select: none
         iframe, object, embed
@@ -82,12 +85,14 @@ block content
 block script
   script(type="module").
     // https://bracia.netlify.app/that-which-does-not-kill-us-makes-us-stronger
+    import _ from 'lodash'
     import { Buffer } from '@taichunmin/buffer'
     import { computed, createApp, onMounted, ref, reactive } from 'vue'
     import { dayjs } from '@app/js/dayjs.mjs'
     import JSON5 from 'json5'
-    import NavBar from '@app/js/bootstrap5-navbar.mjs'
     import mermaid from 'mermaid'
+    import NavBar from '@app/js/bootstrap5-navbar.mjs'
+    import PhotoSwipe from 'photoswipe'
 
     mermaid.initialize({ startOnLoad: false })
 
@@ -108,8 +113,47 @@ block script
           return dayjs(tmp).utcOffset(8).format('YYYY-MM-DD')
         })
 
+        async function getImgSize (imgSrc) {
+          try {
+            imgSrc = new URL(imgSrc).href
+            return await new Promise((resolve, reject) => {
+              const img = new Image()
+              img.onload = function () {
+                resolve({ height: this.height, width: this.width })
+              }
+              img.onerror = function (event) {
+                console.error(event)
+                reject(new Error('無法取得圖片大小'))
+              }
+              img.src = imgSrc
+            })
+          } catch (err) {
+            throw new Error(`無法取得圖片大小: ${err.message}`)
+          }
+        }
+
         onMounted(async () => {
           await mermaid.run({ querySelector: '.mermaid' })
+
+          // PhotoSwipe
+          const postImgs = document.querySelectorAll('.blog-body img:not(a>img)')
+          await Promise.all(_.map(postImgs, async postImg => {
+            try {
+              const { width, height } = await getImgSize(postImg.src)
+              // console.log(`width: ${width}, height: ${height}, imgSrc: ${postImg.src}`)
+              const pswpOpts = {
+                dataSource: [{ src: postImg.src, width, height }],
+                showHideAnimationType: 'none',
+              }
+              postImg.addEventListener('click', () => {
+                pswpOpts.index = 0
+                const pswp = new PhotoSwipe(pswpOpts)
+                pswp.init()
+              })
+            } catch (err) {
+              console.error(_.update(err, 'data.pswpPostImg', orig => orig ?? { imgSrc: postImg.src }))
+            }
+          }))
         })
 
         return { blogDate, getBlogTagUrl, page }
