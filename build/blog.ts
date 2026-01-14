@@ -112,7 +112,8 @@ export async function build (): Promise<void> {
       post.date = dayjs(post.matter.data?.date).utcOffset(8).toDate()
       post.tags = post.matter.data?.tags
       try {
-        postsMap.set(post.path, ZodPostContext.parse(post))
+        // 忽略草稿
+        if (!(post.matter.data.draft ?? false)) postsMap.set(post.path, ZodPostContext.parse(post))
       } catch (err) {
         throw _.set(err, 'data.build.mdCtx', post)
       }
