@@ -4,6 +4,7 @@ title: Mifare Classic 1k 卡片完全解析
 description: 你知道每天在用的門禁卡到底存了什麼嗎？這篇帶你深入底層，從資料結構、可用指令到權限控制完全解析。搞懂這些硬核細節，才不會在玩卡片時，不小心把它變磚喔！
 image: https://i.imgur.com/46p5s9X.png
 tags:
+  - ithelp-ironman
   - NFC
   - RFID
 meta:
