@@ -68,7 +68,7 @@ block content
               .fw-bold.ls-1px 戴均民
               .vr
               .blog-date.fw-light {{ blogDate }}
-        .card-body.px-4.py-3: .blog-body !{ post.markdownit.html }
+        .card-body.px-4.py-3: .blog-body(v-pre) !{ post.markdownit.html }
         .card-footer
           .blog-tags.d-flex.flex-wrap.gap-1.justify-content-center(v-if="page.post.tags?.length")
             a.btn.btn-sm.btn-light.text-body-secondary.bg-body-secondary.rounded-pill(:href="getBlogTagUrl(tag)", v-for="tag of page.post.tags", :key="tag") {{ tag }}
