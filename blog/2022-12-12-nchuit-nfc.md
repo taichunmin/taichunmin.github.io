@@ -5,6 +5,7 @@ description: NFC 技術在台灣已經非常普及，但在享受科技便利的
 image: https://i.imgur.com/PpkLAvk.png
 tags:
   - NFC
+  - RFID
 meta:
   - property: og:image:width
     content: 1200
@@ -43,7 +44,7 @@ NFC 技術在台灣已經非常普及，舉凡搭乘大眾運輸工具會用到�
 | 通訊距離 | 10 cm | 10~100 m | 1~100 m | 1~200 m |
 | 常見應用 | 門禁系統<br>寵物晶片 | 門禁系統<br>悠遊卡、一卡通<br>感應式信用卡 | 遠通 eTag<br>Apple AirTag | WiFi (2.4 GHz)<br>WiFi (5 GHz)<br>藍芽 |
 
-> 資料來源：[維基百科](https://en.wikipedia.org/wiki/Radio-frequency_identification)
+> 資料來源：[維基百科](https://en.wikipedia.org/wiki/Radio-frequency_identification#Frequencies)
 
 </details>
 
