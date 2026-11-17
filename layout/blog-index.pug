@@ -37,13 +37,13 @@ block content
     .container.p-3.pb-5(v-cloak)
       header.text-center.mb-3
         h1.fs-40px.ls-1px.fw-bold.d-flex.justify-content-center.align-items-center.icon-link
-          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/streamline:markdown-circle-programming.svg)")
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/streamline/markdown-circle-programming.svg)")
           | 文章列表
         p.fs-16px.fw-light.ls-n1px= description
       .card.shadow.mb-3
         a.fs-6.card-header.mb-0.icon-link.text-decoration-none(@click="showTags = !showTags")
-          span.svgmask(v-if="showTags" style="--svgmask-url: url(https://api.iconify.design/mdi:arrow-collapse-vertical.svg)")
-          span.svgmask(v-else style="--svgmask-url: url(https://api.iconify.design/mdi:arrow-expand-vertical.svg)")
+          span.svgmask(v-if="showTags" style="--svgmask-url: url(https://api.iconify.design/mdi/arrow-collapse-vertical.svg)")
+          span.svgmask(v-else style="--svgmask-url: url(https://api.iconify.design/mdi/arrow-expand-vertical.svg)")
           | 文章標籤
           span.badge.text-bg-primary.rounded-pill {{ postCntByTag.length }}
         .card-body(v-show="showTags")

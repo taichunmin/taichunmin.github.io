@@ -41,14 +41,14 @@ block content
         .col: button.btn.w-100.btn-outline-danger(@click="deal") Deal
       .card.mt-3
         .card-header.bg-success.text-white.d-flex.gap-2.icon-link
-          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/icon-park-outline:people.svg)")
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/icon-park-outline/people.svg)")
           | Player
           span.badge.rounded-pill.text-bg-light {{ playerScore }}
         .card-body.d-flex.flex-wrap.gap-3
           .poker.rounded-1(v-for="card in state.player", :class="`poker-${card}`")
       .card.mt-3
         .card-header.bg-danger.text-white.d-flex.gap-2.icon-link
-          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/fluent:animal-paw-print-48-regular.svg)")
+          span.svgmask(style="--svgmask-url: url(https://api.iconify.design/fluent/animal-paw-print-48-regular.svg)")
           | Dealer
           span.badge.rounded-pill.text-bg-light {{ state.playing ? '?' : dealerScore }}
         .card-body.d-flex.flex-wrap.gap-3
